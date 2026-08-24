@@ -8,8 +8,16 @@
 
 <style>
 
+/* =========================================================
+   CZCIONKI
+========================================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap');
 
+
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -17,6 +25,10 @@
     padding: 0;
 }
 
+
+/* =========================================================
+   STRONA
+========================================================= */
 
 html,
 body {
@@ -29,31 +41,77 @@ body {
 
     min-height: 100vh;
 
-    background:
-        linear-gradient(
-            135deg,
-            #eee6d8,
-            #e7ddcc
-        );
-
-    color: #171717;
-
-    font-family: 'Montserrat', sans-serif;
-
     overflow: hidden;
 
     display: flex;
 
+    justify-content: center;
+
     align-items: center;
 
-    justify-content: center;
+    color: #17130f;
+
+    font-family: 'Montserrat', sans-serif;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4b2f1f 0%,
+            #65432d 18%,
+            #533621 40%,
+            #6b482f 60%,
+            #4c301f 82%,
+            #392419 100%
+        );
+}
+
+
+/* =========================================================
+   DREWNIANY STÓŁ — SŁOJE
+========================================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: -20%;
+
+    pointer-events: none;
+
+    background:
+
+        repeating-linear-gradient(
+            7deg,
+            rgba(35, 19, 10, 0.13) 0px,
+            rgba(35, 19, 10, 0.13) 2px,
+            transparent 2px,
+            transparent 18px
+        ),
+
+        repeating-linear-gradient(
+            -3deg,
+            transparent 0px,
+            transparent 45px,
+            rgba(255, 220, 175, 0.035) 46px,
+            transparent 49px
+        );
+
+    opacity: 0.8;
+
+    transform: rotate(-2deg);
 
 }
 
 
-/* DELIKATNA TEKSTURA CAŁEGO TŁA */
+/* =========================================================
+   DELIKATNE ŚWIATŁO NA STOLE
+========================================================= */
 
-body::before {
+body::after {
 
     content: "";
 
@@ -63,60 +121,175 @@ body::before {
 
     pointer-events: none;
 
-    opacity: 0.12;
+    background:
 
-    background-image:
-
-        repeating-linear-gradient(
-            0deg,
-            rgba(80,60,30,0.08) 0px,
-            rgba(80,60,30,0.08) 1px,
-            transparent 1px,
-            transparent 4px
+        radial-gradient(
+            circle at 50% 42%,
+            rgba(255, 235, 205, 0.16) 0%,
+            rgba(255, 235, 205, 0.06) 32%,
+            transparent 68%
         );
 
 }
 
 
-/* GŁÓWNA OKŁADKA */
+/* =========================================================
+   SCENA
+========================================================= */
 
-.cover {
+.scene {
 
     position: relative;
 
-    width: min(92vw, 850px);
+    width: 100vw;
 
-    height: min(92vh, 1100px);
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+/* =========================================================
+   DZIENNIK
+========================================================= */
+
+.journal {
+
+    position: relative;
+
+    width: min(53vw, 700px);
+
+    height: min(76vh, 900px);
+
+    min-width: 470px;
+
+    min-height: 620px;
+
+    z-index: 5;
+
+    transform:
+
+        rotate(-1deg)
+
+        translateY(-1vh);
+
+    animation:
+
+        journalAppear 1.4s ease forwards;
+
+}
+
+
+/* =========================================================
+   CIEŃ POD KSIĄŻKĄ
+========================================================= */
+
+.journal-shadow {
+
+    position: absolute;
+
+    z-index: 1;
+
+    left: 5%;
+
+    right: 3%;
+
+    bottom: -4%;
+
+    height: 13%;
+
+    background: rgba(20, 10, 5, 0.48);
+
+    filter: blur(25px);
+
+    border-radius: 50%;
+
+}
+
+
+/* =========================================================
+   KARTKA / OKŁADKA
+========================================================= */
+
+.cover {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
 
     background:
 
         linear-gradient(
             135deg,
             #f4eee2 0%,
-            #ebe2d2 50%,
-            #f1e9dc 100%
+            #ebe1cf 48%,
+            #f1e7d6 100%
         );
 
     box-shadow:
 
-        0 20px 45px rgba(50,40,25,0.16),
+        0 18px 30px rgba(20, 10, 5, 0.28),
 
-        0 4px 12px rgba(50,40,25,0.10);
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
+        0 4px 8px rgba(20, 10, 5, 0.18);
 
     overflow: hidden;
 
-    animation: appear 1.2s ease forwards;
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
 
 }
 
 
-/* RAMKA */
+/* =========================================================
+   TEKSTURA PAPIERU
+========================================================= */
+
+.cover::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.20;
+
+    background:
+
+        repeating-linear-gradient(
+            0deg,
+            rgba(90, 70, 40, 0.08) 0px,
+            rgba(90, 70, 40, 0.08) 1px,
+            transparent 1px,
+            transparent 4px
+        ),
+
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,0.05) 0px,
+            rgba(255,255,255,0.05) 1px,
+            transparent 1px,
+            transparent 6px
+        );
+
+}
+
+
+/* =========================================================
+   RAMKA NA OKŁADCE
+========================================================= */
 
 .cover::after {
 
@@ -124,26 +297,28 @@ body::before {
 
     position: absolute;
 
-    inset: 32px;
+    inset: 30px;
 
     border:
 
         1px solid
 
-        rgba(40,35,25,0.18);
+        rgba(45, 34, 23, 0.22);
 
     pointer-events: none;
 
 }
 
 
-/* ZAWARTOŚĆ */
+/* =========================================================
+   ZAWARTOŚĆ OKŁADKI
+========================================================= */
 
 .cover-content {
 
     position: relative;
 
-    z-index: 2;
+    z-index: 4;
 
     text-align: center;
 
@@ -156,13 +331,15 @@ body::before {
 }
 
 
-/* MAŁY NAPIS */
+/* =========================================================
+   NAPIS NAD IMIENIEM
+========================================================= */
 
 .edition {
 
     font-family: 'Montserrat', sans-serif;
 
-    font-size: 11px;
+    font-size: 10px;
 
     font-weight: 400;
 
@@ -170,33 +347,37 @@ body::before {
 
     margin-left: 0.42em;
 
-    margin-bottom: 38px;
+    margin-bottom: 34px;
 
     opacity: 0.58;
 
 }
 
 
-/* ANIA */
+/* =========================================================
+   ANIA
+========================================================= */
 
 .name {
 
     font-family: 'Cormorant Garamond', serif;
 
-    font-size: clamp(70px, 11vw, 125px);
+    font-size: clamp(70px, 9vw, 125px);
 
     font-weight: 400;
 
-    letter-spacing: 0.08em;
+    letter-spacing: 0.09em;
 
-    margin-left: 0.08em;
+    margin-left: 0.09em;
 
-    line-height: 0.9;
+    line-height: 0.85;
 
 }
 
 
-/* LINIA */
+/* =========================================================
+   LINIA
+========================================================= */
 
 .line {
 
@@ -204,35 +385,41 @@ body::before {
 
     height: 1px;
 
-    background: rgba(30,30,30,0.45);
+    background: rgba(30, 25, 20, 0.42);
 
     margin: 34px 0;
 
 }
 
 
-/* VOLUME */
+/* =========================================================
+   VOLUME XXII
+========================================================= */
 
 .volume {
 
     font-family: 'Montserrat', sans-serif;
 
-    font-size: 12px;
+    font-size: 11px;
 
-    letter-spacing: 0.55em;
+    letter-spacing: 0.52em;
 
-    margin-left: 0.55em;
+    margin-left: 0.52em;
 
     opacity: 0.68;
 
 }
 
 
-/* DATA */
+/* =========================================================
+   DATA
+========================================================= */
 
 .date {
 
     position: absolute;
+
+    z-index: 4;
 
     bottom: 105px;
 
@@ -251,19 +438,21 @@ body::before {
 }
 
 
-/* PRZYCISK OPEN */
+/* =========================================================
+   OPEN
+========================================================= */
 
 .open {
 
     position: absolute;
 
-    bottom: 48px;
+    z-index: 10;
+
+    bottom: 43px;
 
     left: 50%;
 
     transform: translateX(-50%);
-
-    z-index: 5;
 
     padding: 12px 22px;
 
@@ -271,7 +460,7 @@ body::before {
 
     background: transparent;
 
-    color: #171717;
+    color: #17130f;
 
     font-family: 'Montserrat', sans-serif;
 
@@ -285,18 +474,18 @@ body::before {
 
     cursor: pointer;
 
-    opacity: 0.72;
+    opacity: 0.68;
 
     transition:
 
         opacity 0.3s ease,
 
-        letter-spacing 0.3s ease;
+        letter-spacing 0.3s ease,
+
+        transform 0.3s ease;
 
 }
 
-
-/* LINIA POD OPEN */
 
 .open::after {
 
@@ -314,7 +503,7 @@ body::before {
 
     height: 1px;
 
-    background: #171717;
+    background: #17130f;
 
     opacity: 0.4;
 
@@ -351,20 +540,413 @@ body::before {
 
         translateX(-50%)
 
-        scale(0.96);
+        scale(0.95);
 
 }
 
 
-/* WEJŚCIE */
+/* =========================================================
+   FILIŻANKA
+========================================================= */
 
-@keyframes appear {
+.cup {
+
+    position: absolute;
+
+    z-index: 8;
+
+    left: 9%;
+
+    bottom: 18%;
+
+    width: 115px;
+
+    height: 90px;
+
+    transform:
+
+        rotate(-7deg)
+
+        translateY(0);
+
+    filter:
+
+        drop-shadow(
+            0 14px 12px rgba(20, 10, 5, 0.28)
+        );
+
+    animation:
+
+        cupAppear 1.5s ease 0.35s both;
+
+}
+
+
+/* TALERZYK */
+
+.saucer {
+
+    position: absolute;
+
+    width: 130px;
+
+    height: 25px;
+
+    left: -7px;
+
+    bottom: 0;
+
+    border-radius: 50%;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #e8dfd0,
+            #cfc2ae
+        );
+
+    box-shadow:
+
+        inset 0 -4px 5px rgba(60,40,20,0.12);
+
+}
+
+
+/* FILIŻANKA */
+
+.cup-body {
+
+    position: absolute;
+
+    width: 82px;
+
+    height: 64px;
+
+    left: 12px;
+
+    bottom: 15px;
+
+    border-radius:
+
+        8px 8px 35px 35px;
+
+    background:
+
+        linear-gradient(
+            100deg,
+            #ddd2c1,
+            #f0e8da 48%,
+            #cfc1ad
+        );
+
+    box-shadow:
+
+        inset -8px 0 10px rgba(60,40,20,0.10);
+
+}
+
+
+/* KAWA */
+
+.coffee {
+
+    position: absolute;
+
+    width: 67px;
+
+    height: 16px;
+
+    left: 19px;
+
+    top: -3px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            #5c321c 0%,
+            #3d2114 75%
+        );
+
+    box-shadow:
+
+        inset 0 2px 3px rgba(255,210,160,0.12);
+
+}
+
+
+/* UCHO */
+
+.handle {
+
+    position: absolute;
+
+    width: 32px;
+
+    height: 37px;
+
+    right: -9px;
+
+    top: 17px;
+
+    border:
+
+        8px solid #d8ccbb;
+
+    border-left:
+
+        8px solid transparent;
+
+    border-radius: 50%;
+
+}
+
+
+/* PARA Z FILIŻANKI */
+
+.steam {
+
+    position: absolute;
+
+    bottom: 68px;
+
+    left: 32px;
+
+    width: 6px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    border-left:
+
+        2px solid rgba(255,255,255,0.28);
+
+    filter: blur(1px);
+
+    animation:
+
+        steam 3s ease-in-out infinite;
+
+}
+
+
+.steam.two {
+
+    left: 50px;
+
+    height: 52px;
+
+    animation-delay: 1.2s;
+
+}
+
+
+/* =========================================================
+   ŚWIECZKA
+========================================================= */
+
+.candle {
+
+    position: absolute;
+
+    z-index: 8;
+
+    right: 10%;
+
+    bottom: 16%;
+
+    width: 85px;
+
+    height: 150px;
+
+    animation:
+
+        candleAppear 1.5s ease 0.5s both;
+
+}
+
+
+/* POŚWIATA */
+
+.candle-glow {
+
+    position: absolute;
+
+    width: 260px;
+
+    height: 260px;
+
+    left: -87px;
+
+    top: -55px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255,190,100,0.14) 0%,
+            rgba(255,170,80,0.05) 35%,
+            transparent 70%
+        );
+
+    animation:
+
+        glow 2s ease-in-out infinite alternate;
+
+}
+
+
+/* SŁOIK */
+
+.candle-glass {
+
+    position: absolute;
+
+    width: 70px;
+
+    height: 80px;
+
+    bottom: 0;
+
+    left: 7px;
+
+    border-radius: 8px 8px 14px 14px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(210,190,160,0.45),
+            rgba(255,245,225,0.65),
+            rgba(180,150,115,0.4)
+        );
+
+    box-shadow:
+
+        inset 0 0 8px rgba(255,255,255,0.28),
+
+        0 13px 14px rgba(20,10,5,0.22);
+
+}
+
+
+/* WOSK */
+
+.wax {
+
+    position: absolute;
+
+    width: 57px;
+
+    height: 68px;
+
+    left: 13px;
+
+    bottom: 7px;
+
+    border-radius: 6px 6px 12px 12px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #e5d9c5,
+            #f5eee1,
+            #d7c8b1
+        );
+
+}
+
+
+/* KNOT */
+
+.wick {
+
+    position: absolute;
+
+    width: 3px;
+
+    height: 13px;
+
+    left: 41px;
+
+    bottom: 73px;
+
+    background: #39251a;
+
+}
+
+
+/* PŁOMIEŃ */
+
+.flame {
+
+    position: absolute;
+
+    z-index: 4;
+
+    left: 34px;
+
+    bottom: 83px;
+
+    width: 18px;
+
+    height: 34px;
+
+    border-radius:
+
+        50% 50% 50% 50%
+
+        / 65% 65% 35% 35%;
+
+    background:
+
+        radial-gradient(
+            ellipse at center bottom,
+            #fff7ce 0%,
+            #ffd36a 35%,
+            #ef8e27 70%,
+            transparent 72%
+        );
+
+    filter:
+
+        drop-shadow(
+            0 0 8px rgba(255,180,70,0.65)
+        );
+
+    transform-origin: bottom center;
+
+    animation:
+
+        flame 0.8s ease-in-out infinite alternate;
+
+}
+
+
+/* =========================================================
+   ANIMACJE
+========================================================= */
+
+@keyframes journalAppear {
 
     from {
 
         opacity: 0;
 
-        transform: scale(0.985);
+        transform:
+
+            rotate(-1deg)
+
+            translateY(25px)
+
+            scale(0.97);
 
     }
 
@@ -372,42 +954,236 @@ body::before {
 
         opacity: 1;
 
-        transform: scale(1);
+        transform:
+
+            rotate(-1deg)
+
+            translateY(-1vh)
+
+            scale(1);
 
     }
 
 }
 
 
-/* TELEFON */
+@keyframes cupAppear {
 
-@media (max-width: 600px) {
+    from {
 
-    .cover {
+        opacity: 0;
 
-        width: 94vw;
+        transform:
 
-        height: 94vh;
+            rotate(-7deg)
+
+            translateY(25px);
 
     }
 
-    .cover::after {
+    to {
 
-        inset: 20px;
+        opacity: 1;
+
+        transform:
+
+            rotate(-7deg)
+
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes candleAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+
+            translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes flame {
+
+    from {
+
+        transform:
+
+            rotate(-4deg)
+
+            scaleY(0.96);
+
+    }
+
+    to {
+
+        transform:
+
+            rotate(5deg)
+
+            scaleY(1.06);
+
+    }
+
+}
+
+
+@keyframes glow {
+
+    from {
+
+        opacity: 0.65;
+
+        transform: scale(0.95);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1.08);
+
+    }
+
+}
+
+
+@keyframes steam {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+
+            translateY(10px)
+
+            translateX(0)
+
+            scale(0.9);
+
+    }
+
+    30% {
+
+        opacity: 0.7;
+
+    }
+
+    70% {
+
+        opacity: 0.3;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+
+            translateY(-28px)
+
+            translateX(8px)
+
+            scale(1.15);
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSYWNOŚĆ
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .journal {
+
+        width: 58vw;
+
+        height: 74vh;
+
+        min-width: 390px;
+
+        min-height: 560px;
+
+    }
+
+    .cup {
+
+        left: 4%;
+
+        transform: scale(0.82) rotate(-7deg);
+
+    }
+
+    .candle {
+
+        right: 4%;
+
+        transform: scale(0.82);
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    body {
+
+        overflow: auto;
+
+    }
+
+    .scene {
+
+        min-height: 100vh;
+
+    }
+
+    .journal {
+
+        width: 84vw;
+
+        height: 76vh;
+
+        min-width: 0;
+
+        min-height: 0;
+
+    }
+
+    .name {
+
+        font-size: 60px;
 
     }
 
     .edition {
 
         font-size: 8px;
-
-        margin-bottom: 25px;
-
-    }
-
-    .name {
-
-        font-size: 62px;
 
     }
 
@@ -417,15 +1193,60 @@ body::before {
 
     }
 
-    .date {
+    .cup {
 
-        bottom: 95px;
+        left: -8%;
+
+        bottom: 9%;
+
+        transform: scale(0.55) rotate(-7deg);
 
     }
 
-    .open {
+    .candle {
 
-        bottom: 40px;
+        right: -8%;
+
+        bottom: 9%;
+
+        transform: scale(0.55);
+
+    }
+
+}
+
+
+/* MAŁE EKRANY */
+
+@media (max-height: 700px) and (min-width: 651px) {
+
+    .journal {
+
+        height: 88vh;
+
+        width: auto;
+
+        aspect-ratio: 0.78;
+
+    }
+
+    .cup {
+
+        transform:
+
+            scale(0.7)
+
+            rotate(-7deg);
+
+        bottom: 8%;
+
+    }
+
+    .candle {
+
+        transform: scale(0.7);
+
+        bottom: 7%;
 
     }
 
@@ -438,42 +1259,103 @@ body::before {
 <body>
 
 
-<div class="cover">
+<div class="scene">
 
 
-    <div class="cover-content">
+    <!-- =====================================================
+         DZIENNIK
+    ====================================================== -->
 
-        <div class="edition">
-            A DIGITAL JOURNAL
-        </div>
+    <div class="journal">
 
-
-        <div class="name">
-            ANIA
-        </div>
+        <div class="journal-shadow"></div>
 
 
-        <div class="line"></div>
+        <div class="cover">
 
 
-        <div class="volume">
-            VOLUME XXII
+            <div class="cover-content">
+
+                <div class="edition">
+                    A DIGITAL JOURNAL
+                </div>
+
+
+                <div class="name">
+                    ANIA
+                </div>
+
+
+                <div class="line"></div>
+
+
+                <div class="volume">
+                    VOLUME XXII
+                </div>
+
+            </div>
+
+
+            <div class="date">
+                04 · 09 · 2026
+            </div>
+
+
+            <button
+                class="open"
+                onclick="openJournal()"
+            >
+                OPEN
+            </button>
+
+
         </div>
 
     </div>
 
 
-    <div class="date">
-        04 · 09 · 2026
+    <!-- =====================================================
+         FILIŻANKA
+    ====================================================== -->
+
+    <div class="cup">
+
+        <div class="steam"></div>
+
+        <div class="steam two"></div>
+
+        <div class="saucer"></div>
+
+        <div class="cup-body">
+
+            <div class="coffee"></div>
+
+            <div class="handle"></div>
+
+        </div>
+
     </div>
 
 
-    <button
-        class="open"
-        onclick="openJournal()"
-    >
-        OPEN
-    </button>
+    <!-- =====================================================
+         ŚWIECZKA
+    ====================================================== -->
+
+    <div class="candle">
+
+        <div class="candle-glow"></div>
+
+        <div class="flame"></div>
+
+        <div class="wick"></div>
+
+        <div class="candle-glass">
+
+            <div class="wax"></div>
+
+        </div>
+
+    </div>
 
 
 </div>
@@ -481,18 +1363,23 @@ body::before {
 
 <script>
 
+/* =========================================================
+   OTWARCIE DZIENNIKA
+========================================================= */
+
 function openJournal() {
 
-    const cover =
-        document.querySelector(".cover");
+    const journal =
+        document.querySelector(".journal");
 
-    cover.style.transition =
-        "opacity 0.8s ease, transform 0.8s ease";
+    journal.style.transition =
+        "transform 0.9s ease, opacity 0.9s ease";
 
-    cover.style.opacity = "0";
+    journal.style.transform =
+        "rotate(-1deg) translateY(-1vh) scale(0.96)";
 
-    cover.style.transform =
-        "scale(0.985)";
+    journal.style.opacity = "0";
+
 
     setTimeout(() => {
 
@@ -500,12 +1387,13 @@ function openJournal() {
             "Tutaj zacznie się właściwy dziennik 📖"
         );
 
-        cover.style.opacity = "1";
 
-        cover.style.transform =
-            "scale(1)";
+        journal.style.transform =
+            "rotate(-1deg) translateY(-1vh) scale(1)";
 
-    }, 800);
+        journal.style.opacity = "1";
+
+    }, 900);
 
 }
 
