@@ -877,6 +877,79 @@ body {
 
 
 /* =========================================================
+   KOSTKI CUKRU — OBOK KAWY
+========================================================= */
+
+.sugar {
+    position: fixed;
+
+    right: 16vw;
+    bottom: 8vh;
+
+    width: 105px;
+    height: 75px;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    transform: rotate(10deg);
+}
+
+.sugar-cube {
+    position: absolute;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 3px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf7,
+            #e8dfd0
+        );
+
+    box-shadow:
+        3px 5px 7px rgba(0,0,0,0.24);
+}
+
+.sugar-cube::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 4px;
+
+    border:
+        1px solid
+        rgba(170,155,135,0.14);
+}
+
+.sugar-cube.one {
+    left: 8px;
+    top: 25px;
+
+    transform: rotate(-12deg);
+}
+
+.sugar-cube.two {
+    left: 39px;
+    top: 9px;
+
+    transform: rotate(8deg);
+}
+
+.sugar-cube.three {
+    left: 66px;
+    top: 34px;
+
+    transform: rotate(-4deg);
+}
+
+
+/* =========================================================
    ŚWIECZKA — LEWY GÓRNY
 ========================================================= */
 
@@ -1021,6 +1094,388 @@ body {
 
 
 /* =========================================================
+   KWIATEK — LEWY DOLNY
+========================================================= */
+
+.flower {
+    position: fixed;
+
+    left: 5vw;
+    bottom: 5vh;
+
+    width: 150px;
+    height: 190px;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    transform: rotate(-5deg);
+}
+
+.vase-shadow {
+    position: absolute;
+
+    left: 28px;
+    bottom: 3px;
+
+    width: 105px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,0.24);
+
+    filter: blur(7px);
+}
+
+.vase {
+    position: absolute;
+
+    left: 42px;
+    bottom: 10px;
+
+    width: 72px;
+    height: 100px;
+
+    border-radius:
+        18px 18px 30px 30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d8d0c5,
+            #f3ece1 38%,
+            #bdb0a1 100%
+        );
+
+    box-shadow:
+        5px 8px 12px rgba(0,0,0,0.26);
+}
+
+.vase::before {
+    content: "";
+
+    position: absolute;
+
+    left: 6px;
+    right: 6px;
+    top: -7px;
+
+    height: 20px;
+
+    border-radius: 50%;
+
+    background:
+        #9b8b7a;
+}
+
+.stem {
+    position: absolute;
+
+    width: 4px;
+    height: 100px;
+
+    bottom: 92px;
+
+    border-radius: 50%;
+
+    background:
+        #405d38;
+
+    transform-origin:
+        bottom center;
+}
+
+.stem.one {
+    left: 75px;
+    transform: rotate(-9deg);
+}
+
+.stem.two {
+    left: 87px;
+    height: 115px;
+    transform: rotate(7deg);
+}
+
+.stem.three {
+    left: 64px;
+    height: 108px;
+    transform: rotate(-18deg);
+}
+
+.leaf {
+    position: absolute;
+
+    width: 24px;
+    height: 12px;
+
+    border-radius:
+        100% 0 100% 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d8a5d,
+            #324d2c
+        );
+}
+
+.leaf.one {
+    left: 47px;
+    bottom: 136px;
+
+    transform: rotate(-25deg);
+}
+
+.leaf.two {
+    left: 83px;
+    bottom: 151px;
+
+    transform: rotate(20deg);
+}
+
+.leaf.three {
+    left: 52px;
+    bottom: 170px;
+
+    transform: rotate(-35deg);
+}
+
+.flower-head {
+    position: absolute;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #c8844c 0%,
+            #8f552d 24%,
+            transparent 27%
+        );
+}
+
+.flower-head::before,
+.flower-head::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse at top,
+            #ead5c3 0 24%,
+            transparent 25%
+        ),
+        radial-gradient(
+            ellipse at right,
+            #ead5c3 0 24%,
+            transparent 25%
+        ),
+        radial-gradient(
+            ellipse at bottom,
+            #ead5c3 0 24%,
+            transparent 25%
+        ),
+        radial-gradient(
+            ellipse at left,
+            #ead5c3 0 24%,
+            transparent 25%
+        );
+}
+
+.flower-head.one {
+    left: 45px;
+    top: 4px;
+
+    transform: rotate(-10deg);
+}
+
+.flower-head.two {
+    left: 76px;
+    top: 18px;
+
+    transform: scale(0.88);
+}
+
+.flower-head.three {
+    left: 25px;
+    top: 35px;
+
+    transform: scale(0.76);
+}
+
+
+/* =========================================================
+   ZAPAŁKI — PRAWY GÓRNY
+========================================================= */
+
+.matches {
+    position: fixed;
+
+    right: 5vw;
+    top: 5vh;
+
+    width: 165px;
+    height: 115px;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    transform: rotate(7deg);
+}
+
+.matchbox-shadow {
+    position: absolute;
+
+    left: 24px;
+    top: 42px;
+
+    width: 112px;
+    height: 55px;
+
+    background:
+        rgba(0,0,0,0.23);
+
+    border-radius: 3px;
+
+    transform:
+        translate(7px, 7px)
+        rotate(-5deg);
+
+    filter: blur(3px);
+}
+
+.matchbox {
+    position: absolute;
+
+    left: 24px;
+    top: 42px;
+
+    width: 112px;
+    height: 55px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d6c4aa,
+            #a98d6c
+        );
+
+    border:
+        2px solid
+        rgba(76,48,29,0.35);
+
+    box-shadow:
+        4px 6px 9px rgba(0,0,0,0.20);
+}
+
+.matchbox::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 7px;
+
+    border:
+        1px solid
+        rgba(255,250,235,0.45);
+}
+
+.matchbox::after {
+    content: "MATCHES";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 17px;
+
+    text-align: center;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 14px;
+
+    letter-spacing: 0.18em;
+
+    color:
+        rgba(65,40,25,0.70);
+}
+
+.match {
+    position: absolute;
+
+    width: 5px;
+    height: 75px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #c49a68,
+            #e1bf88,
+            #ad7d50
+        );
+
+    transform-origin:
+        bottom center;
+
+    box-shadow:
+        2px 3px 4px rgba(0,0,0,0.18);
+}
+
+.match::before {
+    content: "";
+
+    position: absolute;
+
+    left: -3px;
+    top: -8px;
+
+    width: 11px;
+    height: 13px;
+
+    border-radius: 50%;
+
+    background:
+        #593529;
+}
+
+.match.one {
+    left: 12px;
+    top: 2px;
+
+    transform: rotate(-38deg);
+}
+
+.match.two {
+    left: 70px;
+    top: -6px;
+
+    transform: rotate(22deg);
+}
+
+.match.three {
+    left: 132px;
+    top: 15px;
+
+    transform: rotate(48deg);
+}
+
+
+/* =========================================================
    MOBILE
 ========================================================= */
 
@@ -1073,6 +1528,17 @@ body {
             bottom right;
     }
 
+    .sugar {
+        transform:
+            scale(0.62)
+            rotate(10deg);
+
+        transform-origin:
+            bottom right;
+
+        right: 18vw;
+    }
+
     .candle {
         transform:
             scale(0.72)
@@ -1080,6 +1546,24 @@ body {
 
         transform-origin:
             top left;
+    }
+
+    .flower {
+        transform:
+            scale(0.62)
+            rotate(-5deg);
+
+        transform-origin:
+            bottom left;
+    }
+
+    .matches {
+        transform:
+            scale(0.62)
+            rotate(7deg);
+
+        transform-origin:
+            top right;
     }
 }
 
@@ -1255,67 +1739,36 @@ body {
      STRONA 2
 ========================================================= -->
 
-<section
-    class="page"
-    id="page2"
->
+<section class="page" id="page2">
 
     <div class="paper-border"></div>
 
     <div class="chapter">
 
-        <div class="chapter-number">
-            CHAPTER I
-        </div>
+        <div class="chapter-number">CHAPTER I</div>
 
-        <h2>
-            ANIA, 22 LATA
-        </h2>
+        <h2>ANIA, 22 LATA</h2>
 
         <div class="questions">
 
             <div class="question">
-                <label>
-                    Jak opisałabyś siebie w 3 słowach?
-                </label>
-
-                <textarea
-                    data-key="q1"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <label>Jak opisałabyś siebie w 3 słowach?</label>
+                <textarea data-key="q1" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
             <div class="question">
-                <label>
-                    Co jest teraz dla Ciebie najważniejsze?
-                </label>
-
-                <textarea
-                    data-key="q2"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <label>Co jest teraz dla Ciebie najważniejsze?</label>
+                <textarea data-key="q2" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
             <div class="question">
-                <label>
-                    Z czego jesteś obecnie najbardziej dumna?
-                </label>
-
-                <textarea
-                    data-key="q3"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <label>Z czego jesteś obecnie najbardziej dumna?</label>
+                <textarea data-key="q3" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
             <div class="question">
-                <label>
-                    Co najbardziej chciałabyś w sobie zmienić?
-                </label>
-
-                <textarea
-                    data-key="q4"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <label>Co najbardziej chciałabyś w sobie zmienić?</label>
+                <textarea data-key="q4" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
         </div>
@@ -1323,15 +1776,8 @@ body {
     </div>
 
     <div class="navigation">
-
-        <button class="button" data-go="1">
-            PREVIOUS PAGE
-        </button>
-
-        <button class="button" data-go="3">
-            NEXT PAGE
-        </button>
-
+        <button class="button" data-go="1">PREVIOUS PAGE</button>
+        <button class="button" data-go="3">NEXT PAGE</button>
     </div>
 
 </section>
@@ -1341,45 +1787,26 @@ body {
      STRONA 3
 ========================================================= -->
 
-<section
-    class="page"
-    id="page3"
->
+<section class="page" id="page3">
 
     <div class="paper-border"></div>
 
     <div class="chapter">
 
-        <div class="chapter-number">
-            CHAPTER II
-        </div>
+        <div class="chapter-number">CHAPTER II</div>
 
-        <h2>
-            LUDZIE
-        </h2>
+        <h2>LUDZIE</h2>
 
         <div class="questions">
 
             <div class="question">
-                <label>
-                    Kto jest teraz najważniejszą osobą w Twoim życiu?
-                </label>
-
-                <textarea
-                    data-key="q5"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <label>Kto jest teraz najważniejszą osobą w Twoim życiu?</label>
+                <textarea data-key="q5" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
             <div class="question">
-                <label>
-                    Z kim możesz porozmawiać absolutnie o wszystkim?
-                </label>
-
-                <textarea
-                    data-key="q6"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <label>Z kim możesz porozmawiać absolutnie o wszystkim?</label>
+                <textarea data-key="q6" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
             <div class="question">
@@ -1387,11 +1814,7 @@ body {
                     Kogo poznałaś w ostatnim roku i cieszysz się,
                     że ta osoba pojawiła się w Twoim życiu?
                 </label>
-
-                <textarea
-                    data-key="q7"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <textarea data-key="q7" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
         </div>
@@ -1399,15 +1822,8 @@ body {
     </div>
 
     <div class="navigation">
-
-        <button class="button" data-go="2">
-            PREVIOUS PAGE
-        </button>
-
-        <button class="button" data-go="4">
-            NEXT PAGE
-        </button>
-
+        <button class="button" data-go="2">PREVIOUS PAGE</button>
+        <button class="button" data-go="4">NEXT PAGE</button>
     </div>
 
 </section>
@@ -1417,34 +1833,21 @@ body {
      STRONA 4
 ========================================================= -->
 
-<section
-    class="page"
-    id="page4"
->
+<section class="page" id="page4">
 
     <div class="paper-border"></div>
 
     <div class="chapter">
 
-        <div class="chapter-number">
-            CHAPTER III
-        </div>
+        <div class="chapter-number">CHAPTER III</div>
 
-        <h2>
-            ŻYCIE TERAZ
-        </h2>
+        <h2>ŻYCIE TERAZ</h2>
 
         <div class="questions">
 
             <div class="question">
-                <label>
-                    Gdzie obecnie widzisz siebie za rok?
-                </label>
-
-                <textarea
-                    data-key="q8"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <label>Gdzie obecnie widzisz siebie za rok?</label>
+                <textarea data-key="q8" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
             <div class="question">
@@ -1452,22 +1855,12 @@ body {
                     Co najbardziej chciałabyś,
                     żeby wydarzyło się w najbliższym roku?
                 </label>
-
-                <textarea
-                    data-key="q9"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <textarea data-key="q9" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
             <div class="question">
-                <label>
-                    Co odkładasz już zdecydowanie za długo?
-                </label>
-
-                <textarea
-                    data-key="q10"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <label>Co odkładasz już zdecydowanie za długo?</label>
+                <textarea data-key="q10" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
             <div class="question">
@@ -1475,11 +1868,7 @@ body {
                     Gdybyś mogła teraz zmienić jedną rzecz
                     w swoim życiu, co by to było?
                 </label>
-
-                <textarea
-                    data-key="q11"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <textarea data-key="q11" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
         </div>
@@ -1487,15 +1876,8 @@ body {
     </div>
 
     <div class="navigation">
-
-        <button class="button" data-go="3">
-            PREVIOUS PAGE
-        </button>
-
-        <button class="button" data-go="5">
-            NEXT PAGE
-        </button>
-
+        <button class="button" data-go="3">PREVIOUS PAGE</button>
+        <button class="button" data-go="5">NEXT PAGE</button>
     </div>
 
 </section>
@@ -1505,67 +1887,36 @@ body {
      STRONA 5
 ========================================================= -->
 
-<section
-    class="page"
-    id="page5"
->
+<section class="page" id="page5">
 
     <div class="paper-border"></div>
 
     <div class="chapter">
 
-        <div class="chapter-number">
-            CHAPTER IV
-        </div>
+        <div class="chapter-number">CHAPTER IV</div>
 
-        <h2>
-            MAŁE RZECZY
-        </h2>
+        <h2>MAŁE RZECZY</h2>
 
         <div class="questions">
 
             <div class="question">
-                <label>
-                    Jaka jest obecnie Twoja ulubiona piosenka?
-                </label>
-
-                <textarea
-                    data-key="q12"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <label>Jaka jest obecnie Twoja ulubiona piosenka?</label>
+                <textarea data-key="q12" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
             <div class="question">
-                <label>
-                    Jaki film albo serial mogłabyś oglądać w kółko?
-                </label>
-
-                <textarea
-                    data-key="q13"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <label>Jaki film albo serial mogłabyś oglądać w kółko?</label>
+                <textarea data-key="q13" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
             <div class="question">
-                <label>
-                    Jakie jest Twoje aktualne ulubione jedzenie?
-                </label>
-
-                <textarea
-                    data-key="q14"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <label>Jakie jest Twoje aktualne ulubione jedzenie?</label>
+                <textarea data-key="q14" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
             <div class="question">
-                <label>
-                    Co ostatnio najbardziej Cię cieszy?
-                </label>
-
-                <textarea
-                    data-key="q15"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <label>Co ostatnio najbardziej Cię cieszy?</label>
+                <textarea data-key="q15" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
         </div>
@@ -1573,15 +1924,8 @@ body {
     </div>
 
     <div class="navigation">
-
-        <button class="button" data-go="4">
-            PREVIOUS PAGE
-        </button>
-
-        <button class="button" data-go="6">
-            NEXT PAGE
-        </button>
-
+        <button class="button" data-go="4">PREVIOUS PAGE</button>
+        <button class="button" data-go="6">NEXT PAGE</button>
     </div>
 
 </section>
@@ -1591,67 +1935,36 @@ body {
      STRONA 6
 ========================================================= -->
 
-<section
-    class="page"
-    id="page6"
->
+<section class="page" id="page6">
 
     <div class="paper-border"></div>
 
     <div class="chapter">
 
-        <div class="chapter-number">
-            CHAPTER V
-        </div>
+        <div class="chapter-number">CHAPTER V</div>
 
-        <h2>
-            ZA ROK
-        </h2>
+        <h2>ZA ROK</h2>
 
         <div class="questions">
 
             <div class="question">
-                <label>
-                    Jak myślisz, gdzie będziesz za rok?
-                </label>
-
-                <textarea
-                    data-key="q16"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <label>Jak myślisz, gdzie będziesz za rok?</label>
+                <textarea data-key="q16" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
             <div class="question">
-                <label>
-                    Co będzie wtedy dla Ciebie najważniejsze?
-                </label>
-
-                <textarea
-                    data-key="q17"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <label>Co będzie wtedy dla Ciebie najważniejsze?</label>
+                <textarea data-key="q17" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
             <div class="question">
-                <label>
-                    Jak myślisz, jaka będzie Twoja największa zmiana?
-                </label>
-
-                <textarea
-                    data-key="q18"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <label>Jak myślisz, jaka będzie Twoja największa zmiana?</label>
+                <textarea data-key="q18" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
             <div class="question">
-                <label>
-                    Co myślisz, że nadal będzie dla Ciebie ważne?
-                </label>
-
-                <textarea
-                    data-key="q19"
-                    placeholder="Twoja odpowiedź..."
-                ></textarea>
+                <label>Co myślisz, że nadal będzie dla Ciebie ważne?</label>
+                <textarea data-key="q19" placeholder="Twoja odpowiedź..."></textarea>
             </div>
 
         </div>
@@ -1659,15 +1972,8 @@ body {
     </div>
 
     <div class="navigation">
-
-        <button class="button" data-go="5">
-            PREVIOUS PAGE
-        </button>
-
-        <button class="button" data-go="7">
-            NEXT PAGE
-        </button>
-
+        <button class="button" data-go="5">PREVIOUS PAGE</button>
+        <button class="button" data-go="7">NEXT PAGE</button>
     </div>
 
 </section>
@@ -1677,18 +1983,13 @@ body {
      STRONA 7 — WIADOMOŚĆ
 ========================================================= -->
 
-<section
-    class="page"
-    id="page7"
->
+<section class="page" id="page7">
 
     <div class="paper-border"></div>
 
     <div class="final">
 
-        <h2>
-            DLA ANI Z PRZYSZŁOŚCI
-        </h2>
+        <h2>DLA ANI Z PRZYSZŁOŚCI</h2>
 
         <p>
             Gdybyś mogła zostawić jedną wiadomość
@@ -1705,18 +2006,8 @@ body {
     </div>
 
     <div class="navigation">
-
-        <button class="button" data-go="6">
-            PREVIOUS PAGE
-        </button>
-
-        <button
-            class="button"
-            id="futureNext"
-        >
-            NEXT PAGE
-        </button>
-
+        <button class="button" data-go="6">PREVIOUS PAGE</button>
+        <button class="button" id="futureNext">NEXT PAGE</button>
     </div>
 
 </section>
@@ -1726,18 +2017,13 @@ body {
      STRONA 8 — OSTRZEŻENIE
 ========================================================= -->
 
-<section
-    class="page"
-    id="page8"
->
+<section class="page" id="page8">
 
     <div class="paper-border"></div>
 
     <div class="warning">
 
-        <h2>
-            SEKUNKAA!!
-        </h2>
+        <h2>SEKUNKAA!!</h2>
 
         <p>
             Za chwilę zapiszesz swoją wiadomość na zawsze.
@@ -1756,18 +2042,8 @@ body {
     </div>
 
     <div class="navigation">
-
-        <button class="button" data-go="7">
-            PREVIOUS PAGE
-        </button>
-
-        <button
-            class="button"
-            id="saveButton"
-        >
-            SAVE
-        </button>
-
+        <button class="button" data-go="7">PREVIOUS PAGE</button>
+        <button class="button" id="saveButton">SAVE</button>
     </div>
 
 </section>
@@ -1777,10 +2053,7 @@ body {
      STRONA 9 — ZAPISANE
 ========================================================= -->
 
-<section
-    class="page"
-    id="page9"
->
+<section class="page" id="page9">
 
     <div class="paper-border"></div>
 
@@ -1832,6 +2105,19 @@ body {
 
 
 <!-- =========================================================
+     KOSTKI CUKRU
+========================================================= -->
+
+<div class="sugar">
+
+    <div class="sugar-cube one"></div>
+    <div class="sugar-cube two"></div>
+    <div class="sugar-cube three"></div>
+
+</div>
+
+
+<!-- =========================================================
      ŚWIECZKA
 ========================================================= -->
 
@@ -1844,6 +2130,48 @@ body {
     <div class="wick"></div>
 
     <div class="candle-base"></div>
+
+</div>
+
+
+<!-- =========================================================
+     KWIATEK
+========================================================= -->
+
+<div class="flower">
+
+    <div class="vase-shadow"></div>
+
+    <div class="stem one"></div>
+    <div class="stem two"></div>
+    <div class="stem three"></div>
+
+    <div class="leaf one"></div>
+    <div class="leaf two"></div>
+    <div class="leaf three"></div>
+
+    <div class="flower-head one"></div>
+    <div class="flower-head two"></div>
+    <div class="flower-head three"></div>
+
+    <div class="vase"></div>
+
+</div>
+
+
+<!-- =========================================================
+     ZAPAŁKI
+========================================================= -->
+
+<div class="matches">
+
+    <div class="matchbox-shadow"></div>
+
+    <div class="matchbox"></div>
+
+    <div class="match one"></div>
+    <div class="match two"></div>
+    <div class="match three"></div>
 
 </div>
 
