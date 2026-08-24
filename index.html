@@ -11,7 +11,6 @@
 
 <title>ANIA — Volume XXII</title>
 
-
 <style>
 
 /* =========================================================
@@ -33,19 +32,15 @@
     padding: 0;
 }
 
-
 html,
 body {
     width: 100%;
     height: 100%;
 }
 
-
 body {
     min-height: 100vh;
-
     overflow: hidden;
-
     position: relative;
 
     font-family: 'Montserrat', sans-serif;
@@ -67,11 +62,9 @@ body {
 ========================================================= */
 
 body::before {
-
     content: "";
 
     position: fixed;
-
     inset: -10%;
 
     pointer-events: none;
@@ -103,11 +96,9 @@ body::before {
 ========================================================= */
 
 body::after {
-
     content: "";
 
     position: fixed;
-
     inset: 0;
 
     pointer-events: none;
@@ -128,11 +119,9 @@ body::after {
 ========================================================= */
 
 .scene {
-
     position: relative;
 
     width: 100vw;
-
     height: 100vh;
 }
 
@@ -142,17 +131,14 @@ body::after {
 ========================================================= */
 
 .journal {
-
     position: absolute;
 
     z-index: 5;
 
     width: min(40vw, 600px);
-
     height: min(78vh, 900px);
 
     left: 50%;
-
     top: 50%;
 
     transform:
@@ -169,7 +155,6 @@ body::after {
 ========================================================= */
 
 .journal-shadow {
-
     position: absolute;
 
     z-index: 1;
@@ -190,7 +175,6 @@ body::after {
 ========================================================= */
 
 .cover {
-
     position: absolute;
 
     inset: 0;
@@ -228,7 +212,6 @@ body::after {
 ========================================================= */
 
 .cover::before {
-
     content: "";
 
     position: absolute;
@@ -264,7 +247,6 @@ body::after {
 ========================================================= */
 
 .cover::after {
-
     content: "";
 
     position: absolute;
@@ -282,7 +264,6 @@ body::after {
 ========================================================= */
 
 .cover-content {
-
     position: relative;
 
     z-index: 4;
@@ -302,7 +283,6 @@ body::after {
 ========================================================= */
 
 .edition {
-
     font-size: 10px;
 
     letter-spacing: 0.42em;
@@ -320,7 +300,6 @@ body::after {
 ========================================================= */
 
 .name {
-
     font-family:
         'Cormorant Garamond',
         serif;
@@ -346,7 +325,6 @@ body::after {
 ========================================================= */
 
 .line {
-
     width: 55px;
 
     height: 1px;
@@ -363,7 +341,6 @@ body::after {
 ========================================================= */
 
 .volume {
-
     font-size: 11px;
 
     letter-spacing: 0.52em;
@@ -379,7 +356,6 @@ body::after {
 ========================================================= */
 
 .date {
-
     position: absolute;
 
     z-index: 4;
@@ -412,7 +388,6 @@ body::after {
 
 .open,
 .next-page {
-
     position: absolute;
 
     z-index: 10;
@@ -450,7 +425,6 @@ body::after {
 ========================================================= */
 
 .open {
-
     bottom: 43px;
 
     left: 50%;
@@ -468,7 +442,6 @@ body::after {
 
 .open::after,
 .next-page::after {
-
     content: "";
 
     position: absolute;
@@ -498,20 +471,17 @@ body::after {
 
 .open:hover,
 .next-page:hover {
-
     opacity: 1;
 }
 
 
 .open:hover {
-
     letter-spacing: 0.52em;
 }
 
 
 .open:hover::after,
 .next-page:hover::after {
-
     width: 55px;
 
     opacity: 0.8;
@@ -519,7 +489,6 @@ body::after {
 
 
 .open:active {
-
     transform:
         translateX(-50%)
         scale(0.95);
@@ -531,17 +500,14 @@ body::after {
 ========================================================= */
 
 .page-two {
-
     position: absolute;
 
     z-index: 6;
 
     width: min(40vw, 600px);
-
     height: min(78vh, 900px);
 
     left: 50%;
-
     top: 50%;
 
     transform:
@@ -561,7 +527,6 @@ body::after {
 
 
 .page-two.active {
-
     opacity: 1;
 
     pointer-events: auto;
@@ -577,7 +542,6 @@ body::after {
 ========================================================= */
 
 .page-two-content {
-
     position: absolute;
 
     inset: 0;
@@ -595,7 +559,7 @@ body::after {
     text-align: center;
 
     padding:
-        65px 65px 125px;
+        82px 65px 125px;
 }
 
 
@@ -604,26 +568,31 @@ body::after {
 ========================================================= */
 
 .page-two-title {
-
     max-width: 88%;
 
     font-family:
         'Cormorant Garamond',
         serif;
 
+    /*
+       Zmniejszony względem poprzedniej wersji,
+       żeby cały nagłówek bezpiecznie mieścił się
+       na kartce.
+    */
+
     font-size: clamp(
-        29px,
-        3.2vw,
-        47px
+        25px,
+        2.8vw,
+        42px
     );
 
     font-weight: 500;
 
-    line-height: 1.08;
+    line-height: 1.02;
 
     letter-spacing: 0.035em;
 
-    margin-bottom: 38px;
+    margin-bottom: 32px;
 
     color: #241c15;
 }
@@ -634,7 +603,6 @@ body::after {
 ========================================================= */
 
 .page-two-text {
-
     max-width: 84%;
 
     font-family:
@@ -658,7 +626,6 @@ body::after {
 
 
 .page-two-text strong {
-
     font-weight: 600;
 }
 
@@ -668,7 +635,6 @@ body::after {
 ========================================================= */
 
 .next-page {
-
     right: 38px;
 
     bottom: 32px;
@@ -686,13 +652,11 @@ body::after {
 
 
 .next-page:hover {
-
     letter-spacing: 0.38em;
 }
 
 
 .next-page:hover::after {
-
     width: 48px;
 
     opacity: 0.75;
@@ -700,7 +664,6 @@ body::after {
 
 
 .next-page:active {
-
     transform: scale(0.95);
 }
 
@@ -710,7 +673,6 @@ body::after {
 ========================================================= */
 
 .journal.hidden {
-
     opacity: 0;
 
     pointer-events: none;
@@ -733,7 +695,6 @@ body::after {
 ========================================================= */
 
 .cup {
-
     position: absolute;
 
     z-index: 8;
@@ -752,7 +713,6 @@ body::after {
 
 
 .saucer {
-
     position: absolute;
 
     inset: 0;
@@ -779,7 +739,6 @@ body::after {
 
 
 .cup-body {
-
     position: absolute;
 
     width: 100px;
@@ -809,7 +768,6 @@ body::after {
 
 
 .coffee {
-
     position: absolute;
 
     width: 72px;
@@ -839,7 +797,6 @@ body::after {
 
 
 .coffee::after {
-
     content: "";
 
     position: absolute;
@@ -863,7 +820,6 @@ body::after {
 
 
 .handle {
-
     position: absolute;
 
     width: 38px;
@@ -888,7 +844,6 @@ body::after {
 
 
 .steam {
-
     position: absolute;
 
     z-index: 10;
@@ -915,7 +870,6 @@ body::after {
 
 
 .steam.two {
-
     left: 82px;
 
     top: -25px;
@@ -929,7 +883,6 @@ body::after {
 ========================================================= */
 
 .candle {
-
     position: absolute;
 
     z-index: 8;
@@ -948,7 +901,6 @@ body::after {
 
 
 .candle-glow {
-
     position: absolute;
 
     inset: -80px;
@@ -970,7 +922,6 @@ body::after {
 
 
 .candle-glass {
-
     position: absolute;
 
     width: 105px;
@@ -1002,7 +953,6 @@ body::after {
 
 
 .wax {
-
     position: absolute;
 
     width: 80px;
@@ -1027,7 +977,6 @@ body::after {
 
 
 .wick {
-
     position: absolute;
 
     z-index: 4;
@@ -1047,7 +996,6 @@ body::after {
 
 
 .flame {
-
     position: absolute;
 
     z-index: 10;
@@ -1316,15 +1264,15 @@ body::after {
     .page-two-content {
 
         padding:
-            70px 35px 100px;
+            75px 35px 100px;
     }
 
 
     .page-two-title {
 
-        font-size: 32px;
+        font-size: 29px;
 
-        margin-bottom: 35px;
+        margin-bottom: 30px;
     }
 
 
@@ -1388,7 +1336,6 @@ body::after {
 
 
 <body>
-
 
 <div class="scene">
 
@@ -1534,7 +1481,6 @@ body::after {
 
         <div class="steam two"></div>
 
-
         <div class="saucer"></div>
 
 
@@ -1608,8 +1554,8 @@ function openJournal() {
 function nextPage() {
 
     /*
-       Tutaj później podłączymy
-       kolejną stronę dziennika.
+       Następna strona zostanie
+       dodana w kolejnym kroku.
     */
 
     alert(
