@@ -8,16 +8,8 @@
 
 <style>
 
-/* =========================================================
-   CZCIONKI
-========================================================= */
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap');
 
-
-/* =========================================================
-   RESET
-========================================================= */
 
 * {
     box-sizing: border-box;
@@ -25,10 +17,6 @@
     padding: 0;
 }
 
-
-/* =========================================================
-   STRONA
-========================================================= */
 
 html,
 body {
@@ -43,33 +31,26 @@ body {
 
     overflow: hidden;
 
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    color: #17130f;
+    position: relative;
 
     font-family: 'Montserrat', sans-serif;
 
-    position: relative;
+    color: #17130f;
 
     background:
-        linear-gradient(
-            90deg,
-            #4b2f1f 0%,
-            #65432d 18%,
-            #533621 40%,
-            #6b482f 60%,
-            #4c301f 82%,
-            #392419 100%
+
+        radial-gradient(
+            ellipse at center,
+            #765137 0%,
+            #5d3d29 45%,
+            #40291d 100%
         );
+
 }
 
 
 /* =========================================================
-   DREWNIANY STÓŁ — SŁOJE
+   DREWNO — WIDOK Z GÓRY
 ========================================================= */
 
 body::before {
@@ -78,37 +59,35 @@ body::before {
 
     position: fixed;
 
-    inset: -20%;
+    inset: -10%;
 
     pointer-events: none;
 
     background:
 
         repeating-linear-gradient(
-            7deg,
-            rgba(35, 19, 10, 0.13) 0px,
-            rgba(35, 19, 10, 0.13) 2px,
+            2deg,
+            rgba(30, 15, 7, 0.13) 0px,
+            rgba(30, 15, 7, 0.13) 2px,
             transparent 2px,
-            transparent 18px
+            transparent 27px
         ),
 
         repeating-linear-gradient(
-            -3deg,
+            -1deg,
             transparent 0px,
-            transparent 45px,
-            rgba(255, 220, 175, 0.035) 46px,
-            transparent 49px
+            transparent 80px,
+            rgba(255, 220, 175, 0.035) 81px,
+            transparent 85px
         );
 
-    opacity: 0.8;
-
-    transform: rotate(-2deg);
+    opacity: 0.9;
 
 }
 
 
 /* =========================================================
-   DELIKATNE ŚWIATŁO NA STOLE
+   ŚWIATŁO Z GÓRY
 ========================================================= */
 
 body::after {
@@ -124,10 +103,10 @@ body::after {
     background:
 
         radial-gradient(
-            circle at 50% 42%,
-            rgba(255, 235, 205, 0.16) 0%,
-            rgba(255, 235, 205, 0.06) 32%,
-            transparent 68%
+            ellipse at 50% 45%,
+            rgba(255, 235, 205, 0.18) 0%,
+            rgba(255, 235, 205, 0.07) 38%,
+            transparent 72%
         );
 
 }
@@ -145,12 +124,6 @@ body::after {
 
     height: 100vh;
 
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
 }
 
 
@@ -160,23 +133,23 @@ body::after {
 
 .journal {
 
-    position: relative;
-
-    width: min(53vw, 700px);
-
-    height: min(76vh, 900px);
-
-    min-width: 470px;
-
-    min-height: 620px;
+    position: absolute;
 
     z-index: 5;
 
+    width: min(46vw, 650px);
+
+    height: min(72vh, 850px);
+
+    left: 50%;
+
+    top: 50%;
+
     transform:
 
-        rotate(-1deg)
+        translate(-50%, -50%)
 
-        translateY(-1vh);
+        rotate(-1deg);
 
     animation:
 
@@ -186,7 +159,7 @@ body::after {
 
 
 /* =========================================================
-   CIEŃ POD KSIĄŻKĄ
+   CIEŃ KSIĄŻKI
 ========================================================= */
 
 .journal-shadow {
@@ -195,25 +168,21 @@ body::after {
 
     z-index: 1;
 
-    left: 5%;
+    inset: 4% -3% -3% 3%;
 
-    right: 3%;
+    background:
 
-    bottom: -4%;
-
-    height: 13%;
-
-    background: rgba(20, 10, 5, 0.48);
+        rgba(15, 7, 3, 0.45);
 
     filter: blur(25px);
 
-    border-radius: 50%;
+    border-radius: 4px;
 
 }
 
 
 /* =========================================================
-   KARTKA / OKŁADKA
+   OKŁADKA
 ========================================================= */
 
 .cover {
@@ -229,29 +198,29 @@ body::after {
         linear-gradient(
             135deg,
             #f4eee2 0%,
-            #ebe1cf 48%,
-            #f1e7d6 100%
+            #e9dfce 50%,
+            #f2e8d7 100%
         );
 
     box-shadow:
 
-        0 18px 30px rgba(20, 10, 5, 0.28),
+        0 15px 28px rgba(20, 10, 5, 0.25),
 
-        0 4px 8px rgba(20, 10, 5, 0.18);
+        0 3px 7px rgba(20, 10, 5, 0.16);
 
     overflow: hidden;
 
     display: flex;
 
-    justify-content: center;
-
     align-items: center;
+
+    justify-content: center;
 
 }
 
 
 /* =========================================================
-   TEKSTURA PAPIERU
+   PAPIER
 ========================================================= */
 
 .cover::before {
@@ -262,33 +231,33 @@ body::after {
 
     inset: 0;
 
-    pointer-events: none;
+    opacity: 0.18;
 
-    opacity: 0.20;
+    pointer-events: none;
 
     background:
 
         repeating-linear-gradient(
             0deg,
-            rgba(90, 70, 40, 0.08) 0px,
-            rgba(90, 70, 40, 0.08) 1px,
+            rgba(90,70,40,0.08) 0px,
+            rgba(90,70,40,0.08) 1px,
             transparent 1px,
-            transparent 4px
+            transparent 5px
         ),
 
         repeating-linear-gradient(
             90deg,
-            rgba(255,255,255,0.05) 0px,
-            rgba(255,255,255,0.05) 1px,
+            rgba(255,255,255,0.04) 0px,
+            rgba(255,255,255,0.04) 1px,
             transparent 1px,
-            transparent 6px
+            transparent 7px
         );
 
 }
 
 
 /* =========================================================
-   RAMKA NA OKŁADCE
+   RAMKA
 ========================================================= */
 
 .cover::after {
@@ -303,15 +272,13 @@ body::after {
 
         1px solid
 
-        rgba(45, 34, 23, 0.22);
-
-    pointer-events: none;
+        rgba(45,34,23,0.20);
 
 }
 
 
 /* =========================================================
-   ZAWARTOŚĆ OKŁADKI
+   ZAWARTOŚĆ
 ========================================================= */
 
 .cover-content {
@@ -320,43 +287,31 @@ body::after {
 
     z-index: 4;
 
-    text-align: center;
-
     display: flex;
 
     flex-direction: column;
 
     align-items: center;
 
+    text-align: center;
+
 }
 
 
-/* =========================================================
-   NAPIS NAD IMIENIEM
-========================================================= */
-
 .edition {
 
-    font-family: 'Montserrat', sans-serif;
-
     font-size: 10px;
-
-    font-weight: 400;
 
     letter-spacing: 0.42em;
 
     margin-left: 0.42em;
 
-    margin-bottom: 34px;
+    margin-bottom: 35px;
 
     opacity: 0.58;
 
 }
 
-
-/* =========================================================
-   ANIA
-========================================================= */
 
 .name {
 
@@ -375,30 +330,22 @@ body::after {
 }
 
 
-/* =========================================================
-   LINIA
-========================================================= */
-
 .line {
 
     width: 55px;
 
     height: 1px;
 
-    background: rgba(30, 25, 20, 0.42);
+    background:
+
+        rgba(30,25,20,0.42);
 
     margin: 34px 0;
 
 }
 
 
-/* =========================================================
-   VOLUME XXII
-========================================================= */
-
 .volume {
-
-    font-family: 'Montserrat', sans-serif;
 
     font-size: 11px;
 
@@ -466,8 +413,6 @@ body::after {
 
     font-size: 10px;
 
-    font-weight: 400;
-
     letter-spacing: 0.38em;
 
     margin-left: 0.38em;
@@ -480,9 +425,7 @@ body::after {
 
         opacity 0.3s ease,
 
-        letter-spacing 0.3s ease,
-
-        transform 0.3s ease;
+        letter-spacing 0.3s ease;
 
 }
 
@@ -493,9 +436,9 @@ body::after {
 
     position: absolute;
 
-    left: 50%;
-
     bottom: 3px;
+
+    left: 50%;
 
     transform: translateX(-50%);
 
@@ -534,19 +477,8 @@ body::after {
 }
 
 
-.open:active {
-
-    transform:
-
-        translateX(-50%)
-
-        scale(0.95);
-
-}
-
-
 /* =========================================================
-   FILIŻANKA
+   FILIŻANKA — WIDOK Z GÓRY
 ========================================================= */
 
 .cup {
@@ -555,29 +487,17 @@ body::after {
 
     z-index: 8;
 
-    left: 9%;
+    left: 11%;
 
-    bottom: 18%;
+    top: 19%;
 
-    width: 115px;
+    width: 145px;
 
-    height: 90px;
-
-    transform:
-
-        rotate(-7deg)
-
-        translateY(0);
-
-    filter:
-
-        drop-shadow(
-            0 14px 12px rgba(20, 10, 5, 0.28)
-        );
+    height: 145px;
 
     animation:
 
-        cupAppear 1.5s ease 0.35s both;
+        cupAppear 1.3s ease 0.3s both;
 
 }
 
@@ -588,27 +508,26 @@ body::after {
 
     position: absolute;
 
-    width: 130px;
-
-    height: 25px;
-
-    left: -7px;
-
-    bottom: 0;
+    inset: 0;
 
     border-radius: 50%;
 
     background:
 
-        linear-gradient(
-            180deg,
-            #e8dfd0,
-            #cfc2ae
+        radial-gradient(
+            ellipse,
+            #d7ccbb 0%,
+            #eee6d8 55%,
+            #b7a995 58%,
+            #d3c6b3 68%,
+            transparent 70%
         );
 
-    box-shadow:
+    filter:
 
-        inset 0 -4px 5px rgba(60,40,20,0.12);
+        drop-shadow(
+            0 12px 10px rgba(20,10,5,0.20)
+        );
 
 }
 
@@ -619,30 +538,28 @@ body::after {
 
     position: absolute;
 
-    width: 82px;
+    width: 100px;
 
-    height: 64px;
+    height: 100px;
 
-    left: 12px;
+    left: 22px;
 
-    bottom: 15px;
+    top: 22px;
 
-    border-radius:
-
-        8px 8px 35px 35px;
+    border-radius: 50%;
 
     background:
 
-        linear-gradient(
-            100deg,
-            #ddd2c1,
-            #f0e8da 48%,
-            #cfc1ad
+        radial-gradient(
+            circle at 35% 30%,
+            #f4ede1 0%,
+            #ddd1bf 55%,
+            #bcae9a 100%
         );
 
     box-shadow:
 
-        inset -8px 0 10px rgba(60,40,20,0.10);
+        inset 0 -8px 12px rgba(60,40,20,0.12);
 
 }
 
@@ -653,27 +570,55 @@ body::after {
 
     position: absolute;
 
-    width: 67px;
+    width: 72px;
 
-    height: 16px;
+    height: 72px;
 
-    left: 19px;
+    left: 14px;
 
-    top: -3px;
+    top: 14px;
 
     border-radius: 50%;
 
     background:
 
         radial-gradient(
-            ellipse at center,
-            #5c321c 0%,
-            #3d2114 75%
+            circle at 38% 35%,
+            #75472b 0%,
+            #4a2919 55%,
+            #2d170d 100%
         );
 
     box-shadow:
 
-        inset 0 2px 3px rgba(255,210,160,0.12);
+        inset 0 3px 5px rgba(255,220,180,0.12);
+
+}
+
+
+/* MAŁY REFLEKS NA KAWIE */
+
+.coffee::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+
+    height: 8px;
+
+    left: 18px;
+
+    top: 15px;
+
+    border-radius: 50%;
+
+    background:
+
+        rgba(255,220,180,0.12);
+
+    transform: rotate(-25deg);
 
 }
 
@@ -684,46 +629,48 @@ body::after {
 
     position: absolute;
 
-    width: 32px;
+    width: 38px;
 
-    height: 37px;
+    height: 38px;
 
-    right: -9px;
+    right: -23px;
 
-    top: 17px;
+    top: 31px;
 
     border:
 
-        8px solid #d8ccbb;
-
-    border-left:
-
-        8px solid transparent;
+        10px solid #cfc2ae;
 
     border-radius: 50%;
+
+    box-shadow:
+
+        inset 0 0 4px rgba(60,40,20,0.12);
 
 }
 
 
-/* PARA Z FILIŻANKI */
+/* PARA */
 
 .steam {
 
     position: absolute;
 
-    bottom: 68px;
+    z-index: 10;
 
-    left: 32px;
+    left: 64px;
 
-    width: 6px;
+    top: -32px;
+
+    width: 5px;
 
     height: 45px;
-
-    border-radius: 50%;
 
     border-left:
 
         2px solid rgba(255,255,255,0.28);
+
+    border-radius: 50%;
 
     filter: blur(1px);
 
@@ -736,17 +683,17 @@ body::after {
 
 .steam.two {
 
-    left: 50px;
+    left: 82px;
 
-    height: 52px;
+    top: -25px;
 
-    animation-delay: 1.2s;
+    animation-delay: 1.3s;
 
 }
 
 
 /* =========================================================
-   ŚWIECZKA
+   ŚWIECZKA — WIDOK Z GÓRY
 ========================================================= */
 
 .candle {
@@ -755,17 +702,17 @@ body::after {
 
     z-index: 8;
 
-    right: 10%;
+    right: 12%;
 
-    bottom: 16%;
+    top: 20%;
 
-    width: 85px;
+    width: 125px;
 
-    height: 150px;
+    height: 125px;
 
     animation:
 
-        candleAppear 1.5s ease 0.5s both;
+        candleAppear 1.4s ease 0.5s both;
 
 }
 
@@ -776,13 +723,7 @@ body::after {
 
     position: absolute;
 
-    width: 260px;
-
-    height: 260px;
-
-    left: -87px;
-
-    top: -55px;
+    inset: -80px;
 
     border-radius: 50%;
 
@@ -791,7 +732,7 @@ body::after {
         radial-gradient(
             circle,
             rgba(255,190,100,0.14) 0%,
-            rgba(255,170,80,0.05) 35%,
+            rgba(255,170,80,0.06) 30%,
             transparent 70%
         );
 
@@ -808,30 +749,29 @@ body::after {
 
     position: absolute;
 
-    width: 70px;
+    width: 105px;
 
-    height: 80px;
+    height: 105px;
 
-    bottom: 0;
+    left: 10px;
 
-    left: 7px;
+    top: 10px;
 
-    border-radius: 8px 8px 14px 14px;
+    border-radius: 50%;
 
     background:
 
-        linear-gradient(
-            90deg,
-            rgba(210,190,160,0.45),
-            rgba(255,245,225,0.65),
-            rgba(180,150,115,0.4)
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(255,245,225,0.7),
+            rgba(200,175,145,0.5)
         );
 
     box-shadow:
 
-        inset 0 0 8px rgba(255,255,255,0.28),
+        0 12px 14px rgba(20,10,5,0.20),
 
-        0 13px 14px rgba(20,10,5,0.22);
+        inset 0 0 12px rgba(255,255,255,0.22);
 
 }
 
@@ -842,23 +782,23 @@ body::after {
 
     position: absolute;
 
-    width: 57px;
+    width: 80px;
 
-    height: 68px;
+    height: 80px;
 
-    left: 13px;
+    left: 12px;
 
-    bottom: 7px;
+    top: 12px;
 
-    border-radius: 6px 6px 12px 12px;
+    border-radius: 50%;
 
     background:
 
-        linear-gradient(
-            90deg,
-            #e5d9c5,
+        radial-gradient(
+            circle at 35% 30%,
             #f5eee1,
-            #d7c8b1
+            #dfd1bd 70%,
+            #c8b9a4
         );
 
 }
@@ -870,15 +810,19 @@ body::after {
 
     position: absolute;
 
-    width: 3px;
+    z-index: 4;
 
-    height: 13px;
+    width: 4px;
 
-    left: 41px;
+    height: 14px;
 
-    bottom: 73px;
+    left: 61px;
 
-    background: #39251a;
+    top: 47px;
+
+    background: #3c281a;
+
+    border-radius: 50%;
 
 }
 
@@ -889,13 +833,13 @@ body::after {
 
     position: absolute;
 
-    z-index: 4;
+    z-index: 10;
 
-    left: 34px;
+    left: 53px;
 
-    bottom: 83px;
+    top: 21px;
 
-    width: 18px;
+    width: 20px;
 
     height: 34px;
 
@@ -909,7 +853,7 @@ body::after {
 
         radial-gradient(
             ellipse at center bottom,
-            #fff7ce 0%,
+            #fff8d2 0%,
             #ffd36a 35%,
             #ef8e27 70%,
             transparent 72%
@@ -918,7 +862,7 @@ body::after {
     filter:
 
         drop-shadow(
-            0 0 8px rgba(255,180,70,0.65)
+            0 0 9px rgba(255,180,70,0.7)
         );
 
     transform-origin: bottom center;
@@ -942,9 +886,9 @@ body::after {
 
         transform:
 
-            rotate(-1deg)
+            translate(-50%, -47%)
 
-            translateY(25px)
+            rotate(-1deg)
 
             scale(0.97);
 
@@ -956,9 +900,9 @@ body::after {
 
         transform:
 
-            rotate(-1deg)
+            translate(-50%, -50%)
 
-            translateY(-1vh)
+            rotate(-1deg)
 
             scale(1);
 
@@ -975,9 +919,9 @@ body::after {
 
         transform:
 
-            rotate(-7deg)
+            translateY(20px)
 
-            translateY(25px);
+            scale(0.94);
 
     }
 
@@ -987,9 +931,9 @@ body::after {
 
         transform:
 
-            rotate(-7deg)
+            translateY(0)
 
-            translateY(0);
+            scale(1);
 
     }
 
@@ -1004,7 +948,9 @@ body::after {
 
         transform:
 
-            translateY(25px);
+            translateY(20px)
+
+            scale(0.94);
 
     }
 
@@ -1014,7 +960,9 @@ body::after {
 
         transform:
 
-            translateY(0);
+            translateY(0)
+
+            scale(1);
 
     }
 
@@ -1029,7 +977,7 @@ body::after {
 
             rotate(-4deg)
 
-            scaleY(0.96);
+            scaleY(0.95);
 
     }
 
@@ -1050,9 +998,9 @@ body::after {
 
     from {
 
-        opacity: 0.65;
+        opacity: 0.55;
 
-        transform: scale(0.95);
+        transform: scale(0.94);
 
     }
 
@@ -1085,13 +1033,13 @@ body::after {
 
     30% {
 
-        opacity: 0.7;
+        opacity: 0.6;
 
     }
 
     70% {
 
-        opacity: 0.3;
+        opacity: 0.25;
 
     }
 
@@ -1113,140 +1061,46 @@ body::after {
 
 
 /* =========================================================
-   RESPONSYWNOŚĆ
+   TELEFON
 ========================================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
 
     .journal {
 
-        width: 58vw;
+        width: 78vw;
 
-        height: 74vh;
-
-        min-width: 390px;
-
-        min-height: 560px;
+        height: 70vh;
 
     }
 
     .cup {
 
-        left: 4%;
+        left: 1%;
 
-        transform: scale(0.82) rotate(-7deg);
+        top: 14%;
+
+        transform: scale(0.62);
+
+        transform-origin: top left;
 
     }
 
     .candle {
 
-        right: 4%;
+        right: 1%;
 
-        transform: scale(0.82);
+        top: 14%;
 
-    }
+        transform: scale(0.62);
 
-}
-
-
-@media (max-width: 650px) {
-
-    body {
-
-        overflow: auto;
-
-    }
-
-    .scene {
-
-        min-height: 100vh;
-
-    }
-
-    .journal {
-
-        width: 84vw;
-
-        height: 76vh;
-
-        min-width: 0;
-
-        min-height: 0;
+        transform-origin: top right;
 
     }
 
     .name {
 
-        font-size: 60px;
-
-    }
-
-    .edition {
-
-        font-size: 8px;
-
-    }
-
-    .volume {
-
-        font-size: 9px;
-
-    }
-
-    .cup {
-
-        left: -8%;
-
-        bottom: 9%;
-
-        transform: scale(0.55) rotate(-7deg);
-
-    }
-
-    .candle {
-
-        right: -8%;
-
-        bottom: 9%;
-
-        transform: scale(0.55);
-
-    }
-
-}
-
-
-/* MAŁE EKRANY */
-
-@media (max-height: 700px) and (min-width: 651px) {
-
-    .journal {
-
-        height: 88vh;
-
-        width: auto;
-
-        aspect-ratio: 0.78;
-
-    }
-
-    .cup {
-
-        transform:
-
-            scale(0.7)
-
-            rotate(-7deg);
-
-        bottom: 8%;
-
-    }
-
-    .candle {
-
-        transform: scale(0.7);
-
-        bottom: 7%;
+        font-size: 58px;
 
     }
 
@@ -1270,9 +1124,7 @@ body::after {
 
         <div class="journal-shadow"></div>
 
-
         <div class="cover">
-
 
             <div class="cover-content">
 
@@ -1280,14 +1132,11 @@ body::after {
                     A DIGITAL JOURNAL
                 </div>
 
-
                 <div class="name">
                     ANIA
                 </div>
 
-
                 <div class="line"></div>
-
 
                 <div class="volume">
                     VOLUME XXII
@@ -1307,7 +1156,6 @@ body::after {
             >
                 OPEN
             </button>
-
 
         </div>
 
@@ -1363,10 +1211,6 @@ body::after {
 
 <script>
 
-/* =========================================================
-   OTWARCIE DZIENNIKA
-========================================================= */
-
 function openJournal() {
 
     const journal =
@@ -1376,7 +1220,7 @@ function openJournal() {
         "transform 0.9s ease, opacity 0.9s ease";
 
     journal.style.transform =
-        "rotate(-1deg) translateY(-1vh) scale(0.96)";
+        "translate(-50%, -50%) rotate(-1deg) scale(0.96)";
 
     journal.style.opacity = "0";
 
@@ -1387,9 +1231,8 @@ function openJournal() {
             "Tutaj zacznie się właściwy dziennik 📖"
         );
 
-
         journal.style.transform =
-            "rotate(-1deg) translateY(-1vh) scale(1)";
+            "translate(-50%, -50%) rotate(-1deg) scale(1)";
 
         journal.style.opacity = "1";
 
