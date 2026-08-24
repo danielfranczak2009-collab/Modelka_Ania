@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ANIA — Volume XXII</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 50% 45%, #242424 0%, #111111 45%, #070707 100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #171717;
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* DELIKATNE ŚWIATŁO W TLE */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 700px;
+    height: 700px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: radial-gradient(
+        circle,
+        rgba(255,255,255,0.08) 0%,
+        rgba(255,255,255,0) 70%
+    );
+
+    pointer-events: none;
+}
+
+/* KARTKA */
+
+.cover {
+    position: relative;
+
+    width: min(72vw, 700px);
+    aspect-ratio: 0.707 / 1;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f1eadc 0%,
+            #e9dfce 50%,
+            #eee5d6 100%
+        );
+
+    box-shadow:
+        0 35px 70px rgba(0,0,0,0.65),
+        0 10px 25px rgba(0,0,0,0.35);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    animation: appear 1.4s ease forwards;
+}
+
+/* SUBTELNA TEKSTURA PAPIERU */
+
+.cover::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.16;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(80,60,30,0.08) 0px,
+            rgba(80,60,30,0.08) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    pointer-events: none;
+}
+
+/* DELIKATNE RAMKI */
+
+.cover::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 28px;
+
+    border: 1px solid rgba(40,35,25,0.22);
+
+    pointer-events: none;
+}
+
+/* ZAWARTOŚĆ */
+
+.cover-content {
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* MAŁY NAPIS */
+
+.edition {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 11px;
+    font-weight: 400;
+
+    letter-spacing: 0.42em;
+
+    margin-bottom: 34px;
+
+    opacity: 0.65;
+}
+
+/* GŁÓWNY NAPIS */
+
+.name {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(60px, 10vw, 105px);
+
+    font-weight: 400;
+
+    letter-spacing: 0.08em;
+
+    line-height: 0.9;
+
+    margin-left: 0.08em;
+}
+
+/* LINIA */
+
+.line {
+    width: 55px;
+    height: 1px;
+
+    background: rgba(30,30,30,0.55);
+
+    margin: 32px 0;
+}
+
+/* VOLUME */
+
+.volume {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 0.55em;
+
+    margin-left: 0.55em;
+
+    opacity: 0.75;
+}
+
+/* DATA */
+
+.date {
+    position: absolute;
+
+    bottom: 62px;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 0.35em;
+
+    margin-left: 0.35em;
+
+    opacity: 0.55;
+}
+
+/* OPEN */
+
+.open {
+    position: absolute;
+
+    bottom: 30px;
+
+    border: none;
+
+    background: none;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 0.4em;
+
+    margin-left: 0.4em;
+
+    color: #171717;
+
+    cursor: pointer;
+
+    opacity: 0.55;
+
+    transition:
+        opacity 0.3s ease,
+        letter-spacing 0.3s ease;
+}
+
+.open:hover {
+    opacity: 1;
+
+    letter-spacing: 0.65em;
+}
+
+/* ANIMACJA WEJŚCIA */
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+/* RESPONSYWNOŚĆ */
+
+@media (max-width: 600px) {
+
+    .cover {
+        width: 82vw;
+    }
+
+    .cover::after {
+        inset: 18px;
+    }
+
+    .edition {
+        font-size: 8px;
+        margin-bottom: 25px;
+    }
+
+    .name {
+        font-size: 58px;
+    }
+
+    .volume {
+        font-size: 9px;
+    }
+
+    .date {
+        bottom: 48px;
+    }
+
+    .open {
+        bottom: 22px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="cover">
+
+    <div class="cover-content">
+
+        <div class="edition">
+            A DIGITAL JOURNAL
+        </div>
+
+        <div class="name">
+            ANIA
+        </div>
+
+        <div class="line"></div>
+
+        <div class="volume">
+            VOLUME XXII
+        </div>
+
+    </div>
+
+    <div class="date">
+        04 · 09 · 2026
+    </div>
+
+    <button class="open" onclick="openJournal()">
+        OPEN
+    </button>
+
+</div>
+
+
+<script>
+
+function openJournal() {
+
+    const cover = document.querySelector(".cover");
+
+    cover.style.transition = "all 0.8s ease";
+    cover.style.transform = "scale(0.96)";
+    cover.style.opacity = "0";
+
+    setTimeout(() => {
+
+        alert("Tutaj zacznie się właściwy dziennik 📖");
+
+        cover.style.transform = "scale(1)";
+        cover.style.opacity = "1";
+
+    }, 800);
+
+}
+
+</script>
+
+</body>
+</html>
