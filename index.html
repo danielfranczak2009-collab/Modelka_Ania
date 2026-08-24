@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For Ania — 22</title>
+<title>Ania — 22</title>
 
 <style>
 
@@ -24,9 +24,9 @@ body {
 
 body {
     overflow: hidden;
+    background: #50331f;
+    color: #2b2118;
     font-family: "Montserrat", sans-serif;
-    background: #513521;
-    color: #241b14;
 }
 
 
@@ -41,16 +41,16 @@ body {
     background:
         radial-gradient(
             ellipse at center,
-            rgba(150, 103, 66, 0.45),
-            transparent 70%
+            rgba(157, 109, 69, 0.45),
+            transparent 72%
         ),
         repeating-linear-gradient(
             3deg,
             #543622 0px,
-            #543622 5px,
-            #4c301f 6px,
-            #5a3924 12px,
-            #4b2f1f 18px
+            #543622 6px,
+            #4b2f1e 7px,
+            #5a3924 13px,
+            #4a2d1c 19px
         );
 }
 
@@ -62,13 +62,11 @@ body {
     background:
         repeating-linear-gradient(
             90deg,
-            transparent 0px,
+            transparent 0,
             transparent 90px,
             rgba(255,255,255,0.018) 92px,
-            transparent 96px
+            transparent 97px
         );
-
-    opacity: 0.8;
 }
 
 .table::after {
@@ -80,7 +78,7 @@ body {
         radial-gradient(
             ellipse at center,
             transparent 35%,
-            rgba(20, 10, 5, 0.22) 100%
+            rgba(20,10,5,0.25) 100%
         );
 }
 
@@ -98,7 +96,8 @@ body {
     left: 50%;
     top: 50%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
     z-index: 10;
 
@@ -108,11 +107,7 @@ body {
 .stack-sheet {
     position: absolute;
 
-    width: 100%;
-    height: 100%;
-
-    left: 0;
-    top: 0;
+    inset: 0;
 
     background:
         linear-gradient(
@@ -125,51 +120,29 @@ body {
         0 18px 30px rgba(0,0,0,0.20);
 
     border-radius: 1px;
-
-    transition:
-        transform 0.35s ease,
-        opacity 0.35s ease;
 }
 
 .stack-sheet.one {
     transform:
         translate(9px, 9px)
         rotate(1.15deg);
-
-    z-index: 1;
 }
 
 .stack-sheet.two {
     transform:
         translate(-8px, 13px)
         rotate(-1.35deg);
-
-    z-index: 2;
 }
 
 .stack-sheet.three {
     transform:
         translate(6px, 18px)
         rotate(0.75deg);
-
-    z-index: 3;
-}
-
-.stack-sheet::after {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    box-shadow:
-        inset 0 0 0 1px rgba(70,50,30,0.08);
-
-    pointer-events: none;
 }
 
 
 /* =========================================================
-   GŁÓWNA KARTKA
+   KARTKI
 ========================================================= */
 
 .page {
@@ -196,78 +169,17 @@ body {
         0 25px 45px rgba(0,0,0,0.35),
         0 4px 10px rgba(0,0,0,0.18);
 
-    transition:
-        opacity 0.3s ease,
-        transform 0.35s ease;
-
     opacity: 0;
     visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease;
 
     z-index: 20;
 
     overflow: hidden;
-
-    pointer-events: none;
-}
-
-#page0 {
-    transform:
-        translate(-50%, -50%)
-        rotate(-0.65deg);
-}
-
-#page1 {
-    transform:
-        translate(-50%, -50%)
-        rotate(0.45deg);
-}
-
-#page2 {
-    transform:
-        translate(-50%, -50%)
-        rotate(-0.85deg);
-}
-
-#page3 {
-    transform:
-        translate(-50%, -50%)
-        rotate(0.65deg);
-}
-
-#page4 {
-    transform:
-        translate(-50%, -50%)
-        rotate(-0.45deg);
-}
-
-#page5 {
-    transform:
-        translate(-50%, -50%)
-        rotate(0.9deg);
-}
-
-#page6 {
-    transform:
-        translate(-50%, -50%)
-        rotate(-0.55deg);
-}
-
-#page7 {
-    transform:
-        translate(-50%, -50%)
-        rotate(0.55deg);
-}
-
-#page8 {
-    transform:
-        translate(-50%, -50%)
-        rotate(-0.8deg);
-}
-
-#page9 {
-    transform:
-        translate(-50%, -50%)
-        rotate(0.35deg);
 }
 
 .page.active {
@@ -284,13 +196,11 @@ body {
 
     pointer-events: none;
 
-    opacity: 0.16;
-
     background:
         repeating-linear-gradient(
             0deg,
-            rgba(90,70,40,0.08) 0px,
-            rgba(90,70,40,0.08) 1px,
+            rgba(90,70,40,0.05) 0px,
+            rgba(90,70,40,0.05) 1px,
             transparent 1px,
             transparent 5px
         );
@@ -306,8 +216,6 @@ body {
         rgba(60,45,30,0.20);
 
     pointer-events: none;
-
-    z-index: 1;
 }
 
 
@@ -326,8 +234,6 @@ body {
     justify-content: center;
 
     text-align: center;
-
-    z-index: 2;
 }
 
 .small-title {
@@ -399,8 +305,6 @@ body {
 .button {
     position: absolute;
 
-    z-index: 20;
-
     border: none;
     background: transparent;
 
@@ -443,31 +347,22 @@ body {
     opacity: 0.45;
 
     transition:
-        width 0.25s ease,
-        opacity 0.25s ease;
+        width 0.25s ease;
 }
 
 .button:hover {
     opacity: 1;
-
     letter-spacing: 0.4em;
 }
 
 .button:hover::after {
     width: 50px;
-
-    opacity: 0.8;
 }
 
 .open {
     left: 50%;
     bottom: 35px;
 
-    transform:
-        translateX(-50%);
-}
-
-.open:hover {
     transform:
         translateX(-50%);
 }
@@ -490,7 +385,7 @@ body {
 
     align-items: center;
 
-    z-index: 20;
+    z-index: 30;
 }
 
 .navigation .button {
@@ -498,12 +393,6 @@ body {
 
     left: auto;
     bottom: auto;
-
-    transform: none;
-}
-
-.navigation .button:hover {
-    transform: none;
 }
 
 
@@ -515,8 +404,6 @@ body {
     position: absolute;
 
     inset: 0;
-
-    z-index: 2;
 
     display: flex;
 
@@ -536,7 +423,7 @@ body {
     font-family: "Cormorant Garamond", serif;
 
     font-size:
-        clamp(28px, 4vw, 42px);
+        clamp(27px, 4vw, 40px);
 
     font-weight: 600;
 
@@ -544,7 +431,7 @@ body {
 
     letter-spacing: 0.035em;
 
-    margin-bottom: 27px;
+    margin-bottom: 25px;
 }
 
 .intro p {
@@ -552,9 +439,9 @@ body {
 
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 18px;
+    font-size: 17px;
 
-    line-height: 1.48;
+    line-height: 1.43;
 }
 
 .intro strong {
@@ -570,8 +457,6 @@ body {
     position: absolute;
 
     inset: 0;
-
-    z-index: 2;
 
     padding:
         55px 55px 95px;
@@ -593,20 +478,21 @@ body {
 .chapter h2 {
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 38px;
+    font-size: 36px;
 
     font-weight: 500;
 
-    margin-bottom: 28px;
+    margin-bottom: 25px;
 }
 
 .questions {
     width: 100%;
 
     display: flex;
+
     flex-direction: column;
 
-    gap: 16px;
+    gap: 13px;
 
     text-align: left;
 }
@@ -616,17 +502,17 @@ body {
 
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 17px;
+    font-size: 16px;
 
-    line-height: 1.1;
+    line-height: 1.15;
 
-    margin-bottom: 6px;
+    margin-bottom: 5px;
 }
 
 .question textarea {
     width: 100%;
 
-    min-height: 48px;
+    min-height: 43px;
 
     resize: vertical;
 
@@ -637,13 +523,13 @@ body {
     background:
         rgba(255,250,240,0.25);
 
-    padding: 7px 9px;
+    padding: 6px 9px;
 
     outline: none;
 
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 16px;
+    font-size: 15px;
 
     color: #241b14;
 
@@ -660,15 +546,13 @@ body {
 
 
 /* =========================================================
-   DLA ANI Z PRZYSZŁOŚCI
+   WIADOMOŚĆ
 ========================================================= */
 
 .final {
     position: absolute;
 
     inset: 0;
-
-    z-index: 2;
 
     display: flex;
 
@@ -687,29 +571,29 @@ body {
 .final h2 {
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 39px;
+    font-size: 37px;
 
     font-weight: 500;
 
-    margin-bottom: 25px;
+    margin-bottom: 22px;
 }
 
 .final p {
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 18px;
+    font-size: 17px;
 
     line-height: 1.45;
 
     max-width: 400px;
 
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .final textarea {
     width: 90%;
 
-    height: 200px;
+    height: 190px;
 
     resize: vertical;
 
@@ -741,8 +625,6 @@ body {
 
     inset: 0;
 
-    z-index: 2;
-
     display: flex;
 
     flex-direction: column;
@@ -760,13 +642,11 @@ body {
 .warning h2 {
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 45px;
+    font-size: 44px;
 
     font-weight: 600;
 
-    letter-spacing: 0.03em;
-
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
 .warning p {
@@ -774,26 +654,20 @@ body {
 
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 19px;
+    font-size: 18px;
 
     line-height: 1.5;
 }
 
-.warning strong {
-    font-weight: 600;
-}
-
 
 /* =========================================================
-   ZAPISANO
+   ZAPISANE
 ========================================================= */
 
 .saved {
     position: absolute;
 
     inset: 0;
-
-    z-index: 2;
 
     display: flex;
 
@@ -811,15 +685,11 @@ body {
 .saved-title {
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 39px;
+    font-size: 38px;
 
     font-weight: 500;
 
     letter-spacing: 0.12em;
-
-    margin-left: 0.12em;
-
-    color: #2b2118;
 }
 
 .saved-line {
@@ -840,8 +710,6 @@ body {
     font-size: 18px;
 
     line-height: 1.5;
-
-    color: #3c3025;
 }
 
 .saved-goodbye {
@@ -854,8 +722,6 @@ body {
     font-weight: 500;
 
     font-style: italic;
-
-    color: #2b2118;
 }
 
 
@@ -945,28 +811,6 @@ body {
             #60351f 48%,
             #3a1e12 100%
         );
-
-    box-shadow:
-        inset 0 3px 7px rgba(0,0,0,0.3);
-}
-
-.coffee::after {
-    content: "";
-
-    position: absolute;
-
-    left: 17px;
-    top: 13px;
-
-    width: 24px;
-    height: 12px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(194,140,94,0.18);
-
-    transform: rotate(-20deg);
 }
 
 .handle {
@@ -983,8 +827,6 @@ body {
         #c9b9a5;
 
     border-radius: 50%;
-
-    background: transparent;
 }
 
 .steam {
@@ -1004,8 +846,6 @@ body {
 
     animation:
         steam 3s infinite ease-in-out;
-
-    z-index: 10;
 }
 
 .steam.two {
@@ -1020,8 +860,7 @@ body {
     0% {
         opacity: 0;
         transform:
-            translateY(10px)
-            translateX(0);
+            translateY(10px);
     }
 
     35% {
@@ -1100,29 +939,6 @@ body {
 
     box-shadow:
         5px 9px 15px rgba(0,0,0,0.27);
-}
-
-.candle-base::after {
-    content: "";
-
-    position: absolute;
-
-    left: 19px;
-    top: 19px;
-
-    width: 62px;
-    height: 62px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            #f4e4ca,
-            #d8c3a4
-        );
-
-    opacity: 0.75;
 }
 
 .wick {
@@ -1222,7 +1038,7 @@ body {
     }
 
     .intro h1 {
-        font-size: 29px;
+        font-size: 27px;
     }
 
     .intro p {
@@ -1238,12 +1054,14 @@ body {
         font-size: 31px;
     }
 
-    .question label {
-        font-size: 15px;
+    .navigation {
+        left: 18px;
+        right: 18px;
     }
 
-    .question textarea {
-        font-size: 15px;
+    .navigation .button {
+        font-size: 7px;
+        letter-spacing: 0.18em;
     }
 
     .cup {
@@ -1263,62 +1081,37 @@ body {
         transform-origin:
             top left;
     }
-
-    .navigation {
-        left: 18px;
-        right: 18px;
-    }
-
-    .navigation .button {
-        font-size: 7px;
-
-        letter-spacing: 0.18em;
-    }
-
-    .warning h2 {
-        font-size: 36px;
-    }
-
-    .warning p {
-        font-size: 17px;
-    }
-
-    .saved-title {
-        font-size: 29px;
-    }
-
-    .saved-text {
-        font-size: 18px;
-    }
-
-    .saved-goodbye {
-        font-size: 22px;
-    }
 }
 
 </style>
 </head>
 
+
 <body>
-    <audio id="backgroundMusic" controls loop>
-        <source src="./jazz.mp3" type="audio/mpeg">
-</audio>
+
+
+<!-- =========================================================
+     TŁO
+========================================================= -->
+
+<div class="table"></div>
 
 
 <!-- =========================================================
      MUZYKA
+     jazz.mp3 musi być obok index.html
 ========================================================= -->
 
-<audio id="backgroundMusic" loop>
-    <source src="jazz.mp3" type="audio/mpeg">
+<audio
+    id="backgroundMusic"
+    loop
+    preload="auto"
+>
+    <source
+        src="./jazz.mp3"
+        type="audio/mpeg"
+    >
 </audio>
-
-
-<!-- =========================================================
-     STOLIK
-========================================================= -->
-
-<div class="table"></div>
 
 
 <!-- =========================================================
@@ -1328,16 +1121,14 @@ body {
 <div class="paper-stack">
 
     <div class="stack-sheet one"></div>
-
     <div class="stack-sheet two"></div>
-
     <div class="stack-sheet three"></div>
 
 </div>
 
 
 <!-- =========================================================
-     KARTKA 0 — OKŁADKA
+     STRONA 0
 ========================================================= -->
 
 <section
@@ -1381,7 +1172,7 @@ body {
 
 
 <!-- =========================================================
-     KARTKA 1 — WSTĘP
+     STRONA 1
 ========================================================= -->
 
 <section
@@ -1429,7 +1220,6 @@ body {
 
         <button
             class="button"
-            type="button"
             data-go="0"
         >
             PREVIOUS PAGE
@@ -1437,7 +1227,6 @@ body {
 
         <button
             class="button"
-            type="button"
             data-go="2"
         >
             NEXT PAGE
@@ -1449,7 +1238,7 @@ body {
 
 
 <!-- =========================================================
-     KARTKA 2
+     STRONA 2
 ========================================================= -->
 
 <section
@@ -1472,7 +1261,6 @@ body {
         <div class="questions">
 
             <div class="question">
-
                 <label>
                     Jak opisałabyś siebie w 3 słowach?
                 </label>
@@ -1481,11 +1269,9 @@ body {
                     data-key="q1"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
             <div class="question">
-
                 <label>
                     Co jest teraz dla Ciebie najważniejsze?
                 </label>
@@ -1494,11 +1280,9 @@ body {
                     data-key="q2"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
             <div class="question">
-
                 <label>
                     Z czego jesteś obecnie najbardziej dumna?
                 </label>
@@ -1507,11 +1291,9 @@ body {
                     data-key="q3"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
             <div class="question">
-
                 <label>
                     Co najbardziej chciałabyś w sobie zmienić?
                 </label>
@@ -1520,7 +1302,6 @@ body {
                     data-key="q4"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
         </div>
@@ -1529,19 +1310,11 @@ body {
 
     <div class="navigation">
 
-        <button
-            class="button"
-            type="button"
-            data-go="1"
-        >
+        <button class="button" data-go="1">
             PREVIOUS PAGE
         </button>
 
-        <button
-            class="button"
-            type="button"
-            data-go="3"
-        >
+        <button class="button" data-go="3">
             NEXT PAGE
         </button>
 
@@ -1551,7 +1324,7 @@ body {
 
 
 <!-- =========================================================
-     KARTKA 3
+     STRONA 3
 ========================================================= -->
 
 <section
@@ -1574,7 +1347,6 @@ body {
         <div class="questions">
 
             <div class="question">
-
                 <label>
                     Kto jest teraz najważniejszą osobą w Twoim życiu?
                 </label>
@@ -1583,11 +1355,9 @@ body {
                     data-key="q5"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
             <div class="question">
-
                 <label>
                     Z kim możesz porozmawiać absolutnie o wszystkim?
                 </label>
@@ -1596,11 +1366,9 @@ body {
                     data-key="q6"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
             <div class="question">
-
                 <label>
                     Kogo poznałaś w ostatnim roku i cieszysz się,
                     że ta osoba pojawiła się w Twoim życiu?
@@ -1610,7 +1378,6 @@ body {
                     data-key="q7"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
         </div>
@@ -1619,19 +1386,11 @@ body {
 
     <div class="navigation">
 
-        <button
-            class="button"
-            type="button"
-            data-go="2"
-        >
+        <button class="button" data-go="2">
             PREVIOUS PAGE
         </button>
 
-        <button
-            class="button"
-            type="button"
-            data-go="4"
-        >
+        <button class="button" data-go="4">
             NEXT PAGE
         </button>
 
@@ -1641,7 +1400,7 @@ body {
 
 
 <!-- =========================================================
-     KARTKA 4
+     STRONA 4
 ========================================================= -->
 
 <section
@@ -1664,7 +1423,6 @@ body {
         <div class="questions">
 
             <div class="question">
-
                 <label>
                     Gdzie obecnie widzisz siebie za rok?
                 </label>
@@ -1673,11 +1431,9 @@ body {
                     data-key="q8"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
             <div class="question">
-
                 <label>
                     Co najbardziej chciałabyś,
                     żeby wydarzyło się w najbliższym roku?
@@ -1687,11 +1443,9 @@ body {
                     data-key="q9"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
             <div class="question">
-
                 <label>
                     Co odkładasz już zdecydowanie za długo?
                 </label>
@@ -1700,11 +1454,9 @@ body {
                     data-key="q10"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
             <div class="question">
-
                 <label>
                     Gdybyś mogła teraz zmienić jedną rzecz
                     w swoim życiu, co by to było?
@@ -1714,7 +1466,6 @@ body {
                     data-key="q11"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
         </div>
@@ -1723,19 +1474,11 @@ body {
 
     <div class="navigation">
 
-        <button
-            class="button"
-            type="button"
-            data-go="3"
-        >
+        <button class="button" data-go="3">
             PREVIOUS PAGE
         </button>
 
-        <button
-            class="button"
-            type="button"
-            data-go="5"
-        >
+        <button class="button" data-go="5">
             NEXT PAGE
         </button>
 
@@ -1745,7 +1488,7 @@ body {
 
 
 <!-- =========================================================
-     KARTKA 5
+     STRONA 5
 ========================================================= -->
 
 <section
@@ -1768,7 +1511,6 @@ body {
         <div class="questions">
 
             <div class="question">
-
                 <label>
                     Jaka jest obecnie Twoja ulubiona piosenka?
                 </label>
@@ -1777,11 +1519,9 @@ body {
                     data-key="q12"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
             <div class="question">
-
                 <label>
                     Jaki film albo serial mogłabyś oglądać w kółko?
                 </label>
@@ -1790,11 +1530,9 @@ body {
                     data-key="q13"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
             <div class="question">
-
                 <label>
                     Jakie jest Twoje aktualne ulubione jedzenie?
                 </label>
@@ -1803,11 +1541,9 @@ body {
                     data-key="q14"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
             <div class="question">
-
                 <label>
                     Co ostatnio najbardziej Cię cieszy?
                 </label>
@@ -1816,7 +1552,6 @@ body {
                     data-key="q15"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
         </div>
@@ -1825,19 +1560,11 @@ body {
 
     <div class="navigation">
 
-        <button
-            class="button"
-            type="button"
-            data-go="4"
-        >
+        <button class="button" data-go="4">
             PREVIOUS PAGE
         </button>
 
-        <button
-            class="button"
-            type="button"
-            data-go="6"
-        >
+        <button class="button" data-go="6">
             NEXT PAGE
         </button>
 
@@ -1847,7 +1574,7 @@ body {
 
 
 <!-- =========================================================
-     KARTKA 6
+     STRONA 6
 ========================================================= -->
 
 <section
@@ -1870,7 +1597,6 @@ body {
         <div class="questions">
 
             <div class="question">
-
                 <label>
                     Jak myślisz, gdzie będziesz za rok?
                 </label>
@@ -1879,11 +1605,9 @@ body {
                     data-key="q16"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
             <div class="question">
-
                 <label>
                     Co będzie wtedy dla Ciebie najważniejsze?
                 </label>
@@ -1892,11 +1616,9 @@ body {
                     data-key="q17"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
             <div class="question">
-
                 <label>
                     Jak myślisz, jaka będzie Twoja największa zmiana?
                 </label>
@@ -1905,11 +1627,9 @@ body {
                     data-key="q18"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
             <div class="question">
-
                 <label>
                     Co myślisz, że nadal będzie dla Ciebie ważne?
                 </label>
@@ -1918,7 +1638,6 @@ body {
                     data-key="q19"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
-
             </div>
 
         </div>
@@ -1927,19 +1646,11 @@ body {
 
     <div class="navigation">
 
-        <button
-            class="button"
-            type="button"
-            data-go="5"
-        >
+        <button class="button" data-go="5">
             PREVIOUS PAGE
         </button>
 
-        <button
-            class="button"
-            type="button"
-            data-go="7"
-        >
+        <button class="button" data-go="7">
             NEXT PAGE
         </button>
 
@@ -1949,7 +1660,7 @@ body {
 
 
 <!-- =========================================================
-     KARTKA 7 — WIADOMOŚĆ
+     STRONA 7 — WIADOMOŚĆ
 ========================================================= -->
 
 <section
@@ -1981,18 +1692,13 @@ body {
 
     <div class="navigation">
 
-        <button
-            class="button"
-            type="button"
-            data-go="6"
-        >
+        <button class="button" data-go="6">
             PREVIOUS PAGE
         </button>
 
         <button
             class="button"
             id="futureNext"
-            type="button"
         >
             NEXT PAGE
         </button>
@@ -2003,7 +1709,7 @@ body {
 
 
 <!-- =========================================================
-     KARTKA 8 — OSTRZEŻENIE
+     STRONA 8 — OSTRZEŻENIE
 ========================================================= -->
 
 <section
@@ -2020,8 +1726,7 @@ body {
         </h2>
 
         <p>
-            Za chwilę zapiszesz swoją wiadomość
-            na zawsze.
+            Za chwilę zapiszesz swoją wiadomość na zawsze.
 
             <br><br>
 
@@ -2038,18 +1743,13 @@ body {
 
     <div class="navigation">
 
-        <button
-            class="button"
-            type="button"
-            data-go="7"
-        >
+        <button class="button" data-go="7">
             PREVIOUS PAGE
         </button>
 
         <button
             class="button"
             id="saveButton"
-            type="button"
         >
             SAVE
         </button>
@@ -2060,7 +1760,7 @@ body {
 
 
 <!-- =========================================================
-     KARTKA 9 — ZAPISANO
+     STRONA 9 — ZAPISANE
 ========================================================= -->
 
 <section
@@ -2143,7 +1843,30 @@ body {
 const backgroundMusic =
     document.getElementById("backgroundMusic");
 
-backgroundMusic.loop = true;
+
+function startMusic() {
+
+    backgroundMusic.volume = 0.35;
+
+    backgroundMusic.currentTime = 0;
+
+    const result =
+        backgroundMusic.play();
+
+    if (result !== undefined) {
+
+        result.catch(function(error) {
+
+            console.log(
+                "Nie udało się uruchomić muzyki:",
+                error
+            );
+
+        });
+
+    }
+
+}
 
 
 /* =========================================================
@@ -2155,94 +1878,6 @@ const pages =
 
 let currentPage = 0;
 
-
-/* =========================================================
-   ELEMENTY
-========================================================= */
-
-const openButton =
-    document.getElementById("openButton");
-
-const futureMessage =
-    document.getElementById("futureMessage");
-
-const futureNext =
-    document.getElementById("futureNext");
-
-const saveButton =
-    document.getElementById("saveButton");
-
-
-/* =========================================================
-   LOCAL STORAGE
-========================================================= */
-
-const savedKey =
-    "ania_journal_message_saved";
-
-const messageKey =
-    "ania_journal_q20";
-
-let messageIsSaved =
-    localStorage.getItem(savedKey) === "true";
-
-
-/* =========================================================
-   PŁYNNE WŁĄCZENIE MUZYKI
-========================================================= */
-
-function startMusic() {
-
-    backgroundMusic.volume = 0;
-
-    const playPromise =
-        backgroundMusic.play();
-
-    if (playPromise !== undefined) {
-
-        playPromise
-            .then(function() {
-
-                let volume = 0;
-
-                const fadeIn =
-                    setInterval(function() {
-
-                        volume += 0.01;
-
-                        if (volume >= 0.35) {
-
-                            volume = 0.35;
-
-                            clearInterval(
-                                fadeIn
-                            );
-
-                        }
-
-                        backgroundMusic.volume =
-                            volume;
-
-                    }, 100);
-
-            })
-            .catch(function(error) {
-
-                console.log(
-                    "Muzyka nie mogła zostać uruchomiona:",
-                    error
-                );
-
-            });
-
-    }
-
-}
-
-
-/* =========================================================
-   POKAZYWANIE STRONY
-========================================================= */
 
 function showPage(number) {
 
@@ -2271,11 +1906,12 @@ function showPage(number) {
    OPEN
 ========================================================= */
 
+const openButton =
+    document.getElementById("openButton");
+
 openButton.addEventListener(
     "click",
-    function(event) {
-
-        event.preventDefault();
+    function() {
 
         startMusic();
 
@@ -2286,108 +1922,86 @@ openButton.addEventListener(
 
 
 /* =========================================================
-   PREVIOUS / NEXT
+   NAWIGACJA
 ========================================================= */
 
-const navigationButtons =
-    document.querySelectorAll("[data-go]");
+document
+    .querySelectorAll("[data-go]")
+    .forEach(function(button) {
 
-navigationButtons.forEach(function(button) {
+        button.addEventListener(
+            "click",
+            function() {
 
-    button.addEventListener(
-        "click",
-        function(event) {
-
-            event.preventDefault();
-
-            const destination =
-                Number(
-                    button.getAttribute("data-go")
+                showPage(
+                    Number(
+                        button.dataset.go
+                    )
                 );
 
-            showPage(destination);
-
-        }
-    );
-
-});
-
-
-/* =========================================================
-   WCZYTANIE WIADOMOŚCI
-========================================================= */
-
-const savedMessage =
-    localStorage.getItem(messageKey);
-
-if (savedMessage !== null) {
-
-    futureMessage.value =
-        savedMessage;
-
-}
-
-
-/* =========================================================
-   ODPOWIEDZI — LOCAL STORAGE
-========================================================= */
-
-const textareas =
-    document.querySelectorAll(
-        "textarea[data-key]"
-    );
-
-
-textareas.forEach(function(textarea) {
-
-    const key =
-        "ania_journal_" +
-        textarea.getAttribute("data-key");
-
-    const saved =
-        localStorage.getItem(key);
-
-    if (saved !== null) {
-
-        textarea.value =
-            saved;
-
-    }
-
-    textarea.addEventListener(
-        "input",
-        function() {
-
-            if (
-                textarea === futureMessage &&
-                messageIsSaved
-            ) {
-                return;
             }
+        );
 
-            localStorage.setItem(
-                key,
-                textarea.value
-            );
-
-        }
-    );
-
-});
+    });
 
 
 /* =========================================================
-   WIADOMOŚĆ → OSTRZEŻENIE
+   LOCAL STORAGE — ODPOWIEDZI
 ========================================================= */
+
+document
+    .querySelectorAll("textarea[data-key]")
+    .forEach(function(textarea) {
+
+        const key =
+            "ania_" +
+            textarea.dataset.key;
+
+        const oldValue =
+            localStorage.getItem(key);
+
+        if (oldValue !== null) {
+
+            textarea.value =
+                oldValue;
+
+        }
+
+        textarea.addEventListener(
+            "input",
+            function() {
+
+                localStorage.setItem(
+                    key,
+                    textarea.value
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   WIADOMOŚĆ DLA PRZYSZŁEJ ANI
+========================================================= */
+
+const futureMessage =
+    document.getElementById("futureMessage");
+
+const futureNext =
+    document.getElementById("futureNext");
+
+const saveButton =
+    document.getElementById("saveButton");
+
 
 futureNext.addEventListener(
     "click",
-    function(event) {
-
-        event.preventDefault();
+    function() {
 
         localStorage.setItem(
-            messageKey,
+            "ania_q20",
             futureMessage.value
         );
 
@@ -2397,82 +2011,23 @@ futureNext.addEventListener(
 );
 
 
-/* =========================================================
-   SAVE
-========================================================= */
-
 saveButton.addEventListener(
     "click",
-    function(event) {
-
-        event.preventDefault();
+    function() {
 
         localStorage.setItem(
-            messageKey,
+            "ania_q20",
             futureMessage.value
         );
 
         localStorage.setItem(
-            savedKey,
+            "ania_saved",
             "true"
         );
-
-        messageIsSaved = true;
 
         futureMessage.readOnly = true;
 
         showPage(9);
-
-    }
-);
-
-
-/* =========================================================
-   JEŚLI WIADOMOŚĆ BYŁA JUŻ ZAPISANA
-========================================================= */
-
-if (messageIsSaved) {
-
-    futureMessage.readOnly = true;
-
-}
-
-
-/* =========================================================
-   KLAWISZE
-========================================================= */
-
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (
-            currentPage === 7 ||
-            currentPage === 8 ||
-            currentPage === 9
-        ) {
-            return;
-        }
-
-        if (
-            event.key === "ArrowRight"
-        ) {
-
-            showPage(
-                currentPage + 1
-            );
-
-        }
-
-        if (
-            event.key === "ArrowLeft"
-        ) {
-
-            showPage(
-                currentPage - 1
-            );
-
-        }
 
     }
 );
