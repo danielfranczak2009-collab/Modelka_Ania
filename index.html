@@ -135,7 +135,6 @@ body {
     visibility: visible;
 }
 
-
 .page::before {
     content: "";
 
@@ -155,7 +154,6 @@ body {
             transparent 5px
         );
 }
-
 
 .paper-border {
     position: absolute;
@@ -587,6 +585,109 @@ body {
 
 
 /* =========================================================
+   OSTRZEŻENIE
+========================================================= */
+
+.warning {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding:
+        60px 60px 105px;
+}
+
+.warning h2 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 45px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.03em;
+
+    margin-bottom: 30px;
+}
+
+.warning p {
+    max-width: 390px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 19px;
+
+    line-height: 1.5;
+}
+
+.warning strong {
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   ZAPISANO
+========================================================= */
+
+.saved {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 60px;
+}
+
+.saved-title {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 34px;
+
+    font-weight: 500;
+
+    margin-bottom: 28px;
+}
+
+.saved-text {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 20px;
+
+    line-height: 1.5;
+}
+
+.saved-name {
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 25px;
+}
+
+
+/* =========================================================
    FILIŻANKA — WIDOK Z GÓRY
    PRAWY DOLNY RÓG
 ========================================================= */
@@ -606,9 +707,6 @@ body {
 
     transform: rotate(-8deg);
 }
-
-
-/* spodek */
 
 .saucer {
     position: absolute;
@@ -635,9 +733,6 @@ body {
         4px 9px 14px rgba(0,0,0,0.28);
 }
 
-
-/* filiżanka */
-
 .cup-body {
     position: absolute;
 
@@ -663,9 +758,6 @@ body {
     overflow: visible;
 }
 
-
-/* kawa */
-
 .coffee {
     position: absolute;
 
@@ -689,9 +781,6 @@ body {
         inset 0 3px 7px rgba(0,0,0,0.3);
 }
 
-
-/* delikatna pianka / refleks */
-
 .coffee::after {
     content: "";
 
@@ -710,9 +799,6 @@ body {
 
     transform: rotate(-20deg);
 }
-
-
-/* uchwyt widziany z góry */
 
 .handle {
     position: absolute;
@@ -734,9 +820,6 @@ body {
     box-shadow:
         2px 4px 7px rgba(0,0,0,0.12);
 }
-
-
-/* para */
 
 .steam {
     position: absolute;
@@ -809,9 +892,6 @@ body {
     transform: rotate(6deg);
 }
 
-
-/* światło */
-
 .candle-glow {
     position: absolute;
 
@@ -833,9 +913,6 @@ body {
     animation:
         glow 2s infinite alternate;
 }
-
-
-/* wosk widziany z góry */
 
 .candle-base {
     position: absolute;
@@ -862,9 +939,6 @@ body {
     z-index: 2;
 }
 
-
-/* środek świecy */
-
 .candle-base::after {
     content: "";
 
@@ -888,9 +962,6 @@ body {
     opacity: 0.75;
 }
 
-
-/* knot */
-
 .wick {
     position: absolute;
 
@@ -906,9 +977,6 @@ body {
 
     z-index: 5;
 }
-
-
-/* płomień */
 
 .flame {
     position: absolute;
@@ -1016,14 +1084,12 @@ body {
 
     .cup {
         transform: scale(0.72) rotate(-8deg);
-
         transform-origin:
             bottom right;
     }
 
     .candle {
         transform: scale(0.72) rotate(6deg);
-
         transform-origin:
             top left;
     }
@@ -1037,11 +1103,26 @@ body {
         font-size: 7px;
         letter-spacing: 0.18em;
     }
+
+    .warning h2 {
+        font-size: 36px;
+    }
+
+    .warning p {
+        font-size: 17px;
+    }
+
+    .saved-title {
+        font-size: 29px;
+    }
+
+    .saved-text {
+        font-size: 18px;
+    }
 }
 
 </style>
 </head>
-
 
 <body>
 
@@ -1201,7 +1282,6 @@ body {
 
             </div>
 
-
             <div class="question">
 
                 <label>
@@ -1215,7 +1295,6 @@ body {
 
             </div>
 
-
             <div class="question">
 
                 <label>
@@ -1228,7 +1307,6 @@ body {
                 ></textarea>
 
             </div>
-
 
             <div class="question">
 
@@ -1306,7 +1384,6 @@ body {
 
             </div>
 
-
             <div class="question">
 
                 <label>
@@ -1319,7 +1396,6 @@ body {
                 ></textarea>
 
             </div>
-
 
             <div class="question">
 
@@ -1398,7 +1474,6 @@ body {
 
             </div>
 
-
             <div class="question">
 
                 <label>
@@ -1413,7 +1488,6 @@ body {
 
             </div>
 
-
             <div class="question">
 
                 <label>
@@ -1426,7 +1500,6 @@ body {
                 ></textarea>
 
             </div>
-
 
             <div class="question">
 
@@ -1505,7 +1578,6 @@ body {
 
             </div>
 
-
             <div class="question">
 
                 <label>
@@ -1519,7 +1591,6 @@ body {
 
             </div>
 
-
             <div class="question">
 
                 <label>
@@ -1532,7 +1603,6 @@ body {
                 ></textarea>
 
             </div>
-
 
             <div class="question">
 
@@ -1610,7 +1680,6 @@ body {
 
             </div>
 
-
             <div class="question">
 
                 <label>
@@ -1624,7 +1693,6 @@ body {
 
             </div>
 
-
             <div class="question">
 
                 <label>
@@ -1637,7 +1705,6 @@ body {
                 ></textarea>
 
             </div>
-
 
             <div class="question">
 
@@ -1680,7 +1747,7 @@ body {
 
 
 <!-- =========================================================
-     KARTKA 7
+     KARTKA 7 — WIADOMOŚĆ DLA ANI
 ========================================================= -->
 
 <section
@@ -1703,6 +1770,7 @@ body {
         </p>
 
         <textarea
+            id="futureMessage"
             data-key="q20"
             placeholder="Napisz coś dla siebie..."
         ></textarea>
@@ -1721,11 +1789,100 @@ body {
 
         <button
             class="button"
+            id="futureNext"
             type="button"
-            data-go="0"
         >
-            FINISH JOURNAL
+            NEXT PAGE
         </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     KARTKA 8 — OSTRZEŻENIE
+========================================================= -->
+
+<section
+    class="page"
+    id="page8"
+>
+
+    <div class="paper-border"></div>
+
+    <div class="warning">
+
+        <h2>
+            SEKUNKAA!!
+        </h2>
+
+        <p>
+            Za chwilę zapiszesz swoją wiadomość
+            na zawsze.
+
+            <br><br>
+
+            Po kliknięciu <strong>SAVE</strong>
+            nie będzie już możliwości jej edycji.
+
+            <br><br>
+
+            Upewnij się, że napisałaś wszystko,
+            co chciałaś.
+        </p>
+
+    </div>
+
+    <div class="navigation">
+
+        <button
+            class="button"
+            type="button"
+            data-go="7"
+        >
+            PREVIOUS PAGE
+        </button>
+
+        <button
+            class="button"
+            id="saveButton"
+            type="button"
+        >
+            SAVE
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     KARTKA 9 — ZAPISANO
+========================================================= -->
+
+<section
+    class="page"
+    id="page9"
+>
+
+    <div class="paper-border"></div>
+
+    <div class="saved">
+
+        <div class="saved-title">
+            zapisane.
+        </div>
+
+        <div class="saved-text">
+
+            Do zobaczenia za rok...
+
+            <span class="saved-name">
+                Aniu &lt;3
+            </span>
+
+        </div>
 
     </div>
 
@@ -1785,6 +1942,38 @@ let currentPage = 0;
 
 
 /* =========================================================
+   ELEMENTY
+========================================================= */
+
+const openButton =
+    document.getElementById("openButton");
+
+const futureMessage =
+    document.getElementById("futureMessage");
+
+const futureNext =
+    document.getElementById("futureNext");
+
+const saveButton =
+    document.getElementById("saveButton");
+
+
+/* =========================================================
+   STATUS ZAPISANIA
+========================================================= */
+
+const savedKey =
+    "ania_journal_message_saved";
+
+const messageKey =
+    "ania_journal_q20";
+
+
+let messageIsSaved =
+    localStorage.getItem(savedKey) === "true";
+
+
+/* =========================================================
    ZMIANA STRONY
 ========================================================= */
 
@@ -1807,15 +1996,13 @@ function showPage(number) {
     pages[number].classList.add("active");
 
     currentPage = number;
+
 }
 
 
 /* =========================================================
    OPEN
 ========================================================= */
-
-const openButton =
-    document.getElementById("openButton");
 
 openButton.addEventListener(
     "click",
@@ -1858,7 +2045,22 @@ navigationButtons.forEach(function(button) {
 
 
 /* =========================================================
-   ZAPIS ODPOWIEDZI
+   WCZYTANIE WIADOMOŚCI
+========================================================= */
+
+const savedMessage =
+    localStorage.getItem(messageKey);
+
+if (savedMessage !== null) {
+
+    futureMessage.value =
+        savedMessage;
+
+}
+
+
+/* =========================================================
+   ZAPISYWANIE ODPOWIEDZI
 ========================================================= */
 
 const textareas =
@@ -1880,7 +2082,8 @@ textareas.forEach(function(textarea) {
 
     if (saved !== null) {
 
-        textarea.value = saved;
+        textarea.value =
+            saved;
 
     }
 
@@ -1888,6 +2091,142 @@ textareas.forEach(function(textarea) {
     textarea.addEventListener(
         "input",
         function() {
+
+            /*
+             * Wiadomość dla przyszłej Ani
+             * po SAVE nie może być zmieniana.
+             */
+
+            if (
+                textarea === futureMessage &&
+                messageIsSaved
+            ) {
+                return;
+            }
+
+
+            localStorage.setItem(
+                key,
+                textarea.value
+            );
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   NEXT PAGE Z WIADOMOŚCI
+========================================================= */
+
+futureNext.addEventListener(
+    "click",
+    function(event) {
+
+        event.preventDefault();
+
+
+        /*
+         * Najpierw zapisujemy aktualną wersję
+         * wiadomości, żeby nic nie zniknęło.
+         */
+
+        localStorage.setItem(
+            messageKey,
+            futureMessage.value
+        );
+
+
+        /*
+         * Następnie pokazujemy ostrzeżenie.
+         */
+
+        showPage(8);
+
+    }
+);
+
+
+/* =========================================================
+   SAVE
+========================================================= */
+
+saveButton.addEventListener(
+    "click",
+    function(event) {
+
+        event.preventDefault();
+
+
+        /*
+         * Zapisujemy wiadomość.
+         */
+
+        localStorage.setItem(
+            messageKey,
+            futureMessage.value
+        );
+
+
+        /*
+         * Ustawiamy trwały status.
+         */
+
+        localStorage.setItem(
+            savedKey,
+            "true"
+        );
+
+
+        messageIsSaved = true;
+
+
+        /*
+         * Blokujemy pole.
+         */
+
+        futureMessage.readOnly = true;
+
+
+        /*
+         * Pokazujemy finał.
+         */
+
+        showPage(9);
+
+    }
+);
+
+
+/* =========================================================
+   BLOKADA PO WCZEŚNIEJSZYM ZAPISANIU
+========================================================= */
+
+if (messageIsSaved) {
+
+    futureMessage.readOnly = true;
+
+}
+
+
+/* =========================================================
+   ZAPIS POZOSTAŁYCH ODPOWIEDZI
+========================================================= */
+
+textareas.forEach(function(textarea) {
+
+    if (textarea === futureMessage) {
+        return;
+    }
+
+    textarea.addEventListener(
+        "input",
+        function() {
+
+            const key =
+                "ania_journal_" +
+                textarea.getAttribute("data-key");
 
             localStorage.setItem(
                 key,
@@ -1907,6 +2246,20 @@ textareas.forEach(function(textarea) {
 document.addEventListener(
     "keydown",
     function(event) {
+
+        /*
+         * Nie pozwalamy przypadkiem
+         * przeskoczyć ostrzeżenia klawiaturą.
+         */
+
+        if (
+            currentPage === 7 ||
+            currentPage === 8 ||
+            currentPage === 9
+        ) {
+            return;
+        }
+
 
         if (
             event.key === "ArrowRight"
