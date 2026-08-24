@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For Ania — 22</title>
+<title>Dla Anny :3 — 22</title>
 
 <style>
 
@@ -110,14 +110,6 @@ body {
     pointer-events: none;
 }
 
-
-/*
-   Każda z tych warstw jest prawdziwą "kartką"
-   znajdującą się pod aktualną stroną.
-
-   Widać z nich tylko krawędzie.
-*/
-
 .stack-sheet {
     position: absolute;
 
@@ -144,9 +136,6 @@ body {
         opacity 0.35s ease;
 }
 
-
-/* pierwsza kartka pod spodem */
-
 .stack-sheet.one {
     transform:
         translate(9px, 9px)
@@ -154,9 +143,6 @@ body {
 
     z-index: 1;
 }
-
-
-/* druga */
 
 .stack-sheet.two {
     transform:
@@ -166,9 +152,6 @@ body {
     z-index: 2;
 }
 
-
-/* trzecia */
-
 .stack-sheet.three {
     transform:
         translate(6px, 18px)
@@ -176,12 +159,6 @@ body {
 
     z-index: 3;
 }
-
-
-/*
-   Delikatny cień tylko na krawędziach.
-   Dzięki temu kartki wyglądają jak prawdziwy papier.
-*/
 
 .stack-sheet::after {
     content: "";
@@ -237,11 +214,6 @@ body {
 
     pointer-events: none;
 }
-
-
-/*
-   Każda strona ma swój delikatnie inny kąt.
-*/
 
 #page0 {
     transform:
@@ -303,14 +275,11 @@ body {
         rotate(0.35deg);
 }
 
-
 .page.active {
     opacity: 1;
     visibility: visible;
-
     pointer-events: auto;
 }
-
 
 .page::before {
     content: "";
@@ -331,7 +300,6 @@ body {
             transparent 5px
         );
 }
-
 
 .paper-border {
     position: absolute;
@@ -822,7 +790,7 @@ body {
 
 
 /* =========================================================
-   ZAPISANO
+   ZAPISANO — OSTATNIA STRONA
 ========================================================= */
 
 .saved {
@@ -848,27 +816,51 @@ body {
 .saved-title {
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 34px;
+    font-size: 39px;
 
     font-weight: 500;
 
-    margin-bottom: 28px;
+    letter-spacing: 0.12em;
+
+    margin-left: 0.12em;
+
+    color: #2b2118;
+}
+
+.saved-line {
+    width: 45px;
+    height: 1px;
+
+    background:
+        rgba(60,45,30,0.45);
+
+    margin: 24px 0 27px;
 }
 
 .saved-text {
+    max-width: 350px;
+
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 20px;
+    font-size: 18px;
 
     line-height: 1.5;
+
+    color: #3c3025;
 }
 
-.saved-name {
-    display: block;
+.saved-goodbye {
+    margin-top: 38px;
 
-    margin-top: 8px;
+    font-family: "Cormorant Garamond", serif;
 
-    font-size: 25px;
+    font-size: 26px;
+
+    font-weight: 500;
+
+    font-style: italic;
+
+    color: #2b2118;
 }
 
 
@@ -1302,6 +1294,10 @@ body {
 
     .saved-text {
         font-size: 18px;
+    }
+
+    .saved-goodbye {
+        font-size: 22px;
     }
 }
 
@@ -2070,17 +2066,21 @@ body {
     <div class="saved">
 
         <div class="saved-title">
-            zapisane.
+            ZAPISANE.
         </div>
 
+        <div class="saved-line"></div>
+
         <div class="saved-text">
+            I to już wszystko na dzisiaj.
+            <br><br>
+            Odłóż tę kartkę i wróć tutaj dokładnie za rok.
+            <br>
+            Zobaczymy, ile się zmieniło.
+        </div>
 
-            Do zobaczenia za rok...
-
-            <span class="saved-name">
-                Aniu &lt;3
-            </span>
-
+        <div class="saved-goodbye">
+            Do zobaczenia, Aniu. ♡
         </div>
 
     </div>
