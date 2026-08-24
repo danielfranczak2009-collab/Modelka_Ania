@@ -1090,6 +1090,10 @@ body {
 <body>
 
 
+<!-- =========================================================
+     TŁO
+========================================================= -->
+
 <div class="table"></div>
 
 
@@ -1108,6 +1112,25 @@ body {
     >
 </audio>
 
+
+<!-- =========================================================
+     DŹWIĘK PAPIERU
+========================================================= -->
+
+<audio
+    id="pageTurnSound"
+    preload="auto"
+>
+    <source
+        src="./paper.mp3"
+        type="audio/mpeg"
+    >
+</audio>
+
+
+<!-- =========================================================
+     STOS KARTEK
+========================================================= -->
 
 <div class="paper-stack">
 
@@ -1837,20 +1860,54 @@ const backgroundMusic =
 
 function startMusic() {
 
-    /* CISZEJ — 15% GŁOŚNOŚCI */
     backgroundMusic.volume = 0.15;
 
-    backgroundMusic.currentTime = 0;
+    if (backgroundMusic.paused) {
+
+        const result =
+            backgroundMusic.play();
+
+        if (result !== undefined) {
+
+            result.catch(function(error) {
+
+                console.log(
+                    "Nie udało się uruchomić muzyki:",
+                    error
+                );
+
+            });
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   DŹWIĘK PAPIERU
+========================================================= */
+
+const pageTurnSound =
+    document.getElementById("pageTurnSound");
+
+
+function playPaperSound() {
+
+    pageTurnSound.currentTime = 0;
+
+    pageTurnSound.volume = 0.45;
 
     const result =
-        backgroundMusic.play();
+        pageTurnSound.play();
 
     if (result !== undefined) {
 
         result.catch(function(error) {
 
             console.log(
-                "Nie udało się uruchomić muzyki:",
+                "Nie udało się odtworzyć dźwięku papieru:",
                 error
             );
 
@@ -1881,6 +1938,10 @@ function showPage(number) {
         number = pages.length - 1;
     }
 
+    if (number !== currentPage) {
+        playPaperSound();
+    }
+
     pages.forEach(function(page) {
 
         page.classList.remove("active");
@@ -1906,6 +1967,8 @@ openButton.addEventListener(
     function() {
 
         startMusic();
+
+        playPaperSound();
 
         showPage(1);
 
