@@ -92,7 +92,7 @@ body::before {
 
 
 /* =========================================================
-   ŚWIATŁO NA STOLE
+   ŚWIATŁO
 ========================================================= */
 
 body::after {
@@ -127,10 +127,10 @@ body::after {
 
 
 /* =========================================================
-   KARTKA
+   WSPÓLNA KARTKA
 ========================================================= */
 
-.journal {
+.journal-page {
     position: absolute;
 
     z-index: 5;
@@ -145,8 +145,24 @@ body::after {
         translate(-50%, -50%)
         rotate(-1deg);
 
-    animation:
-        journalAppear 1.4s ease forwards;
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.55s ease,
+        transform 0.55s ease;
+}
+
+
+.journal-page.active {
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-1deg);
 }
 
 
@@ -174,7 +190,7 @@ body::after {
    KARTKA
 ========================================================= */
 
-.cover {
+.paper {
     position: absolute;
 
     inset: 0;
@@ -211,7 +227,7 @@ body::after {
    TEKSTURA PAPIERU
 ========================================================= */
 
-.cover::before {
+.paper::before {
     content: "";
 
     position: absolute;
@@ -246,7 +262,7 @@ body::after {
    RAMKA
 ========================================================= */
 
-.cover::after {
+.paper::after {
     content: "";
 
     position: absolute;
@@ -256,11 +272,29 @@ body::after {
     border:
         1px solid
         rgba(45, 34, 23, 0.20);
+
+    pointer-events: none;
 }
 
 
 /* =========================================================
-   PIERWSZA STRONA
+   OKŁADKA
+========================================================= */
+
+#coverPage {
+    z-index: 10;
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+    animation:
+        journalAppear 1.2s ease forwards;
+}
+
+
+/* =========================================================
+   ZAWARTOŚĆ OKŁADKI
 ========================================================= */
 
 .cover-content {
@@ -278,10 +312,6 @@ body::after {
 }
 
 
-/* =========================================================
-   A DIGITAL JOURNAL
-========================================================= */
-
 .edition {
     font-size: 10px;
 
@@ -294,10 +324,6 @@ body::after {
     opacity: 0.58;
 }
 
-
-/* =========================================================
-   ANIA
-========================================================= */
 
 .name {
     font-family:
@@ -320,10 +346,6 @@ body::after {
 }
 
 
-/* =========================================================
-   LINIA
-========================================================= */
-
 .line {
     width: 55px;
 
@@ -336,10 +358,6 @@ body::after {
 }
 
 
-/* =========================================================
-   VOLUME
-========================================================= */
-
 .volume {
     font-size: 11px;
 
@@ -351,10 +369,6 @@ body::after {
 }
 
 
-/* =========================================================
-   DATA
-========================================================= */
-
 .date {
     position: absolute;
 
@@ -364,11 +378,10 @@ body::after {
 
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     font-size: 12px;
-
-    font-weight: 400;
 
     letter-spacing: 0.28em;
 
@@ -383,14 +396,34 @@ body::after {
 
 
 /* =========================================================
-   OPEN + NEXT PAGE
+   NAWIGACJA
 ========================================================= */
 
-.open,
-.next-page {
+.page-navigation {
     position: absolute;
 
-    z-index: 10;
+    z-index: 20;
+
+    bottom: 32px;
+
+    left: 38px;
+
+    right: 38px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    pointer-events: none;
+}
+
+
+.nav-button {
+    position: relative;
+
+    padding: 12px 14px;
 
     border: none;
 
@@ -402,46 +435,26 @@ body::after {
         'Montserrat',
         sans-serif;
 
-    font-size: 10px;
+    font-size: 9px;
 
     font-weight: 400;
 
+    letter-spacing: 0.28em;
+
     cursor: pointer;
 
-    opacity: 0.68;
+    opacity: 0.62;
+
+    pointer-events: auto;
 
     transition:
-
         opacity 0.3s ease,
-
         letter-spacing 0.3s ease,
-
         transform 0.3s ease;
 }
 
 
-/* =========================================================
-   OPEN
-========================================================= */
-
-.open {
-    bottom: 43px;
-
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    padding: 12px 22px;
-
-    letter-spacing: 0.38em;
-
-    margin-left: 0.38em;
-}
-
-
-.open::after,
-.next-page::after {
+.nav-button::after {
     content: "";
 
     position: absolute;
@@ -462,86 +475,122 @@ body::after {
     opacity: 0.4;
 
     transition:
-
         width 0.3s ease,
-
         opacity 0.3s ease;
 }
 
 
-.open:hover,
-.next-page:hover {
+.nav-button:hover {
     opacity: 1;
+
+    letter-spacing: 0.38em;
 }
 
 
-.open:hover {
+.nav-button:hover::after {
+    width: 48px;
+
+    opacity: 0.8;
+}
+
+
+.nav-button:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================================================
+   OPEN
+========================================================= */
+
+.open-button {
+    position: absolute;
+
+    z-index: 20;
+
+    bottom: 43px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    padding: 12px 22px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #17130f;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.38em;
+
+    margin-left: 0.38em;
+
+    cursor: pointer;
+
+    opacity: 0.68;
+
+    transition:
+        opacity 0.3s ease,
+        letter-spacing 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.open-button::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 3px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 25px;
+
+    height: 1px;
+
+    background: #17130f;
+
+    opacity: 0.4;
+
+    transition:
+        width 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+.open-button:hover {
+    opacity: 1;
+
     letter-spacing: 0.52em;
 }
 
 
-.open:hover::after,
-.next-page:hover::after {
+.open-button:hover::after {
     width: 55px;
 
     opacity: 0.8;
 }
 
 
-.open:active {
-    transform:
-        translateX(-50%)
-        scale(0.95);
-}
-
-
 /* =========================================================
-   STRONA 2
+   STRONA POWITALNA
 ========================================================= */
 
-.page-two {
-    position: absolute;
-
-    z-index: 6;
-
-    width: min(40vw, 600px);
-    height: min(78vh, 900px);
-
-    left: 50%;
-    top: 50%;
-
-    transform:
-        translate(-50%, -50%)
-        rotate(1deg);
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition:
-
-        opacity 0.8s ease,
-
-        transform 0.8s ease;
-}
-
-
-.page-two.active {
-    opacity: 1;
-
-    pointer-events: auto;
-
-    transform:
-        translate(-50%, -50%)
-        rotate(1deg);
-}
-
-
-/* =========================================================
-   ZAWARTOŚĆ STRONY 2
-========================================================= */
-
-.page-two-content {
+.intro-content {
     position: absolute;
 
     inset: 0;
@@ -559,15 +608,11 @@ body::after {
     text-align: center;
 
     padding:
-        82px 65px 125px;
+        80px 65px 120px;
 }
 
 
-/* =========================================================
-   NAGŁÓWEK STRONY 2
-========================================================= */
-
-.page-two-title {
+.intro-title {
     max-width: 88%;
 
     font-family:
@@ -592,11 +637,7 @@ body::after {
 }
 
 
-/* =========================================================
-   TEKST STRONY 2
-========================================================= */
-
-.page-two-text {
+.intro-text {
     max-width: 84%;
 
     font-family:
@@ -609,78 +650,253 @@ body::after {
         21px
     );
 
-    font-weight: 400;
-
     line-height: 1.55;
-
-    letter-spacing: 0.005em;
 
     color: #30271e;
 }
 
 
-.page-two-text strong {
+.intro-text strong {
     font-weight: 600;
 }
 
 
 /* =========================================================
-   NEXT PAGE
+   STRONY Z PYTANIAMI
 ========================================================= */
 
-.next-page {
-    right: 38px;
+.chapter-content {
+    position: absolute;
 
-    bottom: 32px;
+    inset: 0;
 
-    padding: 12px 14px;
+    z-index: 4;
 
-    letter-spacing: 0.28em;
+    display: flex;
 
-    margin-left: 0.28em;
+    flex-direction: column;
 
-    font-size: 9px;
+    align-items: center;
 
-    opacity: 0.62;
+    text-align: center;
+
+    padding:
+        65px 55px 95px;
 }
 
 
-.next-page:hover {
-    letter-spacing: 0.38em;
+.chapter-number {
+    font-size: 8px;
+
+    letter-spacing: 0.4em;
+
+    margin-left: 0.4em;
+
+    opacity: 0.5;
+
+    margin-bottom: 8px;
 }
 
 
-.next-page:hover::after {
-    width: 48px;
+.chapter-title {
+    font-family:
+        'Cormorant Garamond',
+        serif;
 
-    opacity: 0.75;
+    font-size: clamp(
+        29px,
+        3vw,
+        43px
+    );
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    margin-bottom: 28px;
+
+    color: #241c15;
 }
 
 
-.next-page:active {
-    transform: scale(0.95);
+.questions {
+    width: 100%;
+
+    max-width: 470px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 17px;
+
+    text-align: left;
+}
+
+
+.question {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.question label {
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 17px;
+
+    line-height: 1.15;
+
+    color: #30271e;
+}
+
+
+.question textarea {
+    width: 100%;
+
+    min-height: 43px;
+
+    resize: none;
+
+    overflow-y: auto;
+
+    border:
+        1px solid
+        rgba(60, 45, 30, 0.28);
+
+    border-radius: 2px;
+
+    background:
+        rgba(255, 252, 245, 0.25);
+
+    padding: 7px 9px;
+
+    color: #30271e;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 16px;
+
+    line-height: 1.25;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.question textarea:focus {
+    border-color:
+        rgba(60, 45, 30, 0.55);
+
+    background:
+        rgba(255, 252, 245, 0.42);
 }
 
 
 /* =========================================================
-   UKRYWANIE PIERWSZEJ STRONY
+   OSTATNIA STRONA
 ========================================================= */
 
-.journal.hidden {
-    opacity: 0;
+.final-content {
+    position: absolute;
 
-    pointer-events: none;
+    inset: 0;
 
-    transform:
-        translate(-50%, -50%)
-        rotate(-1deg)
-        scale(0.96);
+    z-index: 4;
 
-    transition:
+    display: flex;
 
-        opacity 0.8s ease,
+    flex-direction: column;
 
-        transform 0.8s ease;
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding:
+        70px 60px 110px;
+}
+
+
+.final-title {
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: clamp(
+        30px,
+        3.2vw,
+        48px
+    );
+
+    font-weight: 500;
+
+    margin-bottom: 35px;
+}
+
+
+.final-text {
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 19px;
+
+    line-height: 1.45;
+
+    max-width: 85%;
+
+    margin-bottom: 22px;
+}
+
+
+.final-textarea {
+    width: 90%;
+
+    height: 210px;
+
+    resize: none;
+
+    border:
+        1px solid
+        rgba(60, 45, 30, 0.28);
+
+    background:
+        rgba(255, 252, 245, 0.25);
+
+    padding: 12px;
+
+    outline: none;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 18px;
+
+    line-height: 1.4;
+
+    color: #30271e;
+}
+
+
+.final-textarea:focus {
+    border-color:
+        rgba(60, 45, 30, 0.55);
+
+    background:
+        rgba(255, 252, 245, 0.42);
 }
 
 
@@ -753,11 +969,6 @@ body::after {
             #ddd1bf 55%,
             #bcae9a 100%
         );
-
-    box-shadow:
-
-        inset 0 -8px 12px
-        rgba(60,40,20,0.12);
 }
 
 
@@ -782,34 +993,6 @@ body::after {
             #4a2919 55%,
             #2d170d 100%
         );
-
-    box-shadow:
-
-        inset 0 3px 5px
-        rgba(255,220,180,0.12);
-}
-
-
-.coffee::after {
-    content: "";
-
-    position: absolute;
-
-    width: 18px;
-
-    height: 8px;
-
-    left: 18px;
-
-    top: 15px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255,220,180,0.12);
-
-    transform:
-        rotate(-25deg);
 }
 
 
@@ -829,11 +1012,6 @@ body::after {
         #cfc2ae;
 
     border-radius: 50%;
-
-    box-shadow:
-
-        inset 0 0 4px
-        rgba(60,40,20,0.12);
 }
 
 
@@ -935,14 +1113,6 @@ body::after {
             rgba(255,245,225,0.7),
             rgba(200,175,145,0.5)
         );
-
-    box-shadow:
-
-        0 12px 14px
-        rgba(20,10,5,0.20),
-
-        inset 0 0 12px
-        rgba(255,255,255,0.22);
 }
 
 
@@ -1105,14 +1275,12 @@ body::after {
 @keyframes flame {
 
     from {
-
         transform:
             rotate(-4deg)
             scaleY(0.95);
     }
 
     to {
-
         transform:
             rotate(5deg)
             scaleY(1.06);
@@ -1123,7 +1291,6 @@ body::after {
 @keyframes glow {
 
     from {
-
         opacity: 0.55;
 
         transform:
@@ -1131,7 +1298,6 @@ body::after {
     }
 
     to {
-
         opacity: 1;
 
         transform:
@@ -1143,7 +1309,6 @@ body::after {
 @keyframes steam {
 
     0% {
-
         opacity: 0;
 
         transform:
@@ -1153,17 +1318,14 @@ body::after {
     }
 
     30% {
-
         opacity: 0.6;
     }
 
     70% {
-
         opacity: 0.25;
     }
 
     100% {
-
         opacity: 0;
 
         transform:
@@ -1180,111 +1342,92 @@ body::after {
 
 @media (max-width: 900px) {
 
-    .journal,
-    .page-two {
-
+    .journal-page {
         width: 55vw;
-
         height: 78vh;
     }
 
-
     .cup {
-
         right: 3%;
-
         transform: scale(0.82);
-
-        transform-origin:
-            bottom right;
+        transform-origin: bottom right;
     }
 
-
     .candle {
-
         left: 3%;
-
         transform: scale(0.82);
-
-        transform-origin:
-            top left;
+        transform-origin: top left;
     }
 }
 
 
 @media (max-width: 700px) {
 
-    .journal,
-    .page-two {
-
+    .journal-page {
         width: 78vw;
-
         height: 74vh;
     }
 
-
     .cup {
-
         right: 1%;
-
         bottom: 5%;
-
         transform: scale(0.62);
-
-        transform-origin:
-            bottom right;
+        transform-origin: bottom right;
     }
-
 
     .candle {
-
         left: 1%;
-
         top: 5%;
-
         transform: scale(0.62);
-
-        transform-origin:
-            top left;
+        transform-origin: top left;
     }
 
-
     .name {
-
         font-size: 58px;
     }
 
-
-    .page-two-content {
-
+    .intro-content {
         padding:
             75px 35px 100px;
     }
 
-
-    .page-two-title {
-
+    .intro-title {
         font-size: 29px;
-
-        margin-bottom: 30px;
     }
 
-
-    .page-two-text {
-
+    .intro-text {
         font-size: 18px;
-
         line-height: 1.5;
-
         max-width: 90%;
     }
 
+    .chapter-content {
+        padding:
+            55px 35px 90px;
+    }
 
-    .next-page {
+    .chapter-title {
+        font-size: 29px;
+        margin-bottom: 20px;
+    }
 
-        right: 25px;
+    .questions {
+        gap: 12px;
+    }
 
-        bottom: 25px;
+    .question label {
+        font-size: 15px;
+    }
+
+    .question textarea {
+        min-height: 38px;
+        font-size: 15px;
+    }
+
+    .page-navigation {
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
     }
 }
 
@@ -1295,9 +1438,7 @@ body::after {
     min-width: 701px
 ) {
 
-    .journal,
-    .page-two {
-
+    .journal-page {
         height: 84vh;
 
         width: auto;
@@ -1305,22 +1446,14 @@ body::after {
         aspect-ratio: 0.77;
     }
 
-
     .cup {
-
         transform: scale(0.72);
-
-        transform-origin:
-            bottom right;
+        transform-origin: bottom right;
     }
 
-
     .candle {
-
         transform: scale(0.72);
-
-        transform-origin:
-            top left;
+        transform-origin: top left;
     }
 }
 
@@ -1335,19 +1468,17 @@ body::after {
 
 
     <!-- =====================================================
-         PIERWSZA STRONA
+         OKŁADKA
     ====================================================== -->
 
     <div
-        class="journal"
-        id="journal"
+        class="journal-page active"
+        id="coverPage"
     >
 
         <div class="journal-shadow"></div>
 
-
-        <div class="cover">
-
+        <div class="paper">
 
             <div class="cover-content">
 
@@ -1355,14 +1486,11 @@ body::after {
                     A DIGITAL JOURNAL
                 </div>
 
-
                 <div class="name">
                     ANIA
                 </div>
 
-
                 <div class="line"></div>
-
 
                 <div class="volume">
                     VOLUME XXII
@@ -1377,12 +1505,11 @@ body::after {
 
 
             <button
-                class="open"
-                onclick="openJournal()"
+                class="open-button"
+                onclick="goToPage(1)"
             >
                 OPEN
             </button>
-
 
         </div>
 
@@ -1390,33 +1517,28 @@ body::after {
 
 
     <!-- =====================================================
-         DRUGA STRONA
+         STRONA POWITALNA
     ====================================================== -->
 
     <div
-        class="page-two"
-        id="pageTwo"
+        class="journal-page"
+        id="page1"
     >
 
         <div class="journal-shadow"></div>
 
+        <div class="paper">
 
-        <div class="cover">
+            <div class="intro-content">
 
-
-            <div class="page-two-content">
-
-
-                <div class="page-two-title">
-
-                    WSZYSTKIEGO
-                    NAJLEPSZEGO
+                <div class="intro-title">
+                    WSZYSTKIEGO<br>
+                    NAJLEPSZEGO<br>
                     ANIUUU!!!!
-
                 </div>
 
 
-                <div class="page-two-text">
+                <div class="intro-text">
 
                     Nie miałem zbytnio pomysłu,
                     co mógłbym Ci przygotować,
@@ -1451,13 +1573,623 @@ body::after {
             </div>
 
 
-            <button
-                class="next-page"
-                onclick="nextPage()"
-            >
-                NEXT PAGE
-            </button>
+            <div class="page-navigation">
 
+                <button
+                    class="nav-button"
+                    onclick="goToPage(0)"
+                >
+                    PREVIOUS PAGE
+                </button>
+
+                <button
+                    class="nav-button"
+                    onclick="goToPage(2)"
+                >
+                    NEXT PAGE
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ROZDZIAŁ 1
+    ====================================================== -->
+
+    <div
+        class="journal-page"
+        id="page2"
+    >
+
+        <div class="journal-shadow"></div>
+
+        <div class="paper">
+
+            <div class="chapter-content">
+
+                <div class="chapter-number">
+                    CHAPTER I
+                </div>
+
+                <div class="chapter-title">
+                    ANIA, 22 LATA
+                </div>
+
+
+                <div class="questions">
+
+                    <div class="question">
+
+                        <label>
+                            Jak opisałabyś siebie w 3 słowach?
+                        </label>
+
+                        <textarea
+                            data-answer="q1"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="question">
+
+                        <label>
+                            Co jest teraz dla Ciebie najważniejsze?
+                        </label>
+
+                        <textarea
+                            data-answer="q2"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="question">
+
+                        <label>
+                            Z czego jesteś obecnie najbardziej dumna?
+                        </label>
+
+                        <textarea
+                            data-answer="q3"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="question">
+
+                        <label>
+                            Co najbardziej chciałabyś w sobie zmienić?
+                        </label>
+
+                        <textarea
+                            data-answer="q4"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="page-navigation">
+
+                <button
+                    class="nav-button"
+                    onclick="goToPage(1)"
+                >
+                    PREVIOUS PAGE
+                </button>
+
+                <button
+                    class="nav-button"
+                    onclick="goToPage(3)"
+                >
+                    NEXT PAGE
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ROZDZIAŁ 2
+    ====================================================== -->
+
+    <div
+        class="journal-page"
+        id="page3"
+    >
+
+        <div class="journal-shadow"></div>
+
+        <div class="paper">
+
+            <div class="chapter-content">
+
+                <div class="chapter-number">
+                    CHAPTER II
+                </div>
+
+                <div class="chapter-title">
+                    LUDZIE
+                </div>
+
+
+                <div class="questions">
+
+                    <div class="question">
+
+                        <label>
+                            Kto jest teraz najważniejszą osobą w Twoim życiu?
+                        </label>
+
+                        <textarea
+                            data-answer="q5"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="question">
+
+                        <label>
+                            Z kim możesz porozmawiać absolutnie o wszystkim?
+                        </label>
+
+                        <textarea
+                            data-answer="q6"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="question">
+
+                        <label>
+                            Kogo poznałaś w ostatnim roku
+                            i cieszysz się, że ta osoba pojawiła się
+                            w Twoim życiu?
+                        </label>
+
+                        <textarea
+                            data-answer="q7"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="page-navigation">
+
+                <button
+                    class="nav-button"
+                    onclick="goToPage(2)"
+                >
+                    PREVIOUS PAGE
+                </button>
+
+                <button
+                    class="nav-button"
+                    onclick="goToPage(4)"
+                >
+                    NEXT PAGE
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ROZDZIAŁ 3
+    ====================================================== -->
+
+    <div
+        class="journal-page"
+        id="page4"
+    >
+
+        <div class="journal-shadow"></div>
+
+        <div class="paper">
+
+            <div class="chapter-content">
+
+                <div class="chapter-number">
+                    CHAPTER III
+                </div>
+
+                <div class="chapter-title">
+                    ŻYCIE TERAZ
+                </div>
+
+
+                <div class="questions">
+
+                    <div class="question">
+
+                        <label>
+                            Gdzie obecnie widzisz siebie za rok?
+                        </label>
+
+                        <textarea
+                            data-answer="q8"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="question">
+
+                        <label>
+                            Co najbardziej chciałabyś,
+                            żeby wydarzyło się w najbliższym roku?
+                        </label>
+
+                        <textarea
+                            data-answer="q9"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="question">
+
+                        <label>
+                            Co odkładasz już zdecydowanie za długo?
+                        </label>
+
+                        <textarea
+                            data-answer="q10"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="question">
+
+                        <label>
+                            Gdybyś mogła teraz zmienić jedną rzecz
+                            w swoim życiu, co by to było?
+                        </label>
+
+                        <textarea
+                            data-answer="q11"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="page-navigation">
+
+                <button
+                    class="nav-button"
+                    onclick="goToPage(3)"
+                >
+                    PREVIOUS PAGE
+                </button>
+
+                <button
+                    class="nav-button"
+                    onclick="goToPage(5)"
+                >
+                    NEXT PAGE
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ROZDZIAŁ 4
+    ====================================================== -->
+
+    <div
+        class="journal-page"
+        id="page5"
+    >
+
+        <div class="journal-shadow"></div>
+
+        <div class="paper">
+
+            <div class="chapter-content">
+
+                <div class="chapter-number">
+                    CHAPTER IV
+                </div>
+
+                <div class="chapter-title">
+                    MAŁE RZECZY
+                </div>
+
+
+                <div class="questions">
+
+                    <div class="question">
+
+                        <label>
+                            Jaka jest obecnie Twoja ulubiona piosenka?
+                        </label>
+
+                        <textarea
+                            data-answer="q12"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="question">
+
+                        <label>
+                            Jaki film albo serial mogłabyś
+                            oglądać w kółko?
+                        </label>
+
+                        <textarea
+                            data-answer="q13"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="question">
+
+                        <label>
+                            Jakie jest Twoje aktualne ulubione jedzenie?
+                        </label>
+
+                        <textarea
+                            data-answer="q14"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="question">
+
+                        <label>
+                            Co ostatnio najbardziej Cię cieszy?
+                        </label>
+
+                        <textarea
+                            data-answer="q15"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="page-navigation">
+
+                <button
+                    class="nav-button"
+                    onclick="goToPage(4)"
+                >
+                    PREVIOUS PAGE
+                </button>
+
+                <button
+                    class="nav-button"
+                    onclick="goToPage(6)"
+                >
+                    NEXT PAGE
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ROZDZIAŁ 5
+    ====================================================== -->
+
+    <div
+        class="journal-page"
+        id="page6"
+    >
+
+        <div class="journal-shadow"></div>
+
+        <div class="paper">
+
+            <div class="chapter-content">
+
+                <div class="chapter-number">
+                    CHAPTER V
+                </div>
+
+                <div class="chapter-title">
+                    ZA ROK
+                </div>
+
+
+                <div class="questions">
+
+                    <div class="question">
+
+                        <label>
+                            Jak myślisz, gdzie będziesz za rok?
+                        </label>
+
+                        <textarea
+                            data-answer="q16"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="question">
+
+                        <label>
+                            Jak myślisz, co będzie wtedy dla Ciebie
+                            najważniejsze?
+                        </label>
+
+                        <textarea
+                            data-answer="q17"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="question">
+
+                        <label>
+                            Jak myślisz, jaka będzie Twoja
+                            największa zmiana?
+                        </label>
+
+                        <textarea
+                            data-answer="q18"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="question">
+
+                        <label>
+                            Jak myślisz, co nadal będzie
+                            dla Ciebie ważne?
+                        </label>
+
+                        <textarea
+                            data-answer="q19"
+                            placeholder="Twoja odpowiedź..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="page-navigation">
+
+                <button
+                    class="nav-button"
+                    onclick="goToPage(5)"
+                >
+                    PREVIOUS PAGE
+                </button>
+
+                <button
+                    class="nav-button"
+                    onclick="goToPage(7)"
+                >
+                    NEXT PAGE
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         WIADOMOŚĆ DLA PRZYSZŁEJ ANI
+    ====================================================== -->
+
+    <div
+        class="journal-page"
+        id="page7"
+    >
+
+        <div class="journal-shadow"></div>
+
+        <div class="paper">
+
+            <div class="final-content">
+
+                <div class="final-title">
+                    DLA ANI Z PRZYSZŁOŚCI
+                </div>
+
+
+                <div class="final-text">
+
+                    Gdybyś mogła zostawić jedną wiadomość
+                    dla Ani, która przeczyta to za rok,
+                    co chciałabyś jej powiedzieć?
+
+                </div>
+
+
+                <textarea
+                    class="final-textarea"
+                    data-answer="q20"
+                    placeholder="Napisz coś dla siebie..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="page-navigation">
+
+                <button
+                    class="nav-button"
+                    onclick="goToPage(6)"
+                >
+                    PREVIOUS PAGE
+                </button>
+
+                <button
+                    class="nav-button"
+                    onclick="finishJournal()"
+                >
+                    FINISH JOURNAL
+                </button>
+
+            </div>
 
         </div>
 
@@ -1475,7 +2207,6 @@ body::after {
         <div class="steam two"></div>
 
         <div class="saucer"></div>
-
 
         <div class="cup-body">
 
@@ -1500,7 +2231,6 @@ body::after {
 
         <div class="wick"></div>
 
-
         <div class="candle-glass">
 
             <div class="wax"></div>
@@ -1516,49 +2246,158 @@ body::after {
 <script>
 
 /* =========================================================
-   OPEN → STRONA 2
+   ZMIENNE
 ========================================================= */
 
-function openJournal() {
-
-    const journal =
-        document.getElementById("journal");
-
-    const pageTwo =
-        document.getElementById("pageTwo");
+let currentPage = 0;
 
 
-    journal.classList.add("hidden");
+/* =========================================================
+   ZNAJDOWANIE STRON
+========================================================= */
 
+function getPages() {
 
-    setTimeout(() => {
-
-        pageTwo.classList.add("active");
-
-    }, 450);
+    return document.querySelectorAll(
+        ".journal-page"
+    );
 
 }
 
 
 /* =========================================================
-   NEXT PAGE
+   PRZEJŚCIE DO STRONY
 ========================================================= */
 
-function nextPage() {
+function goToPage(pageNumber) {
 
-    /*
-       Następna strona zostanie
-       dodana w kolejnym kroku.
-    */
+    const pages = getPages();
 
-    alert(
-        "Następna strona już wkrótce 📖"
+    if (
+        pageNumber < 0 ||
+        pageNumber >= pages.length
+    ) {
+        return;
+    }
+
+
+    pages.forEach(page => {
+
+        page.classList.remove("active");
+
+    });
+
+
+    currentPage = pageNumber;
+
+
+    pages[currentPage].classList.add(
+        "active"
     );
 
 }
 
-</script>
 
+/* =========================================================
+   ZAPIS ODPOWIEDZI
+========================================================= */
+
+document
+    .querySelectorAll("[data-answer]")
+    .forEach(input => {
+
+
+        const key =
+            "ania_journal_" +
+            input.dataset.answer;
+
+
+        /* Wczytaj poprzednią odpowiedź */
+
+        const saved =
+            localStorage.getItem(key);
+
+
+        if (saved !== null) {
+
+            input.value = saved;
+
+        }
+
+
+        /* Zapisuj automatycznie */
+
+        input.addEventListener(
+            "input",
+            () => {
+
+                localStorage.setItem(
+                    key,
+                    input.value
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   KONIEC DZIENNIKA
+========================================================= */
+
+function finishJournal() {
+
+    const pages = getPages();
+
+
+    pages.forEach(page => {
+
+        page.classList.remove("active");
+
+    });
+
+
+    /*
+       Na razie wracamy na stronę okładki.
+       W kolejnym kroku możemy zrobić tutaj
+       prawdziwe, eleganckie zakończenie.
+    */
+
+    pages[0].classList.add("active");
+
+}
+
+
+/* =========================================================
+   KLAWISZE KLAWIATURY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (event.key === "ArrowRight") {
+
+            goToPage(
+                currentPage + 1
+            );
+
+        }
+
+
+        if (event.key === "ArrowLeft") {
+
+            goToPage(
+                currentPage - 1
+            );
+
+        }
+
+    }
+);
+
+</script>
 
 </body>
 </html>
