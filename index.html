@@ -91,7 +91,113 @@ body {
 
 
 /* =========================================================
-   KARTKA
+   STOS KARTEK
+========================================================= */
+
+.paper-stack {
+    position: absolute;
+
+    width: min(530px, 72vw);
+    height: min(720px, 82vh);
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+
+/*
+   Każda z tych warstw jest prawdziwą "kartką"
+   znajdującą się pod aktualną stroną.
+
+   Widać z nich tylko krawędzie.
+*/
+
+.stack-sheet {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    left: 0;
+    top: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eee5d7,
+            #dfd2c0
+        );
+
+    box-shadow:
+        0 18px 30px rgba(0,0,0,0.20);
+
+    border-radius: 1px;
+
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
+}
+
+
+/* pierwsza kartka pod spodem */
+
+.stack-sheet.one {
+    transform:
+        translate(9px, 9px)
+        rotate(1.15deg);
+
+    z-index: 1;
+}
+
+
+/* druga */
+
+.stack-sheet.two {
+    transform:
+        translate(-8px, 13px)
+        rotate(-1.35deg);
+
+    z-index: 2;
+}
+
+
+/* trzecia */
+
+.stack-sheet.three {
+    transform:
+        translate(6px, 18px)
+        rotate(0.75deg);
+
+    z-index: 3;
+}
+
+
+/*
+   Delikatny cień tylko na krawędziach.
+   Dzięki temu kartki wyglądają jak prawdziwy papier.
+*/
+
+.stack-sheet::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(70,50,30,0.08);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   GŁÓWNA KARTKA
 ========================================================= */
 
 .page {
@@ -105,7 +211,7 @@ body {
 
     transform:
         translate(-50%, -50%)
-        rotate(-1deg);
+        rotate(-0.65deg);
 
     background:
         linear-gradient(
@@ -119,21 +225,92 @@ body {
         0 4px 10px rgba(0,0,0,0.18);
 
     transition:
-        opacity 0.35s ease,
+        opacity 0.3s ease,
         transform 0.35s ease;
 
     opacity: 0;
     visibility: hidden;
 
-    z-index: 10;
+    z-index: 20;
 
     overflow: hidden;
+
+    pointer-events: none;
 }
+
+
+/*
+   Każda strona ma swój delikatnie inny kąt.
+*/
+
+#page0 {
+    transform:
+        translate(-50%, -50%)
+        rotate(-0.65deg);
+}
+
+#page1 {
+    transform:
+        translate(-50%, -50%)
+        rotate(0.45deg);
+}
+
+#page2 {
+    transform:
+        translate(-50%, -50%)
+        rotate(-0.85deg);
+}
+
+#page3 {
+    transform:
+        translate(-50%, -50%)
+        rotate(0.65deg);
+}
+
+#page4 {
+    transform:
+        translate(-50%, -50%)
+        rotate(-0.45deg);
+}
+
+#page5 {
+    transform:
+        translate(-50%, -50%)
+        rotate(0.9deg);
+}
+
+#page6 {
+    transform:
+        translate(-50%, -50%)
+        rotate(-0.55deg);
+}
+
+#page7 {
+    transform:
+        translate(-50%, -50%)
+        rotate(0.55deg);
+}
+
+#page8 {
+    transform:
+        translate(-50%, -50%)
+        rotate(-0.8deg);
+}
+
+#page9 {
+    transform:
+        translate(-50%, -50%)
+        rotate(0.35deg);
+}
+
 
 .page.active {
     opacity: 1;
     visibility: visible;
+
+    pointer-events: auto;
 }
+
 
 .page::before {
     content: "";
@@ -155,12 +332,15 @@ body {
         );
 }
 
+
 .paper-border {
     position: absolute;
 
     inset: 28px;
 
-    border: 1px solid rgba(60,45,30,0.20);
+    border:
+        1px solid
+        rgba(60,45,30,0.20);
 
     pointer-events: none;
 
@@ -215,7 +395,8 @@ body {
     width: 55px;
     height: 1px;
 
-    background: rgba(40,30,20,0.4);
+    background:
+        rgba(40,30,20,0.4);
 
     margin: 34px 0;
 }
@@ -311,6 +492,7 @@ body {
 
 .button:hover::after {
     width: 50px;
+
     opacity: 0.8;
 }
 
@@ -318,11 +500,13 @@ body {
     left: 50%;
     bottom: 35px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 }
 
 .open:hover {
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 }
 
 
@@ -361,7 +545,7 @@ body {
 
 
 /* =========================================================
-   STRONA POWITALNA
+   WSTĘP
 ========================================================= */
 
 .intro {
@@ -388,7 +572,8 @@ body {
 .intro h1 {
     font-family: "Cormorant Garamond", serif;
 
-    font-size: clamp(28px, 4vw, 42px);
+    font-size:
+        clamp(28px, 4vw, 42px);
 
     font-weight: 600;
 
@@ -415,7 +600,7 @@ body {
 
 
 /* =========================================================
-   ROZDZIAŁ
+   ROZDZIAŁY
 ========================================================= */
 
 .chapter {
@@ -512,7 +697,7 @@ body {
 
 
 /* =========================================================
-   OSTATNIA STRONA
+   DLA ANI Z PRZYSZŁOŚCI
 ========================================================= */
 
 .final {
@@ -585,7 +770,7 @@ body {
 
 
 /* =========================================================
-   OSTRZEŻENIE
+   SEKUNKAA
 ========================================================= */
 
 .warning {
@@ -688,8 +873,7 @@ body {
 
 
 /* =========================================================
-   FILIŻANKA — WIDOK Z GÓRY
-   PRAWY DOLNY RÓG
+   KAWA — PRAWY DOLNY
 ========================================================= */
 
 .cup {
@@ -754,8 +938,6 @@ body {
 
     box-shadow:
         3px 6px 10px rgba(0,0,0,0.20);
-
-    overflow: visible;
 }
 
 .coffee {
@@ -816,9 +998,6 @@ body {
     border-radius: 50%;
 
     background: transparent;
-
-    box-shadow:
-        2px 4px 7px rgba(0,0,0,0.12);
 }
 
 .steam {
@@ -872,8 +1051,7 @@ body {
 
 
 /* =========================================================
-   ŚWIECZKA — WIDOK Z GÓRY
-   LEWY GÓRNY RÓG
+   ŚWIECZKA — LEWY GÓRNY
 ========================================================= */
 
 .candle {
@@ -935,8 +1113,6 @@ body {
 
     box-shadow:
         5px 9px 15px rgba(0,0,0,0.27);
-
-    z-index: 2;
 }
 
 .candle-base::after {
@@ -1047,6 +1223,7 @@ body {
 
 @media (max-width: 700px) {
 
+    .paper-stack,
     .page {
         width: 82vw;
         height: 78vh;
@@ -1083,13 +1260,19 @@ body {
     }
 
     .cup {
-        transform: scale(0.72) rotate(-8deg);
+        transform:
+            scale(0.72)
+            rotate(-8deg);
+
         transform-origin:
             bottom right;
     }
 
     .candle {
-        transform: scale(0.72) rotate(6deg);
+        transform:
+            scale(0.72)
+            rotate(6deg);
+
         transform-origin:
             top left;
     }
@@ -1101,6 +1284,7 @@ body {
 
     .navigation .button {
         font-size: 7px;
+
         letter-spacing: 0.18em;
     }
 
@@ -1132,6 +1316,21 @@ body {
 ========================================================= -->
 
 <div class="table"></div>
+
+
+<!-- =========================================================
+     STOS KARTEK
+========================================================= -->
+
+<div class="paper-stack">
+
+    <div class="stack-sheet one"></div>
+
+    <div class="stack-sheet two"></div>
+
+    <div class="stack-sheet three"></div>
+
+</div>
 
 
 <!-- =========================================================
@@ -1747,7 +1946,7 @@ body {
 
 
 <!-- =========================================================
-     KARTKA 7 — WIADOMOŚĆ DLA ANI
+     KARTKA 7 — WIADOMOŚĆ
 ========================================================= -->
 
 <section
@@ -1890,7 +2089,7 @@ body {
 
 
 <!-- =========================================================
-     FILIŻANKA
+     KAWA
 ========================================================= -->
 
 <div class="cup">
@@ -1930,7 +2129,6 @@ body {
 
 <script>
 
-
 /* =========================================================
    STRONY
 ========================================================= */
@@ -1959,7 +2157,7 @@ const saveButton =
 
 
 /* =========================================================
-   STATUS ZAPISANIA
+   LOCAL STORAGE
 ========================================================= */
 
 const savedKey =
@@ -1968,13 +2166,12 @@ const savedKey =
 const messageKey =
     "ania_journal_q20";
 
-
 let messageIsSaved =
     localStorage.getItem(savedKey) === "true";
 
 
 /* =========================================================
-   ZMIANA STRONY
+   POKAZYWANIE STRONY
 ========================================================= */
 
 function showPage(number) {
@@ -2060,7 +2257,7 @@ if (savedMessage !== null) {
 
 
 /* =========================================================
-   ZAPISYWANIE ODPOWIEDZI
+   ODPOWIEDZI — LOCAL STORAGE
 ========================================================= */
 
 const textareas =
@@ -2075,10 +2272,8 @@ textareas.forEach(function(textarea) {
         "ania_journal_" +
         textarea.getAttribute("data-key");
 
-
     const saved =
         localStorage.getItem(key);
-
 
     if (saved !== null) {
 
@@ -2087,15 +2282,9 @@ textareas.forEach(function(textarea) {
 
     }
 
-
     textarea.addEventListener(
         "input",
         function() {
-
-            /*
-             * Wiadomość dla przyszłej Ani
-             * po SAVE nie może być zmieniana.
-             */
 
             if (
                 textarea === futureMessage &&
@@ -2103,7 +2292,6 @@ textareas.forEach(function(textarea) {
             ) {
                 return;
             }
-
 
             localStorage.setItem(
                 key,
@@ -2117,7 +2305,7 @@ textareas.forEach(function(textarea) {
 
 
 /* =========================================================
-   NEXT PAGE Z WIADOMOŚCI
+   WIADOMOŚĆ → OSTRZEŻENIE
 ========================================================= */
 
 futureNext.addEventListener(
@@ -2126,21 +2314,10 @@ futureNext.addEventListener(
 
         event.preventDefault();
 
-
-        /*
-         * Najpierw zapisujemy aktualną wersję
-         * wiadomości, żeby nic nie zniknęło.
-         */
-
         localStorage.setItem(
             messageKey,
             futureMessage.value
         );
-
-
-        /*
-         * Następnie pokazujemy ostrzeżenie.
-         */
 
         showPage(8);
 
@@ -2158,40 +2335,19 @@ saveButton.addEventListener(
 
         event.preventDefault();
 
-
-        /*
-         * Zapisujemy wiadomość.
-         */
-
         localStorage.setItem(
             messageKey,
             futureMessage.value
         );
-
-
-        /*
-         * Ustawiamy trwały status.
-         */
 
         localStorage.setItem(
             savedKey,
             "true"
         );
 
-
         messageIsSaved = true;
 
-
-        /*
-         * Blokujemy pole.
-         */
-
         futureMessage.readOnly = true;
-
-
-        /*
-         * Pokazujemy finał.
-         */
 
         showPage(9);
 
@@ -2200,7 +2356,7 @@ saveButton.addEventListener(
 
 
 /* =========================================================
-   BLOKADA PO WCZEŚNIEJSZYM ZAPISANIU
+   JEŚLI WIADOMOŚĆ BYŁA JUŻ ZAPISANA
 ========================================================= */
 
 if (messageIsSaved) {
@@ -2211,46 +2367,12 @@ if (messageIsSaved) {
 
 
 /* =========================================================
-   ZAPIS POZOSTAŁYCH ODPOWIEDZI
-========================================================= */
-
-textareas.forEach(function(textarea) {
-
-    if (textarea === futureMessage) {
-        return;
-    }
-
-    textarea.addEventListener(
-        "input",
-        function() {
-
-            const key =
-                "ania_journal_" +
-                textarea.getAttribute("data-key");
-
-            localStorage.setItem(
-                key,
-                textarea.value
-            );
-
-        }
-    );
-
-});
-
-
-/* =========================================================
-   STRZAŁKI KLAWIATURY
+   KLAWISZE
 ========================================================= */
 
 document.addEventListener(
     "keydown",
     function(event) {
-
-        /*
-         * Nie pozwalamy przypadkiem
-         * przeskoczyć ostrzeżenia klawiaturą.
-         */
 
         if (
             currentPage === 7 ||
@@ -2259,7 +2381,6 @@ document.addEventListener(
         ) {
             return;
         }
-
 
         if (
             event.key === "ArrowRight"
@@ -2270,7 +2391,6 @@ document.addEventListener(
             );
 
         }
-
 
         if (
             event.key === "ArrowLeft"
