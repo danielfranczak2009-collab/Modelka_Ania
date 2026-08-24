@@ -11,6 +11,7 @@
 
 <title>ANIA — Volume XXII</title>
 
+
 <style>
 
 /* =========================================================
@@ -32,15 +33,19 @@
     padding: 0;
 }
 
+
 html,
 body {
     width: 100%;
     height: 100%;
 }
 
+
 body {
     min-height: 100vh;
+
     overflow: hidden;
+
     position: relative;
 
     font-family: 'Montserrat', sans-serif;
@@ -62,9 +67,11 @@ body {
 ========================================================= */
 
 body::before {
+
     content: "";
 
     position: fixed;
+
     inset: -10%;
 
     pointer-events: none;
@@ -96,9 +103,11 @@ body::before {
 ========================================================= */
 
 body::after {
+
     content: "";
 
     position: fixed;
+
     inset: 0;
 
     pointer-events: none;
@@ -119,9 +128,11 @@ body::after {
 ========================================================= */
 
 .scene {
+
     position: relative;
 
     width: 100vw;
+
     height: 100vh;
 }
 
@@ -131,14 +142,17 @@ body::after {
 ========================================================= */
 
 .journal {
+
     position: absolute;
 
     z-index: 5;
 
     width: min(40vw, 600px);
+
     height: min(78vh, 900px);
 
     left: 50%;
+
     top: 50%;
 
     transform:
@@ -155,6 +169,7 @@ body::after {
 ========================================================= */
 
 .journal-shadow {
+
     position: absolute;
 
     z-index: 1;
@@ -175,6 +190,7 @@ body::after {
 ========================================================= */
 
 .cover {
+
     position: absolute;
 
     inset: 0;
@@ -212,6 +228,7 @@ body::after {
 ========================================================= */
 
 .cover::before {
+
     content: "";
 
     position: absolute;
@@ -247,6 +264,7 @@ body::after {
 ========================================================= */
 
 .cover::after {
+
     content: "";
 
     position: absolute;
@@ -260,10 +278,11 @@ body::after {
 
 
 /* =========================================================
-   STRONA 1
+   PIERWSZA STRONA
 ========================================================= */
 
 .cover-content {
+
     position: relative;
 
     z-index: 4;
@@ -283,6 +302,7 @@ body::after {
 ========================================================= */
 
 .edition {
+
     font-size: 10px;
 
     letter-spacing: 0.42em;
@@ -300,7 +320,10 @@ body::after {
 ========================================================= */
 
 .name {
-    font-family: 'Cormorant Garamond', serif;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
 
     font-size: clamp(
         70px,
@@ -323,6 +346,7 @@ body::after {
 ========================================================= */
 
 .line {
+
     width: 55px;
 
     height: 1px;
@@ -339,6 +363,7 @@ body::after {
 ========================================================= */
 
 .volume {
+
     font-size: 11px;
 
     letter-spacing: 0.52em;
@@ -354,6 +379,7 @@ body::after {
 ========================================================= */
 
 .date {
+
     position: absolute;
 
     z-index: 4;
@@ -381,11 +407,12 @@ body::after {
 
 
 /* =========================================================
-   OPEN
+   OPEN + NEXT PAGE
 ========================================================= */
 
 .open,
 .next-page {
+
     position: absolute;
 
     z-index: 10;
@@ -396,7 +423,9 @@ body::after {
 
     color: #17130f;
 
-    font-family: 'Montserrat', sans-serif;
+    font-family:
+        'Montserrat',
+        sans-serif;
 
     font-size: 10px;
 
@@ -416,12 +445,18 @@ body::after {
 }
 
 
+/* =========================================================
+   OPEN
+========================================================= */
+
 .open {
+
     bottom: 43px;
 
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     padding: 12px 22px;
 
@@ -433,6 +468,7 @@ body::after {
 
 .open::after,
 .next-page::after {
+
     content: "";
 
     position: absolute;
@@ -441,7 +477,8 @@ body::after {
 
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     width: 25px;
 
@@ -461,17 +498,20 @@ body::after {
 
 .open:hover,
 .next-page:hover {
+
     opacity: 1;
 }
 
 
 .open:hover {
+
     letter-spacing: 0.52em;
 }
 
 
 .open:hover::after,
 .next-page:hover::after {
+
     width: 55px;
 
     opacity: 0.8;
@@ -479,6 +519,7 @@ body::after {
 
 
 .open:active {
+
     transform:
         translateX(-50%)
         scale(0.95);
@@ -490,14 +531,17 @@ body::after {
 ========================================================= */
 
 .page-two {
+
     position: absolute;
 
     z-index: 6;
 
     width: min(40vw, 600px);
+
     height: min(78vh, 900px);
 
     left: 50%;
+
     top: 50%;
 
     transform:
@@ -509,12 +553,15 @@ body::after {
     pointer-events: none;
 
     transition:
+
         opacity 0.8s ease,
+
         transform 0.8s ease;
 }
 
 
 .page-two.active {
+
     opacity: 1;
 
     pointer-events: auto;
@@ -530,6 +577,7 @@ body::after {
 ========================================================= */
 
 .page-two-content {
+
     position: absolute;
 
     inset: 0;
@@ -547,7 +595,7 @@ body::after {
     text-align: center;
 
     padding:
-        90px 70px 120px;
+        65px 65px 125px;
 }
 
 
@@ -556,52 +604,62 @@ body::after {
 ========================================================= */
 
 .page-two-title {
-    max-width: 90%;
+
+    max-width: 88%;
 
     font-family:
         'Cormorant Garamond',
         serif;
 
     font-size: clamp(
-        32px,
-        4vw,
-        56px
+        29px,
+        3.2vw,
+        47px
     );
 
     font-weight: 500;
 
-    line-height: 1.05;
+    line-height: 1.08;
 
-    letter-spacing: 0.04em;
+    letter-spacing: 0.035em;
 
-    margin-bottom: 55px;
+    margin-bottom: 38px;
+
+    color: #241c15;
 }
 
 
 /* =========================================================
-   TEKST WSTĘPNY
+   TEKST STRONY 2
 ========================================================= */
 
 .page-two-text {
-    max-width: 82%;
+
+    max-width: 84%;
 
     font-family:
         'Cormorant Garamond',
         serif;
 
     font-size: clamp(
-        19px,
-        1.7vw,
-        25px
+        16px,
+        1.35vw,
+        21px
     );
 
     font-weight: 400;
 
-    line-height: 1.65;
+    line-height: 1.55;
 
-    letter-spacing: 0.01em;
+    letter-spacing: 0.005em;
 
     color: #30271e;
+}
+
+
+.page-two-text strong {
+
+    font-weight: 600;
 }
 
 
@@ -610,19 +668,39 @@ body::after {
 ========================================================= */
 
 .next-page {
-    right: 42px;
 
-    bottom: 38px;
+    right: 38px;
 
-    padding: 12px 15px;
+    bottom: 32px;
 
-    letter-spacing: 0.30em;
+    padding: 12px 14px;
 
-    margin-left: 0.30em;
+    letter-spacing: 0.28em;
+
+    margin-left: 0.28em;
+
+    font-size: 9px;
+
+    opacity: 0.62;
+}
+
+
+.next-page:hover {
+
+    letter-spacing: 0.38em;
+}
+
+
+.next-page:hover::after {
+
+    width: 48px;
+
+    opacity: 0.75;
 }
 
 
 .next-page:active {
+
     transform: scale(0.95);
 }
 
@@ -632,6 +710,7 @@ body::after {
 ========================================================= */
 
 .journal.hidden {
+
     opacity: 0;
 
     pointer-events: none;
@@ -642,7 +721,9 @@ body::after {
         scale(0.96);
 
     transition:
+
         opacity 0.8s ease,
+
         transform 0.8s ease;
 }
 
@@ -652,6 +733,7 @@ body::after {
 ========================================================= */
 
 .cup {
+
     position: absolute;
 
     z-index: 8;
@@ -661,6 +743,7 @@ body::after {
     bottom: 9%;
 
     width: 145px;
+
     height: 145px;
 
     animation:
@@ -669,6 +752,7 @@ body::after {
 
 
 .saucer {
+
     position: absolute;
 
     inset: 0;
@@ -695,12 +779,15 @@ body::after {
 
 
 .cup-body {
+
     position: absolute;
 
     width: 100px;
+
     height: 100px;
 
     left: 22px;
+
     top: 22px;
 
     border-radius: 50%;
@@ -722,12 +809,15 @@ body::after {
 
 
 .coffee {
+
     position: absolute;
 
     width: 72px;
+
     height: 72px;
 
     left: 14px;
+
     top: 14px;
 
     border-radius: 50%;
@@ -749,14 +839,17 @@ body::after {
 
 
 .coffee::after {
+
     content: "";
 
     position: absolute;
 
     width: 18px;
+
     height: 8px;
 
     left: 18px;
+
     top: 15px;
 
     border-radius: 50%;
@@ -764,17 +857,21 @@ body::after {
     background:
         rgba(255,220,180,0.12);
 
-    transform: rotate(-25deg);
+    transform:
+        rotate(-25deg);
 }
 
 
 .handle {
+
     position: absolute;
 
     width: 38px;
+
     height: 38px;
 
     right: -23px;
+
     top: 31px;
 
     border:
@@ -784,20 +881,24 @@ body::after {
     border-radius: 50%;
 
     box-shadow:
+
         inset 0 0 4px
         rgba(60,40,20,0.12);
 }
 
 
 .steam {
+
     position: absolute;
 
     z-index: 10;
 
     left: 64px;
+
     top: -32px;
 
     width: 5px;
+
     height: 45px;
 
     border-left:
@@ -814,6 +915,7 @@ body::after {
 
 
 .steam.two {
+
     left: 82px;
 
     top: -25px;
@@ -827,6 +929,7 @@ body::after {
 ========================================================= */
 
 .candle {
+
     position: absolute;
 
     z-index: 8;
@@ -836,6 +939,7 @@ body::after {
     top: 9%;
 
     width: 125px;
+
     height: 125px;
 
     animation:
@@ -844,6 +948,7 @@ body::after {
 
 
 .candle-glow {
+
     position: absolute;
 
     inset: -80px;
@@ -865,12 +970,15 @@ body::after {
 
 
 .candle-glass {
+
     position: absolute;
 
     width: 105px;
+
     height: 105px;
 
     left: 10px;
+
     top: 10px;
 
     border-radius: 50%;
@@ -894,12 +1002,15 @@ body::after {
 
 
 .wax {
+
     position: absolute;
 
     width: 80px;
+
     height: 80px;
 
     left: 12px;
+
     top: 12px;
 
     border-radius: 50%;
@@ -916,14 +1027,17 @@ body::after {
 
 
 .wick {
+
     position: absolute;
 
     z-index: 4;
 
     width: 4px;
+
     height: 14px;
 
     left: 61px;
+
     top: 47px;
 
     background: #3c281a;
@@ -933,14 +1047,17 @@ body::after {
 
 
 .flame {
+
     position: absolute;
 
     z-index: 10;
 
     left: 53px;
+
     top: 21px;
 
     width: 20px;
+
     height: 34px;
 
     border-radius:
@@ -963,7 +1080,8 @@ body::after {
             rgba(255,180,70,0.7)
         );
 
-    transform-origin: bottom center;
+    transform-origin:
+        bottom center;
 
     animation:
         flame 0.8s ease-in-out infinite alternate;
@@ -977,6 +1095,7 @@ body::after {
 @keyframes journalAppear {
 
     from {
+
         opacity: 0;
 
         transform:
@@ -986,6 +1105,7 @@ body::after {
     }
 
     to {
+
         opacity: 1;
 
         transform:
@@ -999,6 +1119,7 @@ body::after {
 @keyframes cupAppear {
 
     from {
+
         opacity: 0;
 
         transform:
@@ -1007,6 +1128,7 @@ body::after {
     }
 
     to {
+
         opacity: 1;
 
         transform:
@@ -1019,6 +1141,7 @@ body::after {
 @keyframes candleAppear {
 
     from {
+
         opacity: 0;
 
         transform:
@@ -1027,6 +1150,7 @@ body::after {
     }
 
     to {
+
         opacity: 1;
 
         transform:
@@ -1039,12 +1163,14 @@ body::after {
 @keyframes flame {
 
     from {
+
         transform:
             rotate(-4deg)
             scaleY(0.95);
     }
 
     to {
+
         transform:
             rotate(5deg)
             scaleY(1.06);
@@ -1055,6 +1181,7 @@ body::after {
 @keyframes glow {
 
     from {
+
         opacity: 0.55;
 
         transform:
@@ -1062,6 +1189,7 @@ body::after {
     }
 
     to {
+
         opacity: 1;
 
         transform:
@@ -1073,6 +1201,7 @@ body::after {
 @keyframes steam {
 
     0% {
+
         opacity: 0;
 
         transform:
@@ -1082,14 +1211,17 @@ body::after {
     }
 
     30% {
+
         opacity: 0.6;
     }
 
     70% {
+
         opacity: 0.25;
     }
 
     100% {
+
         opacity: 0;
 
         transform:
@@ -1121,7 +1253,8 @@ body::after {
 
         transform: scale(0.82);
 
-        transform-origin: bottom right;
+        transform-origin:
+            bottom right;
     }
 
 
@@ -1131,7 +1264,8 @@ body::after {
 
         transform: scale(0.82);
 
-        transform-origin: top left;
+        transform-origin:
+            top left;
     }
 }
 
@@ -1155,7 +1289,8 @@ body::after {
 
         transform: scale(0.62);
 
-        transform-origin: bottom right;
+        transform-origin:
+            bottom right;
     }
 
 
@@ -1167,7 +1302,8 @@ body::after {
 
         transform: scale(0.62);
 
-        transform-origin: top left;
+        transform-origin:
+            top left;
     }
 
 
@@ -1232,7 +1368,8 @@ body::after {
 
         transform: scale(0.72);
 
-        transform-origin: bottom right;
+        transform-origin:
+            bottom right;
     }
 
 
@@ -1240,7 +1377,8 @@ body::after {
 
         transform: scale(0.72);
 
-        transform-origin: top left;
+        transform-origin:
+            top left;
     }
 }
 
@@ -1251,14 +1389,18 @@ body::after {
 
 <body>
 
+
 <div class="scene">
 
 
     <!-- =====================================================
-         PIERWSZA STRONA — OKŁADKA
+         PIERWSZA STRONA
     ====================================================== -->
 
-    <div class="journal" id="journal">
+    <div
+        class="journal"
+        id="journal"
+    >
 
         <div class="journal-shadow"></div>
 
@@ -1310,7 +1452,10 @@ body::after {
          DRUGA STRONA
     ====================================================== -->
 
-    <div class="page-two" id="pageTwo">
+    <div
+        class="page-two"
+        id="pageTwo"
+    >
 
         <div class="journal-shadow"></div>
 
@@ -1319,6 +1464,7 @@ body::after {
 
 
             <div class="page-two-content">
+
 
                 <div class="page-two-title">
 
