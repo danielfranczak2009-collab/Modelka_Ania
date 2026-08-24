@@ -8,10 +8,6 @@
 
 <style>
 
-/* =========================================================
-   CZCIONKI
-========================================================= */
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
 
 
@@ -140,8 +136,6 @@ body {
 }
 
 
-/* papierowa tekstura */
-
 .page::before {
     content: "";
 
@@ -162,8 +156,6 @@ body {
         );
 }
 
-
-/* delikatna ramka */
 
 .paper-border {
     position: absolute;
@@ -595,129 +587,181 @@ body {
 
 
 /* =========================================================
-   FILIŻANKA
+   FILIŻANKA — WIDOK Z GÓRY
+   PRAWY DOLNY RÓG
 ========================================================= */
 
 .cup {
     position: fixed;
 
-    left: 5vw;
-    bottom: 5vh;
+    right: 4vw;
+    bottom: 4vh;
 
     width: 150px;
-    height: 120px;
+    height: 150px;
 
     z-index: 5;
 
     pointer-events: none;
 
-    transform: rotate(-5deg);
+    transform: rotate(-8deg);
 }
+
+
+/* spodek */
 
 .saucer {
     position: absolute;
 
-    left: 0;
-    bottom: 0;
+    left: 5px;
+    top: 25px;
 
-    width: 150px;
-    height: 52px;
+    width: 140px;
+    height: 105px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
-            ellipse,
+            ellipse at center,
             #eee4d4 0%,
-            #d2c2ad 58%,
-            #aa957d 62%,
-            #d5c6b4 72%
+            #d4c4b1 48%,
+            #a9947d 53%,
+            #d8c8b6 62%,
+            #b29e88 100%
         );
 
     box-shadow:
-        0 13px 15px rgba(0,0,0,0.25);
+        4px 9px 14px rgba(0,0,0,0.28);
 }
+
+
+/* filiżanka */
 
 .cup-body {
     position: absolute;
 
-    left: 25px;
-    bottom: 20px;
+    left: 24px;
+    top: 37px;
 
-    width: 92px;
-    height: 82px;
-
-    border-radius:
-        18px 18px 45px 45px;
-
-    background:
-        linear-gradient(
-            120deg,
-            #f0e8dc,
-            #c9b9a4
-        );
-
-    box-shadow:
-        3px 5px 8px rgba(0,0,0,0.18);
-}
-
-.coffee {
-    position: absolute;
-
-    left: 8px;
-    top: -7px;
-
-    width: 76px;
-    height: 25px;
+    width: 100px;
+    height: 100px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
-            ellipse,
-            #75492f,
-            #3c2113
+            circle at 38% 32%,
+            #f3eee5 0%,
+            #d9cbbb 52%,
+            #bca994 100%
         );
+
+    box-shadow:
+        3px 6px 10px rgba(0,0,0,0.20);
+
+    overflow: visible;
 }
+
+
+/* kawa */
+
+.coffee {
+    position: absolute;
+
+    left: 9px;
+    top: 9px;
+
+    width: 82px;
+    height: 82px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 45% 42%,
+            #81543a 0%,
+            #60351f 48%,
+            #3a1e12 100%
+        );
+
+    box-shadow:
+        inset 0 3px 7px rgba(0,0,0,0.3);
+}
+
+
+/* delikatna pianka / refleks */
+
+.coffee::after {
+    content: "";
+
+    position: absolute;
+
+    left: 17px;
+    top: 13px;
+
+    width: 24px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(194,140,94,0.18);
+
+    transform: rotate(-20deg);
+}
+
+
+/* uchwyt widziany z góry */
 
 .handle {
     position: absolute;
 
-    right: -30px;
-    top: 18px;
+    right: -38px;
+    top: 25px;
 
-    width: 42px;
-    height: 42px;
+    width: 55px;
+    height: 55px;
 
     border:
-        9px solid
-        #c8b8a3;
+        11px solid
+        #c9b9a5;
 
     border-radius: 50%;
+
+    background: transparent;
+
+    box-shadow:
+        2px 4px 7px rgba(0,0,0,0.12);
 }
+
+
+/* para */
 
 .steam {
     position: absolute;
 
-    width: 3px;
-    height: 42px;
+    left: 55px;
+    top: -5px;
 
-    left: 62px;
-    top: -30px;
+    width: 25px;
+    height: 45px;
 
     border-left:
         2px solid
-        rgba(255,255,255,0.3);
+        rgba(255,255,255,0.24);
 
     border-radius: 50%;
 
     animation:
         steam 3s infinite ease-in-out;
+
+    z-index: 10;
 }
 
 .steam.two {
-    left: 80px;
-    top: -25px;
+    left: 78px;
+    top: 3px;
 
     animation-delay: 1s;
 }
@@ -732,7 +776,7 @@ body {
     }
 
     35% {
-        opacity: 0.5;
+        opacity: 0.45;
     }
 
     100% {
@@ -745,52 +789,61 @@ body {
 
 
 /* =========================================================
-   ŚWIECZKA
+   ŚWIECZKA — WIDOK Z GÓRY
+   LEWY GÓRNY RÓG
 ========================================================= */
 
 .candle {
     position: fixed;
 
-    right: 6vw;
-    top: 5vh;
+    left: 4vw;
+    top: 4vh;
 
-    width: 120px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
 
     z-index: 5;
 
     pointer-events: none;
+
+    transform: rotate(6deg);
 }
+
+
+/* światło */
 
 .candle-glow {
     position: absolute;
 
-    left: -45px;
-    top: -45px;
+    left: -25px;
+    top: -25px;
 
-    width: 210px;
-    height: 210px;
+    width: 190px;
+    height: 190px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(255,190,90,0.15),
-            transparent 68%
+            rgba(255,190,90,0.16),
+            transparent 67%
         );
 
     animation:
         glow 2s infinite alternate;
 }
 
+
+/* wosk widziany z góry */
+
 .candle-base {
     position: absolute;
 
-    left: 15px;
-    bottom: 10px;
+    left: 25px;
+    top: 25px;
 
-    width: 90px;
+    width: 100px;
     height: 100px;
 
     border-radius: 50%;
@@ -798,37 +851,73 @@ body {
     background:
         radial-gradient(
             circle at 35% 30%,
-            #f3ecdf,
-            #d5c7b3 70%,
-            #b6a58f
+            #fff9ed 0%,
+            #e7dac7 55%,
+            #c5b39e 100%
         );
 
     box-shadow:
-        0 12px 15px rgba(0,0,0,0.2);
+        5px 9px 15px rgba(0,0,0,0.27);
+
+    z-index: 2;
 }
+
+
+/* środek świecy */
+
+.candle-base::after {
+    content: "";
+
+    position: absolute;
+
+    left: 19px;
+    top: 19px;
+
+    width: 62px;
+    height: 62px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #f4e4ca,
+            #d8c3a4
+        );
+
+    opacity: 0.75;
+}
+
+
+/* knot */
 
 .wick {
     position: absolute;
 
-    left: 59px;
-    top: 38px;
+    left: 72px;
+    top: 52px;
 
-    width: 3px;
+    width: 6px;
     height: 17px;
 
-    background: #3c2618;
+    border-radius: 50%;
 
-    z-index: 3;
+    background: #49301d;
+
+    z-index: 5;
 }
+
+
+/* płomień */
 
 .flame {
     position: absolute;
 
-    left: 49px;
-    top: 7px;
+    left: 58px;
+    top: 12px;
 
-    width: 23px;
-    height: 38px;
+    width: 34px;
+    height: 48px;
 
     border-radius:
         50% 50% 50% 50%
@@ -837,22 +926,22 @@ body {
     background:
         radial-gradient(
             ellipse at center bottom,
-            #fff7c7 0%,
-            #ffd36b 35%,
-            #ed8d28 70%,
+            #fffbd8 0%,
+            #ffd56d 35%,
+            #ed8d28 68%,
             transparent 72%
         );
 
     filter:
         drop-shadow(
-            0 0 9px
-            rgba(255,170,60,0.7)
+            0 0 11px
+            rgba(255,170,60,0.75)
         );
 
     animation:
         flame 0.8s infinite alternate ease-in-out;
 
-    z-index: 5;
+    z-index: 8;
 }
 
 @keyframes flame {
@@ -926,13 +1015,17 @@ body {
     }
 
     .cup {
-        transform: scale(0.7);
-        transform-origin: bottom left;
+        transform: scale(0.72) rotate(-8deg);
+
+        transform-origin:
+            bottom right;
     }
 
     .candle {
-        transform: scale(0.7);
-        transform-origin: top right;
+        transform: scale(0.72) rotate(6deg);
+
+        transform-origin:
+            top left;
     }
 
     .navigation {
@@ -1096,6 +1189,7 @@ body {
         <div class="questions">
 
             <div class="question">
+
                 <label>
                     Jak opisałabyś siebie w 3 słowach?
                 </label>
@@ -1104,10 +1198,12 @@ body {
                     data-key="q1"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
 
             <div class="question">
+
                 <label>
                     Co jest teraz dla Ciebie najważniejsze?
                 </label>
@@ -1116,10 +1212,12 @@ body {
                     data-key="q2"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
 
             <div class="question">
+
                 <label>
                     Z czego jesteś obecnie najbardziej dumna?
                 </label>
@@ -1128,10 +1226,12 @@ body {
                     data-key="q3"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
 
             <div class="question">
+
                 <label>
                     Co najbardziej chciałabyś w sobie zmienić?
                 </label>
@@ -1140,6 +1240,7 @@ body {
                     data-key="q4"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
         </div>
@@ -1193,6 +1294,7 @@ body {
         <div class="questions">
 
             <div class="question">
+
                 <label>
                     Kto jest teraz najważniejszą osobą w Twoim życiu?
                 </label>
@@ -1201,10 +1303,12 @@ body {
                     data-key="q5"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
 
             <div class="question">
+
                 <label>
                     Z kim możesz porozmawiać absolutnie o wszystkim?
                 </label>
@@ -1213,10 +1317,12 @@ body {
                     data-key="q6"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
 
             <div class="question">
+
                 <label>
                     Kogo poznałaś w ostatnim roku i cieszysz się,
                     że ta osoba pojawiła się w Twoim życiu?
@@ -1226,6 +1332,7 @@ body {
                     data-key="q7"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
         </div>
@@ -1279,6 +1386,7 @@ body {
         <div class="questions">
 
             <div class="question">
+
                 <label>
                     Gdzie obecnie widzisz siebie za rok?
                 </label>
@@ -1287,10 +1395,12 @@ body {
                     data-key="q8"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
 
             <div class="question">
+
                 <label>
                     Co najbardziej chciałabyś,
                     żeby wydarzyło się w najbliższym roku?
@@ -1300,10 +1410,12 @@ body {
                     data-key="q9"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
 
             <div class="question">
+
                 <label>
                     Co odkładasz już zdecydowanie za długo?
                 </label>
@@ -1312,10 +1424,12 @@ body {
                     data-key="q10"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
 
             <div class="question">
+
                 <label>
                     Gdybyś mogła teraz zmienić jedną rzecz
                     w swoim życiu, co by to było?
@@ -1325,6 +1439,7 @@ body {
                     data-key="q11"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
         </div>
@@ -1378,6 +1493,7 @@ body {
         <div class="questions">
 
             <div class="question">
+
                 <label>
                     Jaka jest obecnie Twoja ulubiona piosenka?
                 </label>
@@ -1386,10 +1502,12 @@ body {
                     data-key="q12"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
 
             <div class="question">
+
                 <label>
                     Jaki film albo serial mogłabyś oglądać w kółko?
                 </label>
@@ -1398,10 +1516,12 @@ body {
                     data-key="q13"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
 
             <div class="question">
+
                 <label>
                     Jakie jest Twoje aktualne ulubione jedzenie?
                 </label>
@@ -1410,10 +1530,12 @@ body {
                     data-key="q14"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
 
             <div class="question">
+
                 <label>
                     Co ostatnio najbardziej Cię cieszy?
                 </label>
@@ -1422,6 +1544,7 @@ body {
                     data-key="q15"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
         </div>
@@ -1475,6 +1598,7 @@ body {
         <div class="questions">
 
             <div class="question">
+
                 <label>
                     Jak myślisz, gdzie będziesz za rok?
                 </label>
@@ -1483,10 +1607,12 @@ body {
                     data-key="q16"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
 
             <div class="question">
+
                 <label>
                     Co będzie wtedy dla Ciebie najważniejsze?
                 </label>
@@ -1495,10 +1621,12 @@ body {
                     data-key="q17"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
 
             <div class="question">
+
                 <label>
                     Jak myślisz, jaka będzie Twoja największa zmiana?
                 </label>
@@ -1507,10 +1635,12 @@ body {
                     data-key="q18"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
 
             <div class="question">
+
                 <label>
                     Co myślisz, że nadal będzie dla Ciebie ważne?
                 </label>
@@ -1519,6 +1649,7 @@ body {
                     data-key="q19"
                     placeholder="Twoja odpowiedź..."
                 ></textarea>
+
             </div>
 
         </div>
@@ -1615,6 +1746,7 @@ body {
     <div class="cup-body">
 
         <div class="coffee"></div>
+
         <div class="handle"></div>
 
     </div>
@@ -1641,11 +1773,13 @@ body {
 
 <script>
 
+
 /* =========================================================
    STRONY
 ========================================================= */
 
-const pages = document.querySelectorAll(".page");
+const pages =
+    document.querySelectorAll(".page");
 
 let currentPage = 0;
 
@@ -1665,7 +1799,9 @@ function showPage(number) {
     }
 
     pages.forEach(function(page) {
+
         page.classList.remove("active");
+
     });
 
     pages[number].classList.add("active");
@@ -1681,13 +1817,16 @@ function showPage(number) {
 const openButton =
     document.getElementById("openButton");
 
-openButton.addEventListener("click", function(event) {
+openButton.addEventListener(
+    "click",
+    function(event) {
 
-    event.preventDefault();
+        event.preventDefault();
 
-    showPage(1);
+        showPage(1);
 
-});
+    }
+);
 
 
 /* =========================================================
@@ -1699,16 +1838,21 @@ const navigationButtons =
 
 navigationButtons.forEach(function(button) {
 
-    button.addEventListener("click", function(event) {
+    button.addEventListener(
+        "click",
+        function(event) {
 
-        event.preventDefault();
+            event.preventDefault();
 
-        const destination =
-            Number(button.getAttribute("data-go"));
+            const destination =
+                Number(
+                    button.getAttribute("data-go")
+                );
 
-        showPage(destination);
+            showPage(destination);
 
-    });
+        }
+    );
 
 });
 
@@ -1718,7 +1862,9 @@ navigationButtons.forEach(function(button) {
 ========================================================= */
 
 const textareas =
-    document.querySelectorAll("textarea[data-key]");
+    document.querySelectorAll(
+        "textarea[data-key]"
+    );
 
 
 textareas.forEach(function(textarea) {
@@ -1739,14 +1885,17 @@ textareas.forEach(function(textarea) {
     }
 
 
-    textarea.addEventListener("input", function() {
+    textarea.addEventListener(
+        "input",
+        function() {
 
-        localStorage.setItem(
-            key,
-            textarea.value
-        );
+            localStorage.setItem(
+                key,
+                textarea.value
+            );
 
-    });
+        }
+    );
 
 });
 
@@ -1755,26 +1904,33 @@ textareas.forEach(function(textarea) {
    STRZAŁKI KLAWIATURY
 ========================================================= */
 
-document.addEventListener("keydown", function(event) {
+document.addEventListener(
+    "keydown",
+    function(event) {
 
-    if (
-        event.key === "ArrowRight"
-    ) {
+        if (
+            event.key === "ArrowRight"
+        ) {
 
-        showPage(currentPage + 1);
+            showPage(
+                currentPage + 1
+            );
+
+        }
+
+
+        if (
+            event.key === "ArrowLeft"
+        ) {
+
+            showPage(
+                currentPage - 1
+            );
+
+        }
 
     }
-
-
-    if (
-        event.key === "ArrowLeft"
-    ) {
-
-        showPage(currentPage - 1);
-
-    }
-
-});
+);
 
 
 /* =========================================================
