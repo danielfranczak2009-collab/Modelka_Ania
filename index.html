@@ -4,13 +4,9 @@
 
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ANIA — Volume XXII</title>
-
 
 <style>
 
@@ -28,32 +24,20 @@
 ========================================================= */
 
 * {
-
     box-sizing: border-box;
-
     margin: 0;
-
     padding: 0;
-
 }
-
 
 html,
 body {
-
     width: 100%;
-
     height: 100%;
-
 }
 
-
 body {
-
     min-height: 100vh;
-
     overflow: hidden;
-
     position: relative;
 
     font-family: 'Montserrat', sans-serif;
@@ -61,14 +45,12 @@ body {
     color: #17130f;
 
     background:
-
         radial-gradient(
             ellipse at center,
             #765137 0%,
             #5d3d29 45%,
             #40291d 100%
         );
-
 }
 
 
@@ -77,11 +59,9 @@ body {
 ========================================================= */
 
 body::before {
-
     content: "";
 
     position: fixed;
-
     inset: -10%;
 
     pointer-events: none;
@@ -105,7 +85,6 @@ body::before {
         );
 
     opacity: 0.9;
-
 }
 
 
@@ -114,11 +93,9 @@ body::before {
 ========================================================= */
 
 body::after {
-
     content: "";
 
     position: fixed;
-
     inset: 0;
 
     pointer-events: none;
@@ -131,7 +108,6 @@ body::after {
             rgba(255, 235, 205, 0.07) 38%,
             transparent 72%
         );
-
 }
 
 
@@ -140,32 +116,27 @@ body::after {
 ========================================================= */
 
 .scene {
-
     position: relative;
 
     width: 100vw;
-
     height: 100vh;
-
 }
 
 
 /* =========================================================
-   DZIENNIK
+   DZIENNIK / KARTKA
 ========================================================= */
 
 .journal {
-
     position: absolute;
 
     z-index: 5;
 
-    width: min(46vw, 650px);
-
-    height: min(72vh, 850px);
+    /* WIĘKSZA, WYŻSZA KARTKA */
+    width: min(40vw, 600px);
+    height: min(78vh, 900px);
 
     left: 50%;
-
     top: 50%;
 
     transform:
@@ -174,16 +145,14 @@ body::after {
 
     animation:
         journalAppear 1.4s ease forwards;
-
 }
 
 
 /* =========================================================
-   CIEŃ POD DZIENNIKIEM
+   CIEŃ POD KARTKĄ
 ========================================================= */
 
 .journal-shadow {
-
     position: absolute;
 
     z-index: 1;
@@ -191,22 +160,19 @@ body::after {
     inset: 4% -3% -3% 3%;
 
     background:
-
         rgba(15, 7, 3, 0.45);
 
     filter: blur(25px);
 
     border-radius: 4px;
-
 }
 
 
 /* =========================================================
-   OKŁADKA
+   KARTKA
 ========================================================= */
 
 .cover {
-
     position: absolute;
 
     inset: 0;
@@ -214,7 +180,6 @@ body::after {
     z-index: 3;
 
     background:
-
         linear-gradient(
             135deg,
             #f4eee2 0%,
@@ -224,9 +189,11 @@ body::after {
 
     box-shadow:
 
-        0 15px 28px rgba(20, 10, 5, 0.25),
+        0 15px 28px
+        rgba(20, 10, 5, 0.25),
 
-        0 3px 7px rgba(20, 10, 5, 0.16);
+        0 3px 7px
+        rgba(20, 10, 5, 0.16);
 
     overflow: hidden;
 
@@ -235,7 +202,6 @@ body::after {
     align-items: center;
 
     justify-content: center;
-
 }
 
 
@@ -244,7 +210,6 @@ body::after {
 ========================================================= */
 
 .cover::before {
-
     content: "";
 
     position: absolute;
@@ -272,16 +237,14 @@ body::after {
             transparent 1px,
             transparent 7px
         );
-
 }
 
 
 /* =========================================================
-   RAMKA OKŁADKI
+   RAMKA
 ========================================================= */
 
 .cover::after {
-
     content: "";
 
     position: absolute;
@@ -289,20 +252,16 @@ body::after {
     inset: 30px;
 
     border:
-
         1px solid
-
         rgba(45, 34, 23, 0.20);
-
 }
 
 
 /* =========================================================
-   ZAWARTOŚĆ OKŁADKI
+   ZAWARTOŚĆ
 ========================================================= */
 
 .cover-content {
-
     position: relative;
 
     z-index: 4;
@@ -314,16 +273,14 @@ body::after {
     align-items: center;
 
     text-align: center;
-
 }
 
 
 /* =========================================================
-   MAŁY NAPIS
+   A DIGITAL JOURNAL
 ========================================================= */
 
 .edition {
-
     font-size: 10px;
 
     letter-spacing: 0.42em;
@@ -333,7 +290,6 @@ body::after {
     margin-bottom: 35px;
 
     opacity: 0.58;
-
 }
 
 
@@ -342,7 +298,6 @@ body::after {
 ========================================================= */
 
 .name {
-
     font-family: 'Cormorant Garamond', serif;
 
     font-size: clamp(
@@ -358,7 +313,6 @@ body::after {
     margin-left: 0.09em;
 
     line-height: 0.85;
-
 }
 
 
@@ -367,17 +321,14 @@ body::after {
 ========================================================= */
 
 .line {
-
     width: 55px;
 
     height: 1px;
 
     background:
-
         rgba(30, 25, 20, 0.42);
 
     margin: 34px 0;
-
 }
 
 
@@ -386,7 +337,6 @@ body::after {
 ========================================================= */
 
 .volume {
-
     font-size: 11px;
 
     letter-spacing: 0.52em;
@@ -394,7 +344,6 @@ body::after {
     margin-left: 0.52em;
 
     opacity: 0.68;
-
 }
 
 
@@ -403,7 +352,6 @@ body::after {
 ========================================================= */
 
 .date {
-
     position: absolute;
 
     z-index: 4;
@@ -427,7 +375,6 @@ body::after {
     opacity: 0.78;
 
     white-space: nowrap;
-
 }
 
 
@@ -436,7 +383,6 @@ body::after {
 ========================================================= */
 
 .open {
-
     position: absolute;
 
     z-index: 10;
@@ -476,12 +422,10 @@ body::after {
         letter-spacing 0.3s ease,
 
         transform 0.3s ease;
-
 }
 
 
 .open::after {
-
     content: "";
 
     position: absolute;
@@ -505,34 +449,27 @@ body::after {
         width 0.3s ease,
 
         opacity 0.3s ease;
-
 }
 
 
 .open:hover {
-
     opacity: 1;
 
     letter-spacing: 0.52em;
-
 }
 
 
 .open:hover::after {
-
     width: 55px;
 
     opacity: 0.8;
-
 }
 
 
 .open:active {
-
     transform:
         translateX(-50%)
         scale(0.95);
-
 }
 
 
@@ -541,7 +478,6 @@ body::after {
 ========================================================= */
 
 .cup {
-
     position: absolute;
 
     z-index: 8;
@@ -560,7 +496,6 @@ body::after {
 
     animation:
         cupAppear 1.3s ease 0.3s both;
-
 }
 
 
@@ -569,7 +504,6 @@ body::after {
 ========================================================= */
 
 .saucer {
-
     position: absolute;
 
     inset: 0;
@@ -588,12 +522,10 @@ body::after {
         );
 
     filter:
-
         drop-shadow(
             0 12px 10px
             rgba(20, 10, 5, 0.20)
         );
-
 }
 
 
@@ -602,15 +534,12 @@ body::after {
 ========================================================= */
 
 .cup-body {
-
     position: absolute;
 
     width: 100px;
-
     height: 100px;
 
     left: 22px;
-
     top: 22px;
 
     border-radius: 50%;
@@ -628,7 +557,6 @@ body::after {
 
         inset 0 -8px 12px
         rgba(60,40,20,0.12);
-
 }
 
 
@@ -637,15 +565,12 @@ body::after {
 ========================================================= */
 
 .coffee {
-
     position: absolute;
 
     width: 72px;
-
     height: 72px;
 
     left: 14px;
-
     top: 14px;
 
     border-radius: 50%;
@@ -663,36 +588,30 @@ body::after {
 
         inset 0 3px 5px
         rgba(255,220,180,0.12);
-
 }
 
 
 /* =========================================================
-   REFLEKS NA KAWIE
+   REFLEKS
 ========================================================= */
 
 .coffee::after {
-
     content: "";
 
     position: absolute;
 
     width: 18px;
-
     height: 8px;
 
     left: 18px;
-
     top: 15px;
 
     border-radius: 50%;
 
     background:
-
         rgba(255,220,180,0.12);
 
     transform: rotate(-25deg);
-
 }
 
 
@@ -701,21 +620,16 @@ body::after {
 ========================================================= */
 
 .handle {
-
     position: absolute;
 
     width: 38px;
-
     height: 38px;
 
     right: -23px;
-
     top: 31px;
 
     border:
-
         10px solid
-
         #cfc2ae;
 
     border-radius: 50%;
@@ -724,7 +638,6 @@ body::after {
 
         inset 0 0 4px
         rgba(60,40,20,0.12);
-
 }
 
 
@@ -733,21 +646,17 @@ body::after {
 ========================================================= */
 
 .steam {
-
     position: absolute;
 
     z-index: 10;
 
     left: 64px;
-
     top: -32px;
 
     width: 5px;
-
     height: 45px;
 
     border-left:
-
         2px solid
         rgba(255,255,255,0.28);
 
@@ -757,18 +666,15 @@ body::after {
 
     animation:
         steam 3s ease-in-out infinite;
-
 }
 
 
 .steam.two {
-
     left: 82px;
 
     top: -25px;
 
     animation-delay: 1.3s;
-
 }
 
 
@@ -777,7 +683,6 @@ body::after {
 ========================================================= */
 
 .candle {
-
     position: absolute;
 
     z-index: 8;
@@ -789,12 +694,10 @@ body::after {
     top: 9%;
 
     width: 125px;
-
     height: 125px;
 
     animation:
         candleAppear 1.4s ease 0.5s both;
-
 }
 
 
@@ -803,7 +706,6 @@ body::after {
 ========================================================= */
 
 .candle-glow {
-
     position: absolute;
 
     inset: -80px;
@@ -821,7 +723,6 @@ body::after {
 
     animation:
         glow 2s ease-in-out infinite alternate;
-
 }
 
 
@@ -830,15 +731,12 @@ body::after {
 ========================================================= */
 
 .candle-glass {
-
     position: absolute;
 
     width: 105px;
-
     height: 105px;
 
     left: 10px;
-
     top: 10px;
 
     border-radius: 50%;
@@ -858,7 +756,6 @@ body::after {
 
         inset 0 0 12px
         rgba(255,255,255,0.22);
-
 }
 
 
@@ -867,15 +764,12 @@ body::after {
 ========================================================= */
 
 .wax {
-
     position: absolute;
 
     width: 80px;
-
     height: 80px;
 
     left: 12px;
-
     top: 12px;
 
     border-radius: 50%;
@@ -888,7 +782,6 @@ body::after {
             #dfd1bd 70%,
             #c8b9a4
         );
-
 }
 
 
@@ -897,23 +790,19 @@ body::after {
 ========================================================= */
 
 .wick {
-
     position: absolute;
 
     z-index: 4;
 
     width: 4px;
-
     height: 14px;
 
     left: 61px;
-
     top: 47px;
 
     background: #3c281a;
 
     border-radius: 50%;
-
 }
 
 
@@ -922,23 +811,18 @@ body::after {
 ========================================================= */
 
 .flame {
-
     position: absolute;
 
     z-index: 10;
 
     left: 53px;
-
     top: 21px;
 
     width: 20px;
-
     height: 34px;
 
     border-radius:
-
         50% 50% 50% 50%
-
         / 65% 65% 35% 35%;
 
     background:
@@ -952,7 +836,6 @@ body::after {
         );
 
     filter:
-
         drop-shadow(
             0 0 9px
             rgba(255,180,70,0.7)
@@ -962,7 +845,6 @@ body::after {
 
     animation:
         flame 0.8s ease-in-out infinite alternate;
-
 }
 
 
@@ -973,182 +855,126 @@ body::after {
 @keyframes journalAppear {
 
     from {
-
         opacity: 0;
 
         transform:
-
             translate(-50%, -47%)
-
             rotate(-1deg)
-
             scale(0.97);
-
     }
 
     to {
-
         opacity: 1;
 
         transform:
-
             translate(-50%, -50%)
-
             rotate(-1deg)
-
             scale(1);
-
     }
-
 }
 
 
 @keyframes cupAppear {
 
     from {
-
         opacity: 0;
 
         transform:
-
             translateY(20px)
-
             scale(0.94);
-
     }
 
     to {
-
         opacity: 1;
 
         transform:
-
             translateY(0)
-
             scale(1);
-
     }
-
 }
 
 
 @keyframes candleAppear {
 
     from {
-
         opacity: 0;
 
         transform:
-
             translateY(-20px)
-
             scale(0.94);
-
     }
 
     to {
-
         opacity: 1;
 
         transform:
-
             translateY(0)
-
             scale(1);
-
     }
-
 }
 
 
 @keyframes flame {
 
     from {
-
         transform:
-
             rotate(-4deg)
-
             scaleY(0.95);
-
     }
 
     to {
-
         transform:
-
             rotate(5deg)
-
             scaleY(1.06);
-
     }
-
 }
 
 
 @keyframes glow {
 
     from {
-
         opacity: 0.55;
 
-        transform: scale(0.94);
-
+        transform:
+            scale(0.94);
     }
 
     to {
-
         opacity: 1;
 
-        transform: scale(1.08);
-
+        transform:
+            scale(1.08);
     }
-
 }
 
 
 @keyframes steam {
 
     0% {
-
         opacity: 0;
 
         transform:
-
             translateY(10px)
-
             translateX(0)
-
             scale(0.9);
-
     }
 
     30% {
-
         opacity: 0.6;
-
     }
 
     70% {
-
         opacity: 0.25;
-
     }
 
     100% {
-
         opacity: 0;
 
         transform:
-
             translateY(-28px)
-
             translateX(8px)
-
             scale(1.15);
-
     }
-
 }
 
 
@@ -1162,8 +988,7 @@ body::after {
 
         width: 55vw;
 
-        height: 72vh;
-
+        height: 78vh;
     }
 
 
@@ -1174,7 +999,6 @@ body::after {
         transform: scale(0.82);
 
         transform-origin: bottom right;
-
     }
 
 
@@ -1185,9 +1009,7 @@ body::after {
         transform: scale(0.82);
 
         transform-origin: top left;
-
     }
-
 }
 
 
@@ -1197,8 +1019,7 @@ body::after {
 
         width: 78vw;
 
-        height: 70vh;
-
+        height: 74vh;
     }
 
 
@@ -1211,7 +1032,6 @@ body::after {
         transform: scale(0.62);
 
         transform-origin: bottom right;
-
     }
 
 
@@ -1224,18 +1044,19 @@ body::after {
         transform: scale(0.62);
 
         transform-origin: top left;
-
     }
 
 
     .name {
 
         font-size: 58px;
-
     }
-
 }
 
+
+/* =========================================================
+   MAŁA WYSOKOŚĆ EKRANU
+========================================================= */
 
 @media (
     max-height: 700px
@@ -1245,12 +1066,11 @@ body::after {
 
     .journal {
 
-        height: 82vh;
+        height: 84vh;
 
         width: auto;
 
-        aspect-ratio: 0.78;
-
+        aspect-ratio: 0.77;
     }
 
 
@@ -1259,7 +1079,6 @@ body::after {
         transform: scale(0.72);
 
         transform-origin: bottom right;
-
     }
 
 
@@ -1268,9 +1087,7 @@ body::after {
         transform: scale(0.72);
 
         transform-origin: top left;
-
     }
-
 }
 
 </style>
@@ -1279,7 +1096,6 @@ body::after {
 
 
 <body>
-
 
 <div class="scene">
 
@@ -1412,8 +1228,8 @@ function openJournal() {
     setTimeout(() => {
 
         /*
-           TUTAJ PÓŹNIEJ WSTAWIMY
-           PRAWDZIWE OTWARCIE DZIENNIKA.
+            TUTAJ PÓŹNIEJ WSTAWIMY
+            PRAWDZIWE OTWARCIE DZIENNIKA.
         */
 
         alert(
