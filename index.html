@@ -13,10 +13,6 @@
 
 <style>
 
-/* =========================================================
-   CZCIONKI
-========================================================= */
-
 @import url(
     'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap'
 );
@@ -127,7 +123,7 @@ body::after {
 
 
 /* =========================================================
-   WSPÓLNA KARTKA
+   KARTKI
 ========================================================= */
 
 .journal-page {
@@ -154,7 +150,6 @@ body::after {
         transform 0.55s ease;
 }
 
-
 .journal-page.active {
     opacity: 1;
 
@@ -167,7 +162,7 @@ body::after {
 
 
 /* =========================================================
-   CIEŃ
+   CIEŃ KARTKI
 ========================================================= */
 
 .journal-shadow {
@@ -187,7 +182,7 @@ body::after {
 
 
 /* =========================================================
-   KARTKA
+   PAPIER
 ========================================================= */
 
 .paper {
@@ -287,9 +282,6 @@ body::after {
     opacity: 1;
 
     pointer-events: auto;
-
-    animation:
-        journalAppear 1.2s ease forwards;
 }
 
 
@@ -311,7 +303,6 @@ body::after {
     text-align: center;
 }
 
-
 .edition {
     font-size: 10px;
 
@@ -323,7 +314,6 @@ body::after {
 
     opacity: 0.58;
 }
-
 
 .name {
     font-family:
@@ -345,7 +335,6 @@ body::after {
     line-height: 0.85;
 }
 
-
 .line {
     width: 55px;
 
@@ -357,7 +346,6 @@ body::after {
     margin: 34px 0;
 }
 
-
 .volume {
     font-size: 11px;
 
@@ -367,7 +355,6 @@ body::after {
 
     opacity: 0.68;
 }
-
 
 .date {
     position: absolute;
@@ -396,117 +383,13 @@ body::after {
 
 
 /* =========================================================
-   NAWIGACJA
-========================================================= */
-
-.page-navigation {
-    position: absolute;
-
-    z-index: 20;
-
-    bottom: 32px;
-
-    left: 38px;
-
-    right: 38px;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    pointer-events: none;
-}
-
-
-.nav-button {
-    position: relative;
-
-    padding: 12px 14px;
-
-    border: none;
-
-    background: transparent;
-
-    color: #17130f;
-
-    font-family:
-        'Montserrat',
-        sans-serif;
-
-    font-size: 9px;
-
-    font-weight: 400;
-
-    letter-spacing: 0.28em;
-
-    cursor: pointer;
-
-    opacity: 0.62;
-
-    pointer-events: auto;
-
-    transition:
-        opacity 0.3s ease,
-        letter-spacing 0.3s ease,
-        transform 0.3s ease;
-}
-
-
-.nav-button::after {
-    content: "";
-
-    position: absolute;
-
-    bottom: 3px;
-
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    width: 25px;
-
-    height: 1px;
-
-    background: #17130f;
-
-    opacity: 0.4;
-
-    transition:
-        width 0.3s ease,
-        opacity 0.3s ease;
-}
-
-
-.nav-button:hover {
-    opacity: 1;
-
-    letter-spacing: 0.38em;
-}
-
-
-.nav-button:hover::after {
-    width: 48px;
-
-    opacity: 0.8;
-}
-
-
-.nav-button:active {
-    transform: scale(0.95);
-}
-
-
-/* =========================================================
    OPEN
 ========================================================= */
 
 .open-button {
     position: absolute;
 
-    z-index: 20;
+    z-index: 50;
 
     bottom: 43px;
 
@@ -545,7 +428,6 @@ body::after {
         transform 0.3s ease;
 }
 
-
 .open-button::after {
     content: "";
 
@@ -571,18 +453,121 @@ body::after {
         opacity 0.3s ease;
 }
 
-
 .open-button:hover {
     opacity: 1;
 
     letter-spacing: 0.52em;
 }
 
-
 .open-button:hover::after {
     width: 55px;
 
     opacity: 0.8;
+}
+
+.open-button:active {
+    transform:
+        translateX(-50%)
+        scale(0.95);
+}
+
+
+/* =========================================================
+   NAWIGACJA
+========================================================= */
+
+.page-navigation {
+    position: absolute;
+
+    z-index: 50;
+
+    bottom: 32px;
+
+    left: 38px;
+
+    right: 38px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    pointer-events: none;
+}
+
+.nav-button {
+    position: relative;
+
+    padding: 12px 14px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #17130f;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.28em;
+
+    cursor: pointer;
+
+    opacity: 0.62;
+
+    pointer-events: auto;
+
+    transition:
+        opacity 0.3s ease,
+        letter-spacing 0.3s ease,
+        transform 0.3s ease;
+}
+
+.nav-button::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 3px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 25px;
+
+    height: 1px;
+
+    background: #17130f;
+
+    opacity: 0.4;
+
+    transition:
+        width 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.nav-button:hover {
+    opacity: 1;
+
+    letter-spacing: 0.38em;
+}
+
+.nav-button:hover::after {
+    width: 48px;
+
+    opacity: 0.8;
+}
+
+.nav-button:active {
+    transform: scale(0.95);
 }
 
 
@@ -611,7 +596,6 @@ body::after {
         80px 65px 120px;
 }
 
-
 .intro-title {
     max-width: 88%;
 
@@ -636,7 +620,6 @@ body::after {
     color: #241c15;
 }
 
-
 .intro-text {
     max-width: 84%;
 
@@ -655,14 +638,13 @@ body::after {
     color: #30271e;
 }
 
-
 .intro-text strong {
     font-weight: 600;
 }
 
 
 /* =========================================================
-   STRONY Z PYTANIAMI
+   ROZDZIAŁY
 ========================================================= */
 
 .chapter-content {
@@ -684,7 +666,6 @@ body::after {
         65px 55px 95px;
 }
 
-
 .chapter-number {
     font-size: 8px;
 
@@ -696,7 +677,6 @@ body::after {
 
     margin-bottom: 8px;
 }
-
 
 .chapter-title {
     font-family:
@@ -718,7 +698,6 @@ body::after {
     color: #241c15;
 }
 
-
 .questions {
     width: 100%;
 
@@ -733,7 +712,6 @@ body::after {
     text-align: left;
 }
 
-
 .question {
     display: flex;
 
@@ -741,7 +719,6 @@ body::after {
 
     gap: 6px;
 }
-
 
 .question label {
     font-family:
@@ -755,13 +732,12 @@ body::after {
     color: #30271e;
 }
 
-
 .question textarea {
     width: 100%;
 
     min-height: 43px;
 
-    resize: none;
+    resize: vertical;
 
     overflow-y: auto;
 
@@ -792,7 +768,6 @@ body::after {
         border-color 0.25s ease,
         background 0.25s ease;
 }
-
 
 .question textarea:focus {
     border-color:
@@ -828,7 +803,6 @@ body::after {
         70px 60px 110px;
 }
 
-
 .final-title {
     font-family:
         'Cormorant Garamond',
@@ -845,7 +819,6 @@ body::after {
     margin-bottom: 35px;
 }
 
-
 .final-text {
     font-family:
         'Cormorant Garamond',
@@ -860,13 +833,12 @@ body::after {
     margin-bottom: 22px;
 }
 
-
 .final-textarea {
     width: 90%;
 
     height: 210px;
 
-    resize: none;
+    resize: vertical;
 
     border:
         1px solid
@@ -889,7 +861,6 @@ body::after {
 
     color: #30271e;
 }
-
 
 .final-textarea:focus {
     border-color:
@@ -921,7 +892,6 @@ body::after {
         cupAppear 1.3s ease 0.3s both;
 }
 
-
 .saucer {
     position: absolute;
 
@@ -947,7 +917,6 @@ body::after {
         );
 }
 
-
 .cup-body {
     position: absolute;
 
@@ -970,7 +939,6 @@ body::after {
             #bcae9a 100%
         );
 }
-
 
 .coffee {
     position: absolute;
@@ -995,7 +963,6 @@ body::after {
         );
 }
 
-
 .handle {
     position: absolute;
 
@@ -1013,7 +980,6 @@ body::after {
 
     border-radius: 50%;
 }
-
 
 .steam {
     position: absolute;
@@ -1039,7 +1005,6 @@ body::after {
     animation:
         steam 3s ease-in-out infinite;
 }
-
 
 .steam.two {
     left: 82px;
@@ -1071,7 +1036,6 @@ body::after {
         candleAppear 1.4s ease 0.5s both;
 }
 
-
 .candle-glow {
     position: absolute;
 
@@ -1091,7 +1055,6 @@ body::after {
     animation:
         glow 2s ease-in-out infinite alternate;
 }
-
 
 .candle-glass {
     position: absolute;
@@ -1114,7 +1077,6 @@ body::after {
             rgba(200,175,145,0.5)
         );
 }
-
 
 .wax {
     position: absolute;
@@ -1139,7 +1101,6 @@ body::after {
         );
 }
 
-
 .wick {
     position: absolute;
 
@@ -1157,7 +1118,6 @@ body::after {
 
     border-radius: 50%;
 }
-
 
 .flame {
     position: absolute;
@@ -1204,73 +1164,39 @@ body::after {
    ANIMACJE
 ========================================================= */
 
-@keyframes journalAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translate(-50%, -47%)
-            rotate(-1deg)
-            scale(0.97);
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translate(-50%, -50%)
-            rotate(-1deg)
-            scale(1);
-    }
-}
-
-
 @keyframes cupAppear {
 
     from {
-
         opacity: 0;
-
         transform:
             translateY(20px)
             scale(0.94);
     }
 
     to {
-
         opacity: 1;
-
         transform:
             translateY(0)
             scale(1);
     }
 }
 
-
 @keyframes candleAppear {
 
     from {
-
         opacity: 0;
-
         transform:
             translateY(-20px)
             scale(0.94);
     }
 
     to {
-
         opacity: 1;
-
         transform:
             translateY(0)
             scale(1);
     }
 }
-
 
 @keyframes flame {
 
@@ -1287,30 +1213,23 @@ body::after {
     }
 }
 
-
 @keyframes glow {
 
     from {
         opacity: 0.55;
-
-        transform:
-            scale(0.94);
+        transform: scale(0.94);
     }
 
     to {
         opacity: 1;
-
-        transform:
-            scale(1.08);
+        transform: scale(1.08);
     }
 }
-
 
 @keyframes steam {
 
     0% {
         opacity: 0;
-
         transform:
             translateY(10px)
             translateX(0)
@@ -1327,7 +1246,6 @@ body::after {
 
     100% {
         opacity: 0;
-
         transform:
             translateY(-28px)
             translateX(8px)
@@ -1506,7 +1424,8 @@ body::after {
 
             <button
                 class="open-button"
-                onclick="goToPage(1)"
+                id="openButton"
+                type="button"
             >
                 OPEN
             </button>
@@ -1536,7 +1455,6 @@ body::after {
                     NAJLEPSZEGO<br>
                     ANIUUU!!!!
                 </div>
-
 
                 <div class="intro-text">
 
@@ -1577,14 +1495,16 @@ body::after {
 
                 <button
                     class="nav-button"
-                    onclick="goToPage(0)"
+                    type="button"
+                    data-page="0"
                 >
                     PREVIOUS PAGE
                 </button>
 
                 <button
                     class="nav-button"
-                    onclick="goToPage(2)"
+                    type="button"
+                    data-page="2"
                 >
                     NEXT PAGE
                 </button>
@@ -1597,7 +1517,7 @@ body::after {
 
 
     <!-- =====================================================
-         ROZDZIAŁ 1
+         ROZDZIAŁ I
     ====================================================== -->
 
     <div
@@ -1619,7 +1539,6 @@ body::after {
                     ANIA, 22 LATA
                 </div>
 
-
                 <div class="questions">
 
                     <div class="question">
@@ -1635,7 +1554,6 @@ body::after {
 
                     </div>
 
-
                     <div class="question">
 
                         <label>
@@ -1649,7 +1567,6 @@ body::after {
 
                     </div>
 
-
                     <div class="question">
 
                         <label>
@@ -1662,7 +1579,6 @@ body::after {
                         ></textarea>
 
                     </div>
-
 
                     <div class="question">
 
@@ -1686,14 +1602,16 @@ body::after {
 
                 <button
                     class="nav-button"
-                    onclick="goToPage(1)"
+                    type="button"
+                    data-page="1"
                 >
                     PREVIOUS PAGE
                 </button>
 
                 <button
                     class="nav-button"
-                    onclick="goToPage(3)"
+                    type="button"
+                    data-page="3"
                 >
                     NEXT PAGE
                 </button>
@@ -1706,7 +1624,7 @@ body::after {
 
 
     <!-- =====================================================
-         ROZDZIAŁ 2
+         ROZDZIAŁ II
     ====================================================== -->
 
     <div
@@ -1728,7 +1646,6 @@ body::after {
                     LUDZIE
                 </div>
 
-
                 <div class="questions">
 
                     <div class="question">
@@ -1744,7 +1661,6 @@ body::after {
 
                     </div>
 
-
                     <div class="question">
 
                         <label>
@@ -1757,7 +1673,6 @@ body::after {
                         ></textarea>
 
                     </div>
-
 
                     <div class="question">
 
@@ -1783,14 +1698,16 @@ body::after {
 
                 <button
                     class="nav-button"
-                    onclick="goToPage(2)"
+                    type="button"
+                    data-page="2"
                 >
                     PREVIOUS PAGE
                 </button>
 
                 <button
                     class="nav-button"
-                    onclick="goToPage(4)"
+                    type="button"
+                    data-page="4"
                 >
                     NEXT PAGE
                 </button>
@@ -1803,7 +1720,7 @@ body::after {
 
 
     <!-- =====================================================
-         ROZDZIAŁ 3
+         ROZDZIAŁ III
     ====================================================== -->
 
     <div
@@ -1825,7 +1742,6 @@ body::after {
                     ŻYCIE TERAZ
                 </div>
 
-
                 <div class="questions">
 
                     <div class="question">
@@ -1841,7 +1757,6 @@ body::after {
 
                     </div>
 
-
                     <div class="question">
 
                         <label>
@@ -1856,7 +1771,6 @@ body::after {
 
                     </div>
 
-
                     <div class="question">
 
                         <label>
@@ -1869,7 +1783,6 @@ body::after {
                         ></textarea>
 
                     </div>
-
 
                     <div class="question">
 
@@ -1894,14 +1807,16 @@ body::after {
 
                 <button
                     class="nav-button"
-                    onclick="goToPage(3)"
+                    type="button"
+                    data-page="3"
                 >
                     PREVIOUS PAGE
                 </button>
 
                 <button
                     class="nav-button"
-                    onclick="goToPage(5)"
+                    type="button"
+                    data-page="5"
                 >
                     NEXT PAGE
                 </button>
@@ -1914,7 +1829,7 @@ body::after {
 
 
     <!-- =====================================================
-         ROZDZIAŁ 4
+         ROZDZIAŁ IV
     ====================================================== -->
 
     <div
@@ -1936,7 +1851,6 @@ body::after {
                     MAŁE RZECZY
                 </div>
 
-
                 <div class="questions">
 
                     <div class="question">
@@ -1952,12 +1866,10 @@ body::after {
 
                     </div>
 
-
                     <div class="question">
 
                         <label>
-                            Jaki film albo serial mogłabyś
-                            oglądać w kółko?
+                            Jaki film albo serial mogłabyś oglądać w kółko?
                         </label>
 
                         <textarea
@@ -1966,7 +1878,6 @@ body::after {
                         ></textarea>
 
                     </div>
-
 
                     <div class="question">
 
@@ -1980,7 +1891,6 @@ body::after {
                         ></textarea>
 
                     </div>
-
 
                     <div class="question">
 
@@ -2004,14 +1914,16 @@ body::after {
 
                 <button
                     class="nav-button"
-                    onclick="goToPage(4)"
+                    type="button"
+                    data-page="4"
                 >
                     PREVIOUS PAGE
                 </button>
 
                 <button
                     class="nav-button"
-                    onclick="goToPage(6)"
+                    type="button"
+                    data-page="6"
                 >
                     NEXT PAGE
                 </button>
@@ -2024,7 +1936,7 @@ body::after {
 
 
     <!-- =====================================================
-         ROZDZIAŁ 5
+         ROZDZIAŁ V
     ====================================================== -->
 
     <div
@@ -2046,7 +1958,6 @@ body::after {
                     ZA ROK
                 </div>
 
-
                 <div class="questions">
 
                     <div class="question">
@@ -2062,12 +1973,10 @@ body::after {
 
                     </div>
 
-
                     <div class="question">
 
                         <label>
-                            Jak myślisz, co będzie wtedy dla Ciebie
-                            najważniejsze?
+                            Jak myślisz, co będzie wtedy dla Ciebie najważniejsze?
                         </label>
 
                         <textarea
@@ -2077,12 +1986,10 @@ body::after {
 
                     </div>
 
-
                     <div class="question">
 
                         <label>
-                            Jak myślisz, jaka będzie Twoja
-                            największa zmiana?
+                            Jak myślisz, jaka będzie Twoja największa zmiana?
                         </label>
 
                         <textarea
@@ -2092,12 +1999,10 @@ body::after {
 
                     </div>
 
-
                     <div class="question">
 
                         <label>
-                            Jak myślisz, co nadal będzie
-                            dla Ciebie ważne?
+                            Jak myślisz, co nadal będzie dla Ciebie ważne?
                         </label>
 
                         <textarea
@@ -2116,14 +2021,16 @@ body::after {
 
                 <button
                     class="nav-button"
-                    onclick="goToPage(5)"
+                    type="button"
+                    data-page="5"
                 >
                     PREVIOUS PAGE
                 </button>
 
                 <button
                     class="nav-button"
-                    onclick="goToPage(7)"
+                    type="button"
+                    data-page="7"
                 >
                     NEXT PAGE
                 </button>
@@ -2136,7 +2043,7 @@ body::after {
 
 
     <!-- =====================================================
-         WIADOMOŚĆ DLA PRZYSZŁEJ ANI
+         OSTATNIA STRONA
     ====================================================== -->
 
     <div
@@ -2154,7 +2061,6 @@ body::after {
                     DLA ANI Z PRZYSZŁOŚCI
                 </div>
 
-
                 <div class="final-text">
 
                     Gdybyś mogła zostawić jedną wiadomość
@@ -2162,7 +2068,6 @@ body::after {
                     co chciałabyś jej powiedzieć?
 
                 </div>
-
 
                 <textarea
                     class="final-textarea"
@@ -2177,14 +2082,16 @@ body::after {
 
                 <button
                     class="nav-button"
-                    onclick="goToPage(6)"
+                    type="button"
+                    data-page="6"
                 >
                     PREVIOUS PAGE
                 </button>
 
                 <button
                     class="nav-button"
-                    onclick="finishJournal()"
+                    type="button"
+                    id="finishButton"
                 >
                     FINISH JOURNAL
                 </button>
@@ -2246,32 +2153,27 @@ body::after {
 <script>
 
 /* =========================================================
-   ZMIENNE
+   AKTUALNA STRONA
 ========================================================= */
 
 let currentPage = 0;
 
 
 /* =========================================================
-   ZNAJDOWANIE STRON
+   WSZYSTKIE STRONY
 ========================================================= */
 
-function getPages() {
-
-    return document.querySelectorAll(
+const pages =
+    document.querySelectorAll(
         ".journal-page"
     );
 
-}
-
 
 /* =========================================================
-   PRZEJŚCIE DO STRONY
+   FUNKCJA ZMIANY STRONY
 ========================================================= */
 
 function goToPage(pageNumber) {
-
-    const pages = getPages();
 
     if (
         pageNumber < 0 ||
@@ -2281,7 +2183,7 @@ function goToPage(pageNumber) {
     }
 
 
-    pages.forEach(page => {
+    pages.forEach(function(page) {
 
         page.classList.remove("active");
 
@@ -2291,45 +2193,99 @@ function goToPage(pageNumber) {
     currentPage = pageNumber;
 
 
-    pages[currentPage].classList.add(
-        "active"
-    );
+    pages[currentPage]
+        .classList
+        .add("active");
 
 }
 
 
 /* =========================================================
-   ZAPIS ODPOWIEDZI
+   OPEN
+========================================================= */
+
+const openButton =
+    document.getElementById(
+        "openButton"
+    );
+
+
+openButton.addEventListener(
+    "click",
+    function() {
+
+        goToPage(1);
+
+    }
+);
+
+
+/* =========================================================
+   PREVIOUS / NEXT PAGE
 ========================================================= */
 
 document
-    .querySelectorAll("[data-answer]")
-    .forEach(input => {
+    .querySelectorAll(
+        ".nav-button[data-page]"
+    )
+    .forEach(function(button) {
 
+        button.addEventListener(
+            "click",
+            function() {
+
+                const targetPage =
+                    Number(
+                        button.dataset.page
+                    );
+
+                goToPage(
+                    targetPage
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   ZAPISYWANIE ODPOWIEDZI
+========================================================= */
+
+document
+    .querySelectorAll(
+        "[data-answer]"
+    )
+    .forEach(function(input) {
 
         const key =
             "ania_journal_" +
             input.dataset.answer;
 
 
-        /* Wczytaj poprzednią odpowiedź */
+        /* Wczytanie zapisanej odpowiedzi */
 
         const saved =
-            localStorage.getItem(key);
+            localStorage.getItem(
+                key
+            );
 
 
-        if (saved !== null) {
+        if (
+            saved !== null
+        ) {
 
             input.value = saved;
 
         }
 
 
-        /* Zapisuj automatycznie */
+        /* Automatyczny zapis */
 
         input.addEventListener(
             "input",
-            () => {
+            function() {
 
                 localStorage.setItem(
                     key,
@@ -2343,41 +2299,42 @@ document
 
 
 /* =========================================================
-   KONIEC DZIENNIKA
+   FINISH JOURNAL
 ========================================================= */
 
-function finishJournal() {
+document
+    .getElementById(
+        "finishButton"
+    )
+    .addEventListener(
+        "click",
+        function() {
 
-    const pages = getPages();
+            /*
+             * Na razie po zakończeniu wracamy
+             * na okładkę.
+             *
+             * Później możemy tutaj zrobić
+             * specjalną stronę końcową.
+             */
 
+            goToPage(0);
 
-    pages.forEach(page => {
-
-        page.classList.remove("active");
-
-    });
-
-
-    /*
-       Na razie wracamy na stronę okładki.
-       W kolejnym kroku możemy zrobić tutaj
-       prawdziwe, eleganckie zakończenie.
-    */
-
-    pages[0].classList.add("active");
-
-}
+        }
+    );
 
 
 /* =========================================================
-   KLAWISZE KLAWIATURY
+   KLAWIATURA
 ========================================================= */
 
 document.addEventListener(
     "keydown",
-    event => {
+    function(event) {
 
-        if (event.key === "ArrowRight") {
+        if (
+            event.key === "ArrowRight"
+        ) {
 
             goToPage(
                 currentPage + 1
@@ -2386,7 +2343,9 @@ document.addEventListener(
         }
 
 
-        if (event.key === "ArrowLeft") {
+        if (
+            event.key === "ArrowLeft"
+        ) {
 
             goToPage(
                 currentPage - 1
