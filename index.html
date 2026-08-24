@@ -4,16 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dla Anny :3 — 22</title>
+<title>For Ania — 22</title>
 
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
-
-
-/* =========================================================
-   RESET
-========================================================= */
 
 * {
     box-sizing: border-box;
@@ -790,7 +785,7 @@ body {
 
 
 /* =========================================================
-   ZAPISANO — OSTATNIA STRONA
+   ZAPISANO
 ========================================================= */
 
 .saved {
@@ -1305,6 +1300,15 @@ body {
 </head>
 
 <body>
+
+
+<!-- =========================================================
+     MUZYKA
+========================================================= -->
+
+<audio id="backgroundMusic" loop>
+    <source src="jazz.mp3" type="audio/mpeg">
+</audio>
 
 
 <!-- =========================================================
@@ -2130,6 +2134,16 @@ body {
 <script>
 
 /* =========================================================
+   MUZYKA
+========================================================= */
+
+const backgroundMusic =
+    document.getElementById("backgroundMusic");
+
+backgroundMusic.loop = true;
+
+
+/* =========================================================
    STRONY
 ========================================================= */
 
@@ -2171,6 +2185,59 @@ let messageIsSaved =
 
 
 /* =========================================================
+   PŁYNNE WŁĄCZENIE MUZYKI
+========================================================= */
+
+function startMusic() {
+
+    backgroundMusic.volume = 0;
+
+    const playPromise =
+        backgroundMusic.play();
+
+    if (playPromise !== undefined) {
+
+        playPromise
+            .then(function() {
+
+                let volume = 0;
+
+                const fadeIn =
+                    setInterval(function() {
+
+                        volume += 0.01;
+
+                        if (volume >= 0.35) {
+
+                            volume = 0.35;
+
+                            clearInterval(
+                                fadeIn
+                            );
+
+                        }
+
+                        backgroundMusic.volume =
+                            volume;
+
+                    }, 100);
+
+            })
+            .catch(function(error) {
+
+                console.log(
+                    "Muzyka nie mogła zostać uruchomiona:",
+                    error
+                );
+
+            });
+
+    }
+
+}
+
+
+/* =========================================================
    POKAZYWANIE STRONY
 ========================================================= */
 
@@ -2206,6 +2273,8 @@ openButton.addEventListener(
     function(event) {
 
         event.preventDefault();
+
+        startMusic();
 
         showPage(1);
 
