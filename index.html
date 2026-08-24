@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ania — 22</title>
+<title>Dla Anny - 22</title>
 
 <style>
 
@@ -1099,7 +1099,6 @@ body {
 
 <!-- =========================================================
      MUZYKA
-     jazz.mp3 musi być obok index.html
 ========================================================= -->
 
 <audio
@@ -1109,6 +1108,21 @@ body {
 >
     <source
         src="./jazz.mp3"
+        type="audio/mpeg"
+    >
+</audio>
+
+
+<!-- =========================================================
+     DŹWIĘK PRZEWRACANIA KARTKI
+========================================================= -->
+
+<audio
+    id="pageSound"
+    preload="auto"
+>
+    <source
+        src="./paper.mp3"
         type="audio/mpeg"
     >
 </audio>
@@ -1870,6 +1884,39 @@ function startMusic() {
 
 
 /* =========================================================
+   DŹWIĘK PRZEWRACANIA KARTKI
+========================================================= */
+
+const pageSound =
+    document.getElementById("pageSound");
+
+
+function playPageSound() {
+
+    pageSound.volume = 0.35;
+
+    pageSound.currentTime = 0;
+
+    const result =
+        pageSound.play();
+
+    if (result !== undefined) {
+
+        result.catch(function(error) {
+
+            console.log(
+                "Nie udało się odtworzyć dźwięku kartki:",
+                error
+            );
+
+        });
+
+    }
+
+}
+
+
+/* =========================================================
    STRONY
 ========================================================= */
 
@@ -1879,7 +1926,7 @@ const pages =
 let currentPage = 0;
 
 
-function showPage(number) {
+function showPage(number, playSound = true) {
 
     if (number < 0) {
         number = 0;
@@ -1887,6 +1934,15 @@ function showPage(number) {
 
     if (number >= pages.length) {
         number = pages.length - 1;
+    }
+
+    if (
+        playSound &&
+        number !== currentPage
+    ) {
+
+        playPageSound();
+
     }
 
     pages.forEach(function(page) {
@@ -1915,7 +1971,9 @@ openButton.addEventListener(
 
         startMusic();
 
-        showPage(1);
+        playPageSound();
+
+        showPage(1, false);
 
     }
 );
@@ -2037,7 +2095,7 @@ saveButton.addEventListener(
    START
 ========================================================= */
 
-showPage(0);
+showPage(0, false);
 
 </script>
 
